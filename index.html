@@ -330,7 +330,7 @@
                 <div class="absolute -bottom-6 -right-6 w-full h-full bg-champagne-light/20 rounded-[2.5rem] -z-20 hidden md:block"></div>
 
                 <!-- Floating Glassmorphic Appointment Card -->
-                <div class="absolute -bottom-10 -left-6 md:-left-12 glass-panel p-6 rounded-2xl w-[90%] sm:w-[320px] shadow-luxury border border-white/50 z-20" id="hero-floating-card">
+                <div class="relative mt-6 lg:mt-0 lg:absolute -bottom-10 left-0 right-0 mx-auto md:-left-12 md:right-auto md:mx-0 glass-panel p-5 sm:p-6 rounded-2xl w-full max-w-[340px] sm:w-[320px] shadow-luxury border border-white/50 z-20" id="hero-floating-card">
                     <div class="flex items-center space-x-3 mb-4">
                         <div class="p-2.5 bg-champagne/10 rounded-lg text-champagne">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
@@ -763,13 +763,13 @@
                 bTop.classList.add('rotate-45', 'translate-y-[6px]');
                 bMid.classList.add('opacity-0');
                 bBot.classList.add('-rotate-45', '-translate-y-[6px]');
-                lenis.stop(); // Stop scroll while menu is open
+                if (typeof lenis !== 'undefined' && lenis) lenis.stop();
             } else {
                 menu.classList.add('translate-x-full');
                 bTop.classList.remove('rotate-45', 'translate-y-[6px]');
                 bMid.classList.remove('opacity-0');
                 bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
-                lenis.start();
+                if (typeof lenis !== 'undefined' && lenis) lenis.start();
             }
         });
 
@@ -779,7 +779,7 @@
             bTop.classList.remove('rotate-45', 'translate-y-[6px]');
             bMid.classList.remove('opacity-0');
             bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
-            lenis.start();
+            if (typeof lenis !== 'undefined' && lenis) lenis.start();
         }
 
         // ----------------------------------------------------

@@ -54,7 +54,7 @@
     </div>
 
     <!-- Header -->
-    <header class="w-full py-6 px-6 lg:px-16 border-b border-borderLight bg-white">
+    <header class="w-full py-4 lg:py-6 px-6 lg:px-16 border-b border-borderLight bg-white relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="index.html" class="font-serif text-xl md:text-2xl tracking-[0.2em] text-charcoal flex flex-col">
                 <span class="font-medium">SS CLINIC</span>
@@ -68,18 +68,44 @@
                 <a href="testimonials.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Reviews</a>
                 <a href="index.html#contact" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Contact</a>
             </nav>
-            <a href="index.html#contact" class="bg-charcoal text-white hover:bg-champagne px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">Book Appointment</a>
+            <div class="hidden md:block">
+                <a href="index.html#contact" class="bg-charcoal text-white hover:bg-champagne px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">Book Appointment</a>
+            </div>
+
+            <!-- Mobile Navigation Trigger (Hamburger) -->
+            <button id="mobile-menu-trigger" class="md:hidden flex flex-col justify-between h-5 w-6 focus:outline-none z-50" aria-label="Toggle Menu">
+                <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-top"></span>
+                <span class="w-full h-[2px] bg-charcoal transition-all duration-300" id="burger-mid"></span>
+                <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-bot"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="fixed inset-0 bg-ivory z-40 flex flex-col justify-center px-8 py-16 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+            <nav class="flex flex-col space-y-6 text-center">
+                <a href="index.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
+                <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
+                <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-champagne transition-colors font-bold">Treatments</a>
+                <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
+                <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
+                <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
+                <div class="pt-4">
+                    <a href="index.html#contact" onclick="closeMobileMenu()" class="block border border-champagne text-charcoal py-3 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full text-center">
+                        Book Appointment
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
 
     <!-- Main Section -->
-    <main class="flex-grow flex items-center justify-center py-20 px-6">
-        <div class="max-w-3xl w-full bg-white rounded-3xl p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-8 relative overflow-hidden">
+    <main class="flex-grow flex items-center justify-center py-12 md:py-20 px-4 sm:px-6 max-w-full overflow-x-hidden">
+        <div class="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-6 sm:space-y-8 relative overflow-hidden">
             <div class="absolute -top-12 -left-12 w-28 h-28 border-l border-t border-champagne/40 rounded-tl-full"></div>
             <div class="absolute -bottom-12 -right-12 w-28 h-28 border-r border-b border-champagne/40 rounded-br-full"></div>
 
             <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">BESPOKE CLINICAL SUITES</span>
-            <h1 class="font-serif text-4xl md:text-5xl font-light text-charcoal leading-tight">
+            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-tight">
                 Advanced Skin & Hair Treatments
             </h1>
             <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
@@ -107,10 +133,10 @@
             </div>
 
             <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
+                <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
                     Return to Home Page
                 </a>
-                <a href="index.html#contact" class="border border-champagne text-charcoal hover:bg-champagne hover:text-white px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
+                <a href="index.html#contact" class="border border-champagne text-charcoal hover:bg-champagne hover:text-white px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
                     Book Treatment
                 </a>
             </div>
@@ -124,6 +150,35 @@
 
     <script>
         lucide.createIcons();
+
+        const trigger = document.getElementById('mobile-menu-trigger');
+        const menu = document.getElementById('mobile-menu');
+        const bTop = document.getElementById('burger-top');
+        const bMid = document.getElementById('burger-mid');
+        const bBot = document.getElementById('burger-bot');
+        let isMenuOpen = false;
+
+        if (trigger && menu) {
+            trigger.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    menu.classList.remove('translate-x-full');
+                    bTop.classList.add('rotate-45', 'translate-y-[6px]');
+                    bMid.classList.add('opacity-0');
+                    bBot.classList.add('-rotate-45', '-translate-y-[6px]');
+                } else {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        function closeMobileMenu() {
+            isMenuOpen = false;
+            if (menu) menu.classList.add('translate-x-full');
+            if (bTop) bTop.classList.remove('rotate-45', 'translate-y-[6px]');
+            if (bMid) bMid.classList.remove('opacity-0');
+            if (bBot) bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
+        }
     </script>
 </body>
 </html>
