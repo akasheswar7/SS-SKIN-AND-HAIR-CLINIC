@@ -71,6 +71,38 @@
         }
     </script>
 
+    <!-- Instant Mobile Navigation Handler -->
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            if (!menu) return;
+            var isHidden = window.getComputedStyle(menu).display === 'none';
+            if (isHidden) {
+                openMobileMenu();
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function openMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.remove('hidden');
+                menu.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.style.display = 'none';
+                menu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+
     <!-- Custom CSS Styles -->
     <style type="text/css">
         html, body {
@@ -206,31 +238,39 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation Trigger (Hamburger) -->
-            <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-between h-6 w-7 p-1 focus:outline-none z-[100000] relative cursor-pointer" aria-label="Toggle Menu">
-                <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-top"></span>
-                <span class="w-full h-[2px] bg-charcoal transition-all duration-300" id="burger-mid"></span>
-                <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-bot"></span>
+            <!-- Mobile Navigation Trigger (3 Dots Kebab Menu) -->
+            <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 p-2 rounded-full border border-champagne/40 bg-champagne/10 hover:bg-champagne hover:text-white text-charcoal transition-all duration-300 focus:outline-none z-[1000000] relative cursor-pointer shadow-sm active:scale-95" aria-label="Toggle Menu">
+                <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 24 24">
+                    <circle cx="12" cy="5" r="2.2" />
+                    <circle cx="12" cy="12" r="2.2" />
+                    <circle cx="12" cy="19" r="2.2" />
+                </svg>
             </button>
         </div>
-
-        <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[99999] hidden flex-col justify-center px-8 py-16 md:hidden">
-            <nav class="flex flex-col space-y-8 text-center">
-                <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
-                <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
-                <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Treatments</a>
-                <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
-                <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
-                <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
-                <div class="pt-6">
-                    <button onclick="closeMobileMenu(); openBookingModal();" class="border border-champagne text-charcoal px-8 py-3.5 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full">
-                        Book Appointment
-                    </button>
-                </div>
-            </nav>
-        </div>
     </header>
+
+    <!-- Mobile Navigation Menu Dropdown (Top level for proper fixed overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[999999] hidden flex-col justify-center items-center px-8 py-16 md:hidden min-h-screen h-screen w-screen overflow-y-auto">
+        <!-- Dedicated Mobile Close Button -->
+        <button onclick="closeMobileMenu()" class="absolute top-6 right-6 p-3 text-charcoal hover:text-champagne transition-colors focus:outline-none" aria-label="Close Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <nav class="flex flex-col space-y-8 text-center w-full max-w-sm">
+            <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
+            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
+            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Treatments</a>
+            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
+            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
+            <div class="pt-6">
+                <button onclick="closeMobileMenu(); openBookingModal();" class="border border-champagne text-charcoal px-8 py-3.5 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full font-semibold">
+                    Book Appointment
+                </button>
+            </div>
+        </nav>
+    </div>
 
     <!-- Hero Section (Full-Screen Luxury) -->
     <section id="home" class="min-h-screen relative flex items-center pt-12 pb-20 px-6 lg:px-16 overflow-hidden">
@@ -939,6 +979,9 @@
                     status.classList.add('hidden');
                 }});
             }, 3500);
+        }
+    </script>
+
     <!-- Floating Luxury Contact & WhatsApp Dock Bar -->
     <div class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-[9999] flex items-center justify-between sm:justify-end sm:flex-col sm:space-y-3 gap-2 bg-charcoal/90 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-2 sm:p-0 rounded-full border border-champagne/30 sm:border-0 shadow-2xl">
         <!-- Direct WhatsApp Chat Button -->
@@ -964,7 +1007,9 @@
     </div>
 
     <script>
-        lucide.createIcons();
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
