@@ -73,6 +73,12 @@
 
     <!-- Custom CSS Styles -->
     <style type="text/css">
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+        }
+
         /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
@@ -231,7 +237,7 @@
         </div>
 
         <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="fixed inset-0 bg-ivory z-40 flex flex-col justify-center px-8 py-16 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[99999] hidden flex-col justify-center px-8 py-16 md:hidden">
             <nav class="flex flex-col space-y-8 text-center">
                 <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
                 <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
@@ -757,26 +763,26 @@
         trigger.addEventListener('click', () => {
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
-                menu.classList.remove('translate-x-full');
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
                 bTop.classList.add('rotate-45', 'translate-y-[6px]');
                 bMid.classList.add('opacity-0');
                 bBot.classList.add('-rotate-45', '-translate-y-[6px]');
                 if (typeof lenis !== 'undefined' && lenis) lenis.stop();
             } else {
-                menu.classList.add('translate-x-full');
-                bTop.classList.remove('rotate-45', 'translate-y-[6px]');
-                bMid.classList.remove('opacity-0');
-                bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
-                if (typeof lenis !== 'undefined' && lenis) lenis.start();
+                closeMobileMenu();
             }
         });
 
         function closeMobileMenu() {
             isMenuOpen = false;
-            menu.classList.add('translate-x-full');
-            bTop.classList.remove('rotate-45', 'translate-y-[6px]');
-            bMid.classList.remove('opacity-0');
-            bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
+            if (menu) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+            if (bTop) bTop.classList.remove('rotate-45', 'translate-y-[6px]');
+            if (bMid) bMid.classList.remove('opacity-0');
+            if (bBot) bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
             if (typeof lenis !== 'undefined' && lenis) lenis.start();
         }
 
