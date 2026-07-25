@@ -187,13 +187,15 @@
         </div>
     </div>
     <script>
-        // Absolute fallback to hide preloader in 3 seconds if load event errors or is slow
-        setTimeout(function() {
+        // Fast preloader dismissal to ensure instant mobile rendering
+        document.addEventListener('DOMContentLoaded', function() {
             var loader = document.getElementById('preloader');
-            if (loader && !loader.classList.contains('opacity-0')) {
-                loader.classList.add('opacity-0', 'pointer-events-none');
+            if (loader) {
+                setTimeout(function() {
+                    loader.classList.add('opacity-0', 'pointer-events-none');
+                }, 200);
             }
-        }, 3000);
+        });
     </script>
 
     <!-- Top Announcement Bar -->
@@ -323,8 +325,10 @@
                 <!-- Large frame for image -->
                 <div class="relative w-full aspect-[4/4] sm:aspect-[4/5] md:w-[450px] lg:w-full overflow-hidden rounded-3xl sm:rounded-[2.5rem] shadow-luxury border-2 sm:border-4 border-white z-10 group">
                     <img src="./assets/medi_facial_treatment.jpg" 
-                          alt="High-tech clinical facial treatment at SS Clinic" 
-                          class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                         alt="High-tech clinical facial treatment at SS Clinic" 
+                         loading="eager"
+                         fetchpriority="high"
+                         class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent"></div>
                 </div>
 
@@ -664,49 +668,42 @@
                 } catch(e) {
                     console.warn("GSAP load animations failed:", e);
                 }
-            }, 1200);
+            }, 200);
         });
 
         // ----------------------------------------------------
-        // CUSTOM CURSOR TRAILING EFFECT
+        // CUSTOM CURSOR TRAILING EFFECT (DESKTOP ONLY)
         // ----------------------------------------------------
-        const dot = document.getElementById('custom-cursor-dot');
-        const ring = document.getElementById('custom-cursor-ring');
+        if (window.innerWidth >= 1024) {
+            const dot = document.getElementById('custom-cursor-dot');
+            const ring = document.getElementById('custom-cursor-ring');
 
-        if (dot && ring) {
-            document.addEventListener('mousemove', (e) => {
-                dot.style.left = `${e.clientX}px`;
-                dot.style.top = `${e.clientY}px`;
-                
-                ring.style.left = `${e.clientX}px`;
-                ring.style.top = `${e.clientY}px`;
-            });
+            if (dot && ring) {
+                document.addEventListener('mousemove', (e) => {
+                    dot.style.left = `${e.clientX}px`;
+                    dot.style.top = `${e.clientY}px`;
+                    
+                    ring.style.left = `${e.clientX}px`;
+                    ring.style.top = `${e.clientY}px`;
+                });
+            }
         }
 
-        // Register hover-interactive elements
-        const registerCursorHoverStates = () => {
-            const interactives = document.querySelectorAll('a, button, input, select, textarea, .cursor-pointer, [onclick]');
-            interactives.forEach(el => {
-                el.classList.add('hover-interactive');
-            });
-        };
-        setTimeout(registerCursorHoverStates, 1500); // Wait for preload to register DOM states
-
         // ----------------------------------------------------
-        // LENIS SMOOTH SCROLL
+        // LENIS SMOOTH SCROLL (DESKTOP ONLY FOR MAX MOBILE SPEED)
         // ----------------------------------------------------
         let lenis;
         try {
-            if (window.Lenis) {
+            if (window.Lenis && window.innerWidth >= 1024) {
                 lenis = new Lenis({
-                    duration: 1.2,
+                    duration: 1.0,
                     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                     direction: 'vertical',
                     gestureDirection: 'vertical',
                     smooth: true,
                     mouseMultiplier: 1,
                     smoothTouch: false,
-                    touchMultiplier: 2,
+                    touchMultiplier: 1,
                     infinite: false,
                 });
 
