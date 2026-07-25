@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Skin & Hair Clinic | Ultra-Premium Dermatology & Hair Restoration</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Welcome to SS Skin & Hair Clinic. Experience world-class, luxury dermatology, advanced hair restoration, laser treatments, and aesthetic care under certified specialists.">
+    <meta name="keywords" content="luxury dermatology, skin clinic, hair restoration, laser hair reduction, anti-ageing, hydrafacial, PRP therapy, hair transplant, aesthetic clinic, premium skin care">
+    <meta name="author" content="SS Skin & Hair Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SS Skin & Hair Clinic | Luxury Dermatology & Aesthetic Care">
+    <meta property="og:description" content="Discover world-class dermatology and advanced hair restoration in an ultra-premium, luxury environment. Reveal your healthiest skin today.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="SS Skin & Hair Clinic | Luxury Dermatology & Aesthetic Care">
+    <meta property="twitter:description" content="Discover world-class dermatology and advanced hair restoration in an ultra-premium, luxury environment. Reveal your healthiest skin today.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        champagne: {
+                            light: '#E2D4B7',
+                            DEFAULT: '#C6A56D',
+                            dark: '#B08E56',
+                        },
+                        ivory: {
+                            light: '#FAF8F5',
+                            DEFAULT: '#FAF6F0',
+                            dark: '#EDE5DC',
+                        },
+                        charcoal: {
+                            light: '#635154',
+                            DEFAULT: '#2E0F15',
+                            dark: '#1F0A0E',
+                        },
+                        borderLight: '#ECE5DA',
+                        bgLight: '#F5ECE1',
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        luxury: '0 10px 40px -10px rgba(0, 0, 0, 0.04)',
+                        luxuryHover: '0 20px 50px -15px rgba(198, 165, 109, 0.12)',
+                        glass: '0 8px 32px 0 rgba(31, 38, 135, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styles -->
+    <style type="text/css">
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C6A56D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B08E56;
+        }
+
+        /* Custom Cursor styling (desktop only) */
+        @media (min-width: 1024px) {
+            #custom-cursor-dot {
+                width: 6px;
+                height: 6px;
+                background-color: #C6A56D;
+                position: fixed;
+                border-radius: 50%;
+                z-index: 9999;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s, height 0.2s;
+            }
+            #custom-cursor-ring {
+                width: 36px;
+                height: 36px;
+                border: 1px solid rgba(198, 165, 109, 0.4);
+                position: fixed;
+                border-radius: 50%;
+                z-index: 9998;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                transition: transform 0.1s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+            }
+            /* Hover state */
+            .hover-interactive:hover ~ #custom-cursor-ring {
+                width: 52px;
+                height: 52px;
+                border-color: rgba(198, 165, 109, 0.8);
+                background-color: rgba(198, 165, 109, 0.03);
+            }
+            .hover-interactive:hover ~ #custom-cursor-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        /* Lenis smooth scrolling configuration */
+        html.lenis {
+            height: auto;
+        }
+        .lenis-smooth {
+            scroll-behavior: initial;
+        }
+        .lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis-stopped {
+            overflow: hidden;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-panel-dark {
+            background: rgba(26, 24, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Grid transition properties */
+        .gallery-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased overflow-x-hidden">
+
+    <!-- Custom Cursor Elements -->
+    <div id="custom-cursor-dot" class="hidden lg:block"></div>
+    <div id="custom-cursor-ring" class="hidden lg:block"></div>
+
+    <!-- Page Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-ivory z-[99999] flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
+        <div class="text-center">
+            <h1 class="font-serif text-3xl md:text-5xl tracking-[0.15em] text-charcoal mb-4 opacity-0 transition-all duration-1000 transform translate-y-4" id="loader-logo">
+                SS CLINIC
+            </h1>
+            <p class="font-sans text-xs uppercase tracking-[0.3em] text-champagne mb-8 opacity-0 transition-all duration-1000 delay-300" id="loader-sub">
+                Skin & Hair Luxury Care
+            </p>
+            <div class="w-48 h-[1px] bg-borderLight mx-auto relative overflow-hidden">
+                <div id="loader-bar" class="absolute h-full w-0 bg-champagne transition-all duration-1000 ease-out left-0"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Absolute fallback to hide preloader in 3 seconds if load event errors or is slow
+        setTimeout(function() {
+            var loader = document.getElementById('preloader');
+            if (loader && !loader.classList.contains('opacity-0')) {
+                loader.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }, 3000);
+    </script>
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-charcoal text-white text-[10px] sm:text-xs font-sans tracking-widest py-2 px-4 text-center border-b border-champagne/30 z-50 relative leading-tight">
+        <span class="text-champagne font-bold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
+    </div>
+
+    <!-- Sticky & Premium Header -->
+    <header id="main-header" class="sticky top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out py-4 lg:py-6 px-6 lg:px-16 border-b border-borderLight shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="font-serif text-xl md:text-2xl tracking-[0.2em] text-charcoal hover-interactive flex flex-col">
+                <span class="font-medium">SS CLINIC</span>
+                <span class="text-[8px] uppercase tracking-[0.35em] text-champagne -mt-1 font-sans">Skin & Hair</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="index.html#home" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Home</a>
+                <a href="about.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">About</a>
+                <a href="treatments.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Treatments</a>
+                <a href="gallery.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Gallery</a>
+                <a href="testimonials.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Reviews</a>
+                <a href="index.html#contact" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Contact</a>
+            </nav>
+
+            <!-- Book Consultation CTA Button -->
+            <div class="hidden md:block">
+                <button onclick="openBookingModal()" class="border border-champagne text-charcoal px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] hover:bg-champagne hover:text-white transition-all duration-300 hover-interactive relative overflow-hidden bg-transparent group">
+                    <span class="relative z-10 font-semibold">Book Appointment</span>
+                    <div class="absolute inset-0 bg-champagne transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10"></div>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Trigger (Hamburger) -->
+            <button id="mobile-menu-trigger" class="md:hidden flex flex-col justify-between h-5 w-6 focus:outline-none z-50 hover-interactive" aria-label="Toggle Menu">
+                <span class="w-full h-[1px] bg-charcoal transition-all duration-300 origin-left" id="burger-top"></span>
+                <span class="w-full h-[1px] bg-charcoal transition-all duration-300" id="burger-mid"></span>
+                <span class="w-full h-[1px] bg-charcoal transition-all duration-300 origin-left" id="burger-bot"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="fixed inset-0 bg-ivory z-40 flex flex-col justify-center px-8 py-16 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+            <nav class="flex flex-col space-y-8 text-center">
+                <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
+                <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
+                <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Treatments</a>
+                <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
+                <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
+                <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
+                <div class="pt-6">
+                    <button onclick="closeMobileMenu(); openBookingModal();" class="border border-champagne text-charcoal px-8 py-3.5 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full">
+                        Book Appointment
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Full-Screen Luxury) -->
+    <section id="home" class="min-h-screen relative flex items-center pt-12 pb-20 px-6 lg:px-16 overflow-hidden">
+        <!-- Cinematic Background Pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-champagne-light/5 via-ivory to-ivory -z-25"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Side: Editorial Typography -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6 lg:space-y-8" id="hero-text-container">
+                <div class="space-y-4">
+                    <div class="flex sm:inline-flex items-start sm:items-center space-x-2.5 p-3 sm:px-5 sm:py-2.5 rounded-2xl sm:rounded-full bg-champagne/20 border border-champagne text-charcoal font-sans text-[11px] sm:text-xs uppercase tracking-wider mb-2 shadow-luxury max-w-full">
+                        <span class="text-base shrink-0">🏆</span>
+                        <span class="font-bold text-charcoal tracking-wide text-[11px] sm:text-xs leading-snug">VIZAG'S NO.1 CLINIC — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS</span>
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] tracking-tight text-charcoal font-light">
+                        Reveal Your <br class="hidden sm:inline">
+                        <span class="italic font-normal font-serif text-champagne-dark">Healthiest</span> Skin. <br>
+                        Restore Your <br class="hidden sm:inline">
+                        Natural Confidence.
+                    </h2>
+                </div>
+
+                <div class="max-w-xl">
+                    <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed tracking-wide font-medium">
+                        Vizag's #1 Destination for Advanced Skincare, Hair Restoration, Laser Treatments & Cosmetic Dermatology. Discover 100% FDA-Approved treatments customized for your skin in a state-of-the-art sanctuary.
+                    </p>
+                </div>
+
+                <!-- Promo Special Badge -->
+                <div class="p-4 bg-white/90 rounded-2xl border border-champagne/40 shadow-luxury max-w-xl flex items-center space-x-3">
+                    <div class="p-2.5 bg-champagne/20 rounded-xl text-champagne shrink-0">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-sm font-bold text-charcoal">Exclusive Vizag Patient Offer</h4>
+                        <p class="text-xs text-charcoal-light font-medium mt-0.5">Book online today & get <strong class="text-charcoal font-bold">20% OFF</strong> your initial skin diagnostic consultation.</p>
+                    </div>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                    <button onclick="openBookingModal()" class="bg-charcoal text-white hover:bg-champagne px-8 py-4 font-sans text-xs uppercase tracking-[0.25em] transition-all duration-300 shadow-luxury hover-interactive text-center font-bold">
+                        Book Appointment Now
+                    </button>
+                    <a href="https://wa.me/917893616535?text=Hello%20SS%20Clinic,%20I%20want%20to%20claim%20the%2020%25%20Consultation%20Offer" target="_blank" class="border border-emerald-600 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 text-center hover-interactive font-bold flex items-center justify-center space-x-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        <span>WhatsApp Quick Booking</span>
+                    </a>
+                </div>
+
+                <!-- Quick highlights -->
+                <div class="grid grid-cols-3 gap-6 pt-10 border-t border-borderLight max-w-lg">
+                    <div>
+                        <h4 class="font-serif text-2xl text-charcoal font-medium">15+</h4>
+                        <p class="font-sans text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Years Experience</p>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-2xl text-charcoal font-medium">99.8%</h4>
+                        <p class="font-sans text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Patient Trust</p>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-2xl text-charcoal font-medium">FDA</h4>
+                        <p class="font-sans text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Approved Tech</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Cinematic Image + Floating Booking Card -->
+            <div class="lg:col-span-5 relative w-full flex justify-center items-center mt-8 lg:mt-0" id="hero-visual-container">
+                <!-- Large frame for image -->
+                <div class="relative w-full aspect-[4/5] md:w-[450px] lg:w-full overflow-hidden rounded-[2.5rem] shadow-luxury border-4 border-white z-10 group">
+                    <img src="./assets/medi_facial_treatment.jpg" 
+                         alt="High-tech clinical facial treatment at SS Clinic" 
+                         class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Golden architectural highlight panel -->
+                <div class="absolute -top-6 -left-6 w-32 h-32 border-l border-t border-champagne/40 rounded-tl-[3.5rem] -z-10 hidden md:block"></div>
+                <!-- Ivory architectural background shadow card -->
+                <div class="absolute -bottom-6 -right-6 w-full h-full bg-champagne-light/20 rounded-[2.5rem] -z-20 hidden md:block"></div>
+
+                <!-- Floating Glassmorphic Appointment Card -->
+                <div class="absolute -bottom-10 -left-6 md:-left-12 glass-panel p-6 rounded-2xl w-[90%] sm:w-[320px] shadow-luxury border border-white/50 z-20" id="hero-floating-card">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2.5 bg-champagne/10 rounded-lg text-champagne">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-lg font-medium text-charcoal">Quick Consultation</h4>
+                            <p class="text-[10px] text-charcoal-light uppercase tracking-wider font-medium">Direct Doctor Appointment</p>
+                        </div>
+                    </div>
+                    <form id="hero-quick-form" class="space-y-3" onsubmit="handleQuickFormSubmit(event)">
+                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-2.5 rounded-lg border border-borderLight focus:border-champagne bg-white/70 focus:bg-white text-xs placeholder-charcoal-light/50 focus:outline-none transition-all">
+                        <input type="tel" placeholder="Phone Number" required class="w-full px-4 py-2.5 rounded-lg border border-borderLight focus:border-champagne bg-white/70 focus:bg-white text-xs placeholder-charcoal-light/50 focus:outline-none transition-all">
+                        <select required class="w-full px-4 py-2.5 rounded-lg border border-borderLight focus:border-champagne bg-white/70 focus:bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                            <option value="" disabled selected>Select Concern</option>
+                            <option value="skin">Skin Treatment</option>
+                            <option value="hair">Hair Restoration</option>
+                            <option value="laser">Laser Treatment</option>
+                            <option value="anti-ageing">Anti-Ageing Care</option>
+                        </select>
+                        <button type="submit" class="w-full bg-champagne text-white hover:bg-champagne-dark py-2.5 rounded-lg font-sans text-xs uppercase tracking-widest transition-all duration-300 font-semibold shadow-luxury hover-interactive">
+                            Request Callback
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-24 lg:py-32 px-6 lg:px-16 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Left Side: Clinic Information & Map -->
+                <div class="lg:col-span-5 space-y-10" id="contact-info-container">
+                    <div class="space-y-4">
+                        <span class="font-sans text-xs lg:text-sm uppercase tracking-[0.4em] text-champagne block font-medium">REACH OUT</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-charcoal font-light">Begin Your Transformation</h2>
+                        <p class="font-sans text-xs text-charcoal-light leading-relaxed max-w-md">
+                            Schedule a private diagnostic consultation with our clinical directors. Fill out the appointment request form, or connect with our guest relations team directly.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Contact Detail 1 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-serif text-lg font-semibold text-charcoal">Clinic Sanctuary Location</h5>
+                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">62-1-15/4B, Above Anand Flour Mill, Sriharipuram Main Road, Beside Tirumala Rao Hospital, Jawaharlnagar Road, Sriharipuram, Visakhapatnam - 530011, Andhra Pradesh</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Detail 2 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-serif text-lg font-semibold text-charcoal">Guest Care Services</h5>
+                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">
+                                    <span class="block">Phone: +91 78936 16535</span>
+                                    <span class="block">WhatsApp Support: +91 78936 16535</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Detail 3 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-serif text-lg font-semibold text-charcoal">Clinic Visiting Hours</h5>
+                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">
+                                    <span class="block">Monday - Saturday: 10:00 AM - 8:00 PM</span>
+                                    <span class="block">Sunday: Closed (By Prior Appointment Only)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Styled Grayscale Map Container -->
+                    <div class="w-full h-[250px] rounded-2xl overflow-hidden shadow-luxury border border-borderLight relative group">
+                        <!-- We use grayscale filter with sepia tones to make the map look extremely luxury-editorial -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.7562859!2d83.242!3d17.695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39430000000001%3A0x0!2sSriharipuram%2C+Visakhapatnam%2C+Andhra+Pradesh+530011!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                class="w-full h-full border-0 grayscale contrast-125 sepia-[20%] group-hover:grayscale-0 transition-all duration-700" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <!-- Right Side: Luxury Contact / Booking Form -->
+                <div class="lg:col-span-7 bg-ivory rounded-3xl p-8 md:p-12 border border-borderLight shadow-luxury" id="contact-form-container">
+                    <h3 class="font-serif text-2xl md:text-3xl text-charcoal font-medium mb-2">Request Bespoke Consultation</h3>
+                    <p class="text-xs text-charcoal-light mb-8 font-medium">Please detail your aesthetic goals below, and a clinical representative will coordinate your reservation.</p>
+                    
+                    <form id="contact-booking-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Full Name</label>
+                                <input type="text" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter your name">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Mobile Number</label>
+                                <input type="tel" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter mobile number">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Email Address</label>
+                                <input type="email" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter email address">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Consultation Service</label>
+                                <select required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                                    <option value="" disabled selected>Select service suite</option>
+                                    <option value="Skin Treatments">Skin Treatments</option>
+                                    <option value="Hair Restoration">Hair Restoration</option>
+                                    <option value="Laser Hair Reduction">Laser Hair Reduction</option>
+                                    <option value="Acne Solutions">Acne Solutions</option>
+                                    <option value="Anti-Ageing Care">Anti-Ageing Care</option>
+                                    <option value="HydraFacial Luxury">HydraFacial Luxury</option>
+                                    <option value="PRP Therapy">PRP Therapy</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Preferred Date</label>
+                                <input type="date" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Preferred Specialist</label>
+                                <select required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                                    <option value="" disabled selected>Select doctor</option>
+                                    <option value="Dr. Shreya Sharma">Dr. Shreya Sharma (Dermatologist)</option>
+                                    <option value="Dr. Siddharth Sen">Dr. Siddharth Sen (Hair Specialist)</option>
+                                    <option value="Any Available Expert">No Preference (First Available Specialist)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Aesthetic Goals / Notes</label>
+                            <textarea rows="4" class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Briefly describe your skin/hair goals..."></textarea>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-charcoal text-white hover:bg-champagne-dark py-4 rounded-xl font-sans text-xs uppercase tracking-[0.25em] transition-all duration-300 font-semibold shadow-luxury hover-interactive">
+                                Submit Secure Reservation
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message Alert -->
+                    <div id="booking-success-message" class="hidden mt-6 p-6 bg-champagne/10 border border-champagne/30 rounded-xl text-center">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-champagne mx-auto mb-2"></i>
+                        <h4 class="font-serif text-lg font-semibold text-charcoal">Reservation Request Received</h4>
+                        <p class="text-xs text-charcoal-light mt-1">Our guest relations executive will coordinate with you via phone/WhatsApp within 2 hours to confirm your suite availability.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Full-Screen Interactive Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-charcoal/40 backdrop-blur-md z-[999] hidden flex items-center justify-center p-4">
+        <div class="bg-ivory rounded-3xl p-8 max-w-lg w-full border border-white/50 shadow-2xl relative transform scale-95 opacity-0 transition-all duration-500" id="booking-modal-content">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-charcoal hover:text-champagne transition-colors p-1" aria-label="Close Modal">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <h3 class="font-serif text-3xl text-charcoal font-medium mb-2">Schedule Consultation</h3>
+            <p class="text-xs text-charcoal-light mb-6 font-semibold">Enter your credentials, and our luxury clinic coordinators will verify your appointment slot.</p>
+
+            <form id="modal-booking-form" onsubmit="handleModalFormSubmit(event)" class="space-y-4">
+                <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs focus:outline-none transition-all">
+                <input type="tel" placeholder="Mobile Number" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs focus:outline-none transition-all">
+                <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs focus:outline-none transition-all">
+                <select required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                    <option value="" disabled selected>Select treatment suite</option>
+                    <option value="Skin Treatments">Skin Treatments</option>
+                    <option value="Hair Restoration">Hair Restoration</option>
+                    <option value="Laser Hair Reduction">Laser Hair Reduction</option>
+                    <option value="Acne Solutions">Acne & Scar Therapy</option>
+                    <option value="Anti-Ageing Care">Anti-Ageing Care</option>
+                    <option value="HydraFacial Luxury">HydraFacial Luxury</option>
+                    <option value="PRP Therapy">PRP Therapy</option>
+                </select>
+                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
+                <button type="submit" class="w-full bg-charcoal text-white hover:bg-champagne py-3.5 rounded-xl font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 font-semibold shadow-luxury">
+                    Confirm Consultation Slot
+                </button>
+            </form>
+
+            <div id="modal-success-message" class="hidden mt-4 p-4 bg-champagne/10 border border-champagne/30 rounded-xl text-center">
+                <i data-lucide="check-circle" class="w-6 h-6 text-champagne mx-auto mb-1"></i>
+                <h5 class="font-serif text-base font-semibold text-charcoal font-semibold">Slot Request Logged</h5>
+                <p class="text-[11px] text-charcoal-light mt-0.5">We will contact you shortly to coordinate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Luxury Footer -->
+    <footer class="bg-charcoal text-white pt-20 pb-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <!-- Col 1: Brand -->
+                <div class="lg:col-span-4 space-y-6">
+                    <h4 class="font-serif text-2xl tracking-[0.2em] text-white">SS CLINIC</h4>
+                    <p class="text-xs text-white/50 leading-relaxed max-w-sm">
+                        An award-winning sanctuary specializing in advanced dermatology and hair transplantation. We integrate medical excellence with the hospitality of international luxury brands.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="p-2 border border-white/10 rounded-full hover:border-champagne hover:text-champagne transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="p-2 border border-white/10 rounded-full hover:border-champagne hover:text-champagne transition-all"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="p-2 border border-white/10 rounded-full hover:border-champagne hover:text-champagne transition-all"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+                        <a href="https://whatsapp.com" target="_blank" class="p-2 border border-white/10 rounded-full hover:border-champagne hover:text-champagne transition-all"><i data-lucide="message-square" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h5 class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold font-semibold">Treatment Suites</h5>
+                    <ul class="space-y-2 text-xs text-white/50">
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Medical Dermatology</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Hair Transplant FUE</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Laser Hair Reduction</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Anti-Ageing & Aesthetics</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">HydraFacial Luxury</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">PRP Therapy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Navigation -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h5 class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold font-semibold">Explore</h5>
+                    <ul class="space-y-2 text-xs text-white/50">
+                        <li><a href="#home" class="hover:text-champagne transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-champagne transition-colors">About Story</a></li>
+                        <li><a href="#gallery" class="hover:text-champagne transition-colors">Inside Clinic</a></li>
+                        <li><a href="#testimonials" class="hover:text-champagne transition-colors">Patient Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-champagne transition-colors">Book Visit</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h5 class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold font-semibold">Luxury Wellness Dispatch</h5>
+                    <p class="text-xs text-white/50 leading-relaxed">Subscribe to receive exclusive insights on skincare science and early clinical offerings.</p>
+                    <form onsubmit="handleNewsletterSubmit(event)" class="flex space-x-2">
+                        <input type="email" placeholder="Your email address" required class="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-champagne w-full">
+                        <button type="submit" class="bg-champagne hover:bg-champagne-dark px-4 py-2.5 rounded-lg text-white transition-colors" aria-label="Subscribe">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <p id="newsletter-status" class="hidden text-[10px] text-champagne mt-2"></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/30 space-y-4 md:space-y-0">
+                <p>&copy; 2026 SS Skin & Hair Clinic. All Rights Reserved. Designed for Visual Excellence.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-champagne transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-champagne transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-champagne transition-colors">Medical Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <!-- Swiper Slider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Lucide Icons JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Main Logic Script -->
+    <script>
+        // Init Lucide Icons
+        try {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        } catch (e) {
+            console.error("Lucide failed to initialize:", e);
+        }
+
+        // ----------------------------------------------------
+        // PRELOADER LOGIC
+        // ----------------------------------------------------
+        window.addEventListener('load', () => {
+            const bar = document.getElementById('loader-bar');
+            const logo = document.getElementById('loader-logo');
+            const sub = document.getElementById('loader-sub');
+            const preloader = document.getElementById('preloader');
+
+            if (bar) bar.style.width = '100%';
+            if (logo) logo.classList.remove('opacity-0', 'translate-y-4');
+            if (sub) sub.classList.remove('opacity-0');
+
+            setTimeout(() => {
+                if (preloader) preloader.classList.add('opacity-0', 'pointer-events-none');
+                
+                // Trigger GSAP Initial Hero Animations
+                try {
+                    animateHeroOnLoad();
+                } catch(e) {
+                    console.warn("GSAP load animations failed:", e);
+                }
+            }, 1200);
+        });
+
+        // ----------------------------------------------------
+        // CUSTOM CURSOR TRAILING EFFECT
+        // ----------------------------------------------------
+        const dot = document.getElementById('custom-cursor-dot');
+        const ring = document.getElementById('custom-cursor-ring');
+
+        if (dot && ring) {
+            document.addEventListener('mousemove', (e) => {
+                dot.style.left = `${e.clientX}px`;
+                dot.style.top = `${e.clientY}px`;
+                
+                ring.style.left = `${e.clientX}px`;
+                ring.style.top = `${e.clientY}px`;
+            });
+        }
+
+        // Register hover-interactive elements
+        const registerCursorHoverStates = () => {
+            const interactives = document.querySelectorAll('a, button, input, select, textarea, .cursor-pointer, [onclick]');
+            interactives.forEach(el => {
+                el.classList.add('hover-interactive');
+            });
+        };
+        setTimeout(registerCursorHoverStates, 1500); // Wait for preload to register DOM states
+
+        // ----------------------------------------------------
+        // LENIS SMOOTH SCROLL
+        // ----------------------------------------------------
+        let lenis;
+        try {
+            if (window.Lenis) {
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    mouseMultiplier: 1,
+                    smoothTouch: false,
+                    touchMultiplier: 2,
+                    infinite: false,
+                });
+
+                function raf(time) {
+                    if (lenis) lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+
+                // Bind Lenis scroll status to GSAP ScrollTrigger
+                if (window.ScrollTrigger) {
+                    lenis.on('scroll', ScrollTrigger.update);
+                }
+            }
+        } catch (e) {
+            console.error("Lenis failed to initialize:", e);
+        }
+
+        try {
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.ticker.add((time)=>{
+                    if (lenis) lenis.raf(time * 1000);
+                });
+                gsap.ticker.lagSmoothing(0);
+            }
+        } catch (e) {
+            console.warn("GSAP ticker attachment failed:", e);
+        }
+
+        // ----------------------------------------------------
+        // STICKY HEADER TRANSITIONS
+        // ----------------------------------------------------
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('py-6', 'border-transparent');
+                header.classList.add('py-4', 'bg-white/90', 'backdrop-blur-md', 'shadow-luxury', 'border-borderLight');
+            } else {
+                header.classList.remove('py-4', 'bg-white/90', 'backdrop-blur-md', 'shadow-luxury', 'border-borderLight');
+                header.classList.add('py-6', 'border-transparent');
+            }
+        });
+
+        // ----------------------------------------------------
+        // MOBILE NAVIGATION LOGIC
+        // ----------------------------------------------------
+        const trigger = document.getElementById('mobile-menu-trigger');
+        const menu = document.getElementById('mobile-menu');
+        const bTop = document.getElementById('burger-top');
+        const bMid = document.getElementById('burger-mid');
+        const bBot = document.getElementById('burger-bot');
+        let isMenuOpen = false;
+
+        trigger.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                menu.classList.remove('translate-x-full');
+                bTop.classList.add('rotate-45', 'translate-y-[6px]');
+                bMid.classList.add('opacity-0');
+                bBot.classList.add('-rotate-45', '-translate-y-[6px]');
+                lenis.stop(); // Stop scroll while menu is open
+            } else {
+                menu.classList.add('translate-x-full');
+                bTop.classList.remove('rotate-45', 'translate-y-[6px]');
+                bMid.classList.remove('opacity-0');
+                bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
+                lenis.start();
+            }
+        });
+
+        function closeMobileMenu() {
+            isMenuOpen = false;
+            menu.classList.add('translate-x-full');
+            bTop.classList.remove('rotate-45', 'translate-y-[6px]');
+            bMid.classList.remove('opacity-0');
+            bBot.classList.remove('-rotate-45', '-translate-y-[6px]');
+            lenis.start();
+        }
+
+        // ----------------------------------------------------
+        // GSAP PARALLAX & ENTRANCE ANIMATIONS
+        // ----------------------------------------------------
+        function animateHeroOnLoad() {
+            try {
+                if (window.gsap) {
+                    const tl = gsap.timeline();
+                    tl.from('#hero-text-container h2', {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1.2,
+                        ease: 'power4.out'
+                    })
+                    .from('#hero-text-container p', {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.8,
+                        ease: 'power3.out'
+                    }, '-=0.8')
+                    .from('#hero-text-container button, #hero-text-container a', {
+                        opacity: 0,
+                        y: 20,
+                        stagger: 0.15,
+                        duration: 0.8,
+                        ease: 'power3.out'
+                    }, '-=0.6')
+                    .from('#hero-visual-container', {
+                        opacity: 0,
+                        scale: 0.95,
+                        duration: 1.5,
+                        ease: 'power4.out'
+                    }, '-=1.2')
+                    .from('#hero-floating-card', {
+                        opacity: 0,
+                        y: 40,
+                        duration: 1,
+                        ease: 'power3.out'
+                    }, '-=0.8');
+                }
+            } catch (e) {
+                console.warn("Hero animations failed:", e);
+            }
+        }
+
+        try {
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+                // Contact Section scroll animations
+                gsap.from('#contact-info-container', {
+                    scrollTrigger: {
+                        trigger: '#contact',
+                        start: 'top 80%',
+                    },
+                    opacity: 0,
+                    x: -50,
+                    duration: 1.2,
+                    ease: 'power3.out'
+                });
+
+                gsap.from('#contact-form-container', {
+                    scrollTrigger: {
+                        trigger: '#contact',
+                        start: 'top 80%',
+                    },
+                    opacity: 0,
+                    x: 50,
+                    duration: 1.2,
+                    ease: 'power3.out'
+                });
+            }
+        } catch (e) {
+            console.error("GSAP ScrollTrigger setup failed:", e);
+        }
+
+
+        // ----------------------------------------------------
+        // BOOKING APPOINTMENT MODAL LOGIC
+        // ----------------------------------------------------
+        const modal = document.getElementById('booking-modal');
+        const modalContent = document.getElementById('booking-modal-content');
+
+        function openBookingModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            gsap.to(modal, { opacity: 1, duration: 0.3 });
+            gsap.to(modalContent, { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' });
+            lenis.stop();
+        }
+
+        function closeBookingModal() {
+            gsap.to(modalContent, { scale: 0.95, opacity: 0, duration: 0.3, ease: 'power3.in' });
+            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                lenis.start();
+            }});
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeBookingModal();
+            }
+        });
+
+        // Close modal on background overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
+
+        // ----------------------------------------------------
+        // FORM SUBMISSIONS LOGIC
+        // ----------------------------------------------------
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-booking-form');
+            const success = document.getElementById('booking-success-message');
+
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
+        }
+
+        function handleModalFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('modal-booking-form');
+            const success = document.getElementById('modal-success-message');
+
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
+
+            setTimeout(() => {
+                closeBookingModal();
+                // Reset form elements
+                setTimeout(() => {
+                    form.classList.remove('hidden');
+                    success.classList.add('hidden');
+                    form.reset();
+                }, 500);
+            }, 3000);
+        }
+
+        function handleQuickFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('hero-quick-form');
+            
+            // Create mini overlay notification inside the quick box
+            const parent = form.parentElement;
+            form.classList.add('opacity-30', 'pointer-events-none');
+            
+            const toast = document.createElement('div');
+            toast.className = 'absolute inset-0 flex flex-col items-center justify-center bg-white/95 rounded-2xl p-4 text-center z-30 transition-opacity duration-300';
+            toast.innerHTML = `
+                <i data-lucide="check-circle" class="w-8 h-8 text-champagne mb-2"></i>
+                <h5 class="font-serif text-sm font-semibold text-charcoal">Callback Registered</h5>
+                <p class="text-[10px] text-charcoal-light mt-1">We will contact you shortly.</p>
+            `;
+            parent.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                gsap.to(toast, { opacity: 0, duration: 0.4, onComplete: () => {
+                    toast.remove();
+                    form.classList.remove('opacity-30', 'pointer-events-none');
+                    form.reset();
+                }});
+            }, 3000);
+        }
+
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            const status = document.getElementById('newsletter-status');
+
+            status.textContent = 'Subscribed successfully. Thank you.';
+            status.classList.remove('hidden');
+            gsap.fromTo(status, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+            input.value = '';
+
+            setTimeout(() => {
+                gsap.to(status, { opacity: 0, duration: 0.4, onComplete: () => {
+                    status.classList.add('hidden');
+                }});
+            }, 3500);
+    <!-- Floating Luxury Contact & WhatsApp Widget (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col space-y-3 items-end">
+        <!-- Direct WhatsApp Chat Button -->
+        <a href="https://wa.me/917893616535?text=Hello%20SS%20Clinic,%20I%20would%20like%20to%20book%20a%20consultation" 
+           target="_blank" 
+           aria-label="Chat on WhatsApp"
+           class="flex items-center space-x-3 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/20">
+            <span class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+            </span>
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+            <span class="font-sans text-xs uppercase tracking-widest font-bold hidden sm:inline">WhatsApp Booking</span>
+        </a>
+        
+        <!-- Direct Phone Call Button -->
+        <a href="tel:+917893616535" 
+           aria-label="Call Clinic Now"
+           class="flex items-center space-x-2 bg-charcoal hover:bg-champagne text-white p-3.5 sm:px-4 sm:py-2.5 rounded-full shadow-xl transition-all duration-300 border border-champagne/40">
+            <i data-lucide="phone-call" class="w-4 h-4 text-champagne"></i>
+            <span class="font-sans text-[11px] uppercase tracking-wider font-semibold hidden sm:inline">+91 78936 16535</span>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

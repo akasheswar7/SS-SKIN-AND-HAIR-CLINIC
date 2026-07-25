@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Sanctuary Gallery - SS Skin & Hair Clinic</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        champagne: {
+                            light: '#E2D4B7',
+                            DEFAULT: '#C6A56D',
+                            dark: '#B08E56',
+                        },
+                        ivory: {
+                            light: '#FAF8F5',
+                            DEFAULT: '#FAF6F0',
+                            dark: '#EDE5DC',
+                        },
+                        charcoal: {
+                            light: '#635154',
+                            DEFAULT: '#2E0F15',
+                            dark: '#1F0A0E',
+                        },
+                        borderLight: '#ECE5DA',
+                        bgLight: '#F5ECE1',
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-white flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-charcoal text-white text-[10px] sm:text-xs font-sans tracking-widest py-2 px-4 text-center border-b border-champagne/30 relative z-50 leading-tight">
+        <span class="text-champagne font-bold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
+    </div>
+
+    <!-- Header -->
+    <header class="w-full py-6 px-6 lg:px-16 border-b border-borderLight bg-white">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="font-serif text-xl md:text-2xl tracking-[0.2em] text-charcoal flex flex-col">
+                <span class="font-medium">SS CLINIC</span>
+                <span class="text-[8px] uppercase tracking-[0.35em] text-champagne -mt-1 font-sans">Skin & Hair</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="index.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Home</a>
+                <a href="about.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">About</a>
+                <a href="treatments.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Treatments</a>
+                <a href="gallery.html" class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold">Gallery</a>
+                <a href="testimonials.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Reviews</a>
+                <a href="index.html#contact" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="bg-charcoal text-white hover:bg-champagne px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">Book Appointment</a>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex-grow flex items-center justify-center py-20 px-6">
+        <div class="max-w-3xl w-full bg-white rounded-3xl p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-8 relative overflow-hidden">
+            <div class="absolute -top-12 -left-12 w-28 h-28 border-l border-t border-champagne/40 rounded-tl-full"></div>
+            <div class="absolute -bottom-12 -right-12 w-28 h-28 border-r border-b border-champagne/40 rounded-br-full"></div>
+
+            <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">VISUAL EXCELLENCE</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light text-charcoal leading-tight">
+                Inside The Clinic Sanctuary
+            </h1>
+            <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
+
+            <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed max-w-2xl mx-auto">
+                Explore our high-end treatment rooms, luxury consultation lounges, VIP suites, and verified clinical results.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-borderLight">
+                <div class="relative overflow-hidden rounded-2xl aspect-[16/9] border border-borderLight shadow">
+                    <img src="./assets/medi_facial_treatment.jpg" alt="Clinical facial room" class="w-full h-full object-cover">
+                </div>
+                <div class="relative overflow-hidden rounded-2xl aspect-[16/9] border border-borderLight shadow">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Lounge interior" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
+                    Return to Home Page
+                </a>
+                <a href="index.html#contact" class="border border-champagne text-charcoal hover:bg-champagne hover:text-white px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
+                    Schedule Visit
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal-dark text-white py-8 px-6 text-center border-t border-white/10">
+        <p class="font-sans text-xs text-white/60 tracking-wider">© 2026 SS Skin & Hair Clinic. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
