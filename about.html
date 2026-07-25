@@ -80,7 +80,7 @@
             </div>
 
             <!-- Mobile Navigation Trigger (Hamburger) -->
-            <button id="mobile-menu-trigger" class="md:hidden flex flex-col justify-between h-5 w-6 focus:outline-none z-50" aria-label="Toggle Menu">
+            <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-between h-6 w-7 p-1 focus:outline-none z-[100000] relative cursor-pointer" aria-label="Toggle Menu">
                 <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-top"></span>
                 <span class="w-full h-[2px] bg-charcoal transition-all duration-300" id="burger-mid"></span>
                 <span class="w-full h-[2px] bg-charcoal transition-all duration-300 origin-left" id="burger-bot"></span>
@@ -157,30 +157,35 @@
     <script>
         lucide.createIcons();
 
-        const trigger = document.getElementById('mobile-menu-trigger');
-        const menu = document.getElementById('mobile-menu');
-        const bTop = document.getElementById('burger-top');
-        const bMid = document.getElementById('burger-mid');
-        const bBot = document.getElementById('burger-bot');
         let isMenuOpen = false;
 
-        if (trigger && menu) {
-            trigger.addEventListener('click', () => {
-                isMenuOpen = !isMenuOpen;
-                if (isMenuOpen) {
-                    menu.classList.remove('hidden');
-                    menu.classList.add('flex');
-                    bTop.classList.add('rotate-45', 'translate-y-[6px]');
-                    bMid.classList.add('opacity-0');
-                    bBot.classList.add('-rotate-45', '-translate-y-[6px]');
-                } else {
-                    closeMobileMenu();
-                }
-            });
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var bTop = document.getElementById('burger-top');
+            var bMid = document.getElementById('burger-mid');
+            var bBot = document.getElementById('burger-bot');
+            
+            if (!menu) return;
+
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                if (bTop) bTop.classList.add('rotate-45', 'translate-y-[6px]');
+                if (bMid) bMid.classList.add('opacity-0');
+                if (bBot) bBot.classList.add('-rotate-45', '-translate-y-[6px]');
+            } else {
+                closeMobileMenu();
+            }
         }
 
         function closeMobileMenu() {
             isMenuOpen = false;
+            var menu = document.getElementById('mobile-menu');
+            var bTop = document.getElementById('burger-top');
+            var bMid = document.getElementById('burger-mid');
+            var bBot = document.getElementById('burger-bot');
+
             if (menu) {
                 menu.classList.add('hidden');
                 menu.classList.remove('flex');
