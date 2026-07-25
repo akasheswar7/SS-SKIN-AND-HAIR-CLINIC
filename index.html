@@ -172,23 +172,7 @@
     <div id="custom-cursor-dot" class="hidden lg:block"></div>
     <div id="custom-cursor-ring" class="hidden lg:block"></div>
 
-    <!-- Page Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-charcoal-dark text-white z-[999999] flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
-        <div class="text-center px-6 space-y-3 max-w-sm">
-            <div class="w-12 h-12 mx-auto rounded-full bg-champagne/15 border border-champagne/40 flex items-center justify-center text-champagne mb-1 shadow-2xl animate-pulse">
-                <span class="font-serif text-lg font-bold">SS</span>
-            </div>
-            <h1 class="font-serif text-3xl sm:text-4xl tracking-[0.25em] text-white font-light transition-all duration-700 transform translate-y-2 opacity-0" id="loader-logo">
-                SS CLINIC
-            </h1>
-            <p class="font-sans text-[10px] sm:text-xs uppercase tracking-[0.4em] text-champagne font-semibold transition-all duration-700 delay-200 opacity-0" id="loader-sub">
-                Skin & Hair Sanctuary • Vizag
-            </p>
-            <div class="w-44 h-[2px] bg-white/10 mx-auto relative overflow-hidden rounded-full mt-4">
-                <div id="loader-bar" class="absolute h-full w-0 bg-gradient-to-r from-champagne-light via-champagne to-champagne-dark transition-all duration-1000 ease-out left-0"></div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Top Announcement Bar -->
     <div class="bg-charcoal text-white text-[10px] sm:text-xs font-sans tracking-widest py-2 px-4 text-center border-b border-champagne/30 z-50 relative leading-tight">
@@ -638,36 +622,13 @@
             console.error("Lucide failed to initialize:", e);
         }
 
-        // ----------------------------------------------------
-        // LUXURY OPENING ANIMATION SEQUENCE
-        // ----------------------------------------------------
-        window.addEventListener('DOMContentLoaded', () => {
-            const bar = document.getElementById('loader-bar');
-            const logo = document.getElementById('loader-logo');
-            const sub = document.getElementById('loader-sub');
-
-            if (logo) logo.classList.remove('opacity-0', 'translate-y-2');
-            if (sub) sub.classList.remove('opacity-0');
-            if (bar) setTimeout(() => { bar.style.width = '100%'; }, 50);
-        });
-
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-
-            setTimeout(() => {
-                if (preloader) {
-                    preloader.style.transform = 'translateY(-100%)';
-                    preloader.style.opacity = '0';
-                    setTimeout(() => { preloader.classList.add('hidden'); }, 700);
-                }
-                
-                // Trigger GSAP Initial Hero Animations
-                try {
-                    animateHeroOnLoad();
-                } catch(e) {
-                    console.warn("GSAP load animations failed:", e);
-                }
-            }, 900);
+        // Instant load animation trigger
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                animateHeroOnLoad();
+            } catch(e) {
+                console.warn("Entrance animation fallback:", e);
+            }
         });
 
         // ----------------------------------------------------
