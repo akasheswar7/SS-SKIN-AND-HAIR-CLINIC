@@ -779,8 +779,12 @@
                     </div>
                 </div>
 
-                <div class="pt-2 text-center">
-                    <button onclick="closeBookingModal()" class="bg-charcoal text-white hover:bg-champagne px-8 py-3 rounded-xl font-sans text-xs uppercase tracking-widest font-bold transition-all cursor-pointer">
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a id="email-client-button" href="#" target="_blank" class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-xl font-sans text-xs uppercase tracking-widest font-bold transition-all flex items-center justify-center space-x-2 shadow-md">
+                        <i data-lucide="mail-plus" class="w-4 h-4"></i>
+                        <span>Send Email Copy to My Inbox</span>
+                    </a>
+                    <button onclick="closeBookingModal()" class="w-full sm:w-auto bg-charcoal text-white hover:bg-champagne px-8 py-3 rounded-xl font-sans text-xs uppercase tracking-widest font-bold transition-all cursor-pointer">
                         Close Confirmation
                     </button>
                 </div>
@@ -1212,6 +1216,13 @@
                               `• ✨ Skin Care (HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment)\n` +
                               `• ⚡ Laser Tech (Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal)\n` +
                               `• 💇 Hair Care & FUE (PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy)`;
+
+            // Set mailto URL for 1-click email client dispatch
+            const mailtoUrl = `mailto:${encodeURIComponent(email || '')}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const emailBtn = document.getElementById('email-client-button');
+            if (emailBtn) {
+                emailBtn.href = mailtoUrl;
+            }
 
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
