@@ -1100,6 +1100,13 @@
                 }
             });
 
+            // Dynamically customize the Thank You message with the exact requested treatment (Skin, Hair, Laser)
+            const successMsg = success.querySelector('p');
+            if (successMsg) {
+                const serviceLabel = service ? ` regarding your ${service}` : '';
+                successMsg.textContent = `Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.`;
+            }
+
             form.classList.add('hidden');
             success.classList.remove('hidden');
             gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
@@ -1108,12 +1115,14 @@
 
             setTimeout(() => {
                 window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
-                closeBookingModal();
                 setTimeout(() => {
-                    form.classList.remove('hidden');
-                    success.classList.add('hidden');
-                    form.reset();
-                }, 500);
+                    closeBookingModal();
+                    setTimeout(() => {
+                        form.classList.remove('hidden');
+                        success.classList.add('hidden');
+                        form.reset();
+                    }, 500);
+                }, 1000);
             }, 1200);
         }
 
