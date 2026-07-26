@@ -841,12 +841,43 @@
             console.error("Lucide failed to initialize:", e);
         }
 
-        // Instant load animation trigger
+        // Instant load animation & auto-scroll for #contact
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 animateHeroOnLoad();
             } catch(e) {
                 console.warn("Entrance animation fallback:", e);
+            }
+
+            // Auto-scroll to #contact if coming with hash #contact
+            if (window.location.hash === '#contact') {
+                setTimeout(() => {
+                    const contactSec = document.getElementById('contact');
+                    if (contactSec) {
+                        contactSec.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 200);
+            }
+        });
+
+        // Global click interceptor for Contact links to prevent returning to top/home
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link) {
+                const href = link.getAttribute('href');
+                if (href === '#contact' || href === 'index.html#contact') {
+                    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                    if (isHomePage) {
+                        const contactSec = document.getElementById('contact');
+                        if (contactSec) {
+                            e.preventDefault();
+                            contactSec.scrollIntoView({ behavior: 'smooth' });
+                            if (typeof lenis !== 'undefined' && lenis) {
+                                lenis.scrollTo(contactSec);
+                            }
+                        }
+                    }
+                }
             }
         });
 
