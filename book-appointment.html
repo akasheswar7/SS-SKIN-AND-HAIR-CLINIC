@@ -232,22 +232,22 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Full Name *</label>
-                                <input type="text" placeholder="Enter your full name" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <input type="text" name="name" placeholder="Enter your full name" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                             </div>
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Mobile Number *</label>
-                                <input type="tel" placeholder="Enter mobile number" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <input type="tel" name="phone" placeholder="Enter mobile number" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Email Address *</label>
-                                <input type="email" placeholder="Enter email address" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <input type="email" name="email" placeholder="Enter email address" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                             </div>
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Select Doctor *</label>
-                                <select required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <select name="doctor" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                                     <option value="" disabled selected>Select specialist doctor</option>
                                     <option value="Dr. M. Triveni (Cosmetologist)">Dr. M. Triveni (Cosmetologist)</option>
                                     <option value="Dr. M. Triveni (Hair Specialist)">Dr. M. Triveni (Hair Specialist)</option>
@@ -258,7 +258,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Consultation Service *</label>
-                                <select required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <select name="service" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                                     <option value="" disabled selected>Select treatment service</option>
                                     <optgroup label="✨ Skin & Facial Treatments">
                                         <option value="HydraFacial">HydraFacial</option>
@@ -307,7 +307,7 @@
                             </div>
                             <div>
                                 <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Preferred Date *</label>
-                                <input type="date" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                <input type="date" name="date" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
                             </div>
                         </div>
 
@@ -385,10 +385,12 @@
             let name = '', phone = '', email = '', service = '', doctor = '', date = '';
 
             inputs.forEach(i => {
-                if (i.placeholder && i.placeholder.toLowerCase().includes('name')) name = i.value;
-                else if (i.type === 'email' || (i.placeholder && i.placeholder.toLowerCase().includes('email'))) email = i.value;
-                else if (i.type === 'tel' || (i.placeholder && i.placeholder.toLowerCase().includes('mobile'))) phone = i.value;
-                else if (i.type === 'date') date = i.value;
+                if (i.name === 'name' || (i.placeholder && i.placeholder.toLowerCase().includes('name'))) name = i.value;
+                else if (i.name === 'email' || i.type === 'email') email = i.value;
+                else if (i.name === 'phone' || i.type === 'tel') phone = i.value;
+                else if (i.name === 'date' || i.type === 'date') date = i.value;
+                else if (i.name === 'doctor') doctor = i.value;
+                else if (i.name === 'service') service = i.value;
                 else if (i.tagName === 'SELECT') {
                     if (i.value.includes('Triveni')) doctor = i.value;
                     else if (i.value) service = i.value;
