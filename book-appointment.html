@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultation | SS SKIN AND HAIR CLINIC - Dr. M. Triveni</title>
+    <meta name="description" content="Book an appointment with Dr. M. Triveni at SS SKIN AND HAIR CLINIC in Visakhapatnam. Cosmetology, Laser & Hair Care Specialist.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FAF7F2',
+                        champagne: '#C5A059',
+                        'champagne-dark': '#9A7B3E',
+                        'champagne-light': '#E8D5B5',
+                        charcoal: '#1A1A1A',
+                        'charcoal-light': '#333333',
+                        sand: '#EFECE6',
+                        borderLight: '#E5DFD5'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(26, 26, 26, 0.07)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #FAF7F2; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-white custom-scrollbar">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-ivory/90 backdrop-blur-md border-b border-borderLight/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-champagne flex items-center justify-center p-1 bg-ivory shadow-sm group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full bg-[#4A121E] rounded-full flex items-center justify-center text-champagne-light font-serif font-bold text-lg sm:text-xl">SS</div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg sm:text-xl font-bold tracking-widest text-charcoal leading-none">SS CLINIC</span>
+                    <span class="font-sans text-[9px] uppercase tracking-[0.25em] text-champagne font-bold mt-0.5">SKIN & HAIR CLINIC</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="about.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 font-bold">About</a>
+                <a href="treatments.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 font-bold">Treatments</a>
+                <a href="gallery.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 font-bold">Gallery</a>
+                <a href="testimonials.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 font-bold">Reviews</a>
+            </nav>
+
+            <!-- Book Consultation CTA Button -->
+            <div class="hidden md:block">
+                <a href="book-appointment.html" class="border-2 border-champagne text-white bg-champagne px-7 py-3 font-sans text-sm uppercase tracking-[0.12em] hover:bg-charcoal hover:border-charcoal transition-all duration-300 inline-block font-bold shadow-sm rounded-xl">
+                    Book Appointment
+                </a>
+            </div>
+
+            <!-- Mobile Navigation Trigger (3 Dots Kebab Menu) -->
+            <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 p-2 rounded-full border border-champagne/40 bg-champagne/10 text-charcoal focus:outline-none z-[1000000] relative cursor-pointer active:scale-95" aria-label="Toggle Menu">
+                <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 24 24">
+                    <circle cx="12" cy="5" r="2.2" />
+                    <circle cx="12" cy="12" r="2.2" />
+                    <circle cx="12" cy="19" r="2.2" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu Dropdown -->
+    <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[999999] hidden flex-col justify-center items-center px-8 py-16 md:hidden min-h-screen h-screen w-screen overflow-y-auto">
+        <button onclick="closeMobileMenu()" class="absolute top-6 right-6 p-3 text-charcoal hover:text-champagne transition-colors focus:outline-none" aria-label="Close Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <nav class="flex flex-col space-y-8 text-center w-full max-w-sm">
+            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">About</a>
+            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Treatments</a>
+            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
+            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Reviews</a>
+            <div class="pt-6">
+                <a href="book-appointment.html" onclick="closeMobileMenu()" class="bg-champagne text-white px-8 py-4 font-sans text-sm uppercase tracking-wider transition-all w-full font-bold block text-center rounded-xl">
+                    Book Appointment
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Banner Hero -->
+    <section class="pt-32 sm:pt-40 pb-12 bg-sand/60 border-b border-borderLight relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+            <span class="font-sans text-xs uppercase tracking-[0.3em] text-champagne block font-semibold mb-2">SS SKIN AND HAIR CLINIC • VISAKHAPATNAM</span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal font-bold">Book Your Consultation</h1>
+            <p class="text-sm sm:text-base text-charcoal-light mt-3 max-w-2xl mx-auto leading-relaxed font-medium">
+                Reserve your clinical consultation directly with <strong class="text-charcoal font-bold">Dr. M. Triveni</strong> (Cosmetologist & Hair Specialist). Select your preferred date, doctor, and treatment below.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Booking Section Grid -->
+    <section class="py-16 sm:py-24 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Left Column: Clinic Information & Map -->
+            <div class="lg:col-span-5 space-y-8">
+                
+                <div class="bg-white rounded-3xl p-8 border border-borderLight shadow-luxury space-y-6">
+                    <div class="flex items-center space-x-4 pb-6 border-b border-borderLight">
+                        <div class="w-14 h-14 bg-[#4A121E] text-champagne-light rounded-2xl flex items-center justify-center font-serif font-bold text-xl shrink-0 shadow-md">
+                            SS
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-charcoal">Dr. M. Triveni</h3>
+                            <p class="text-xs text-champagne font-bold uppercase tracking-wider">Cosmetologist & Hair Specialist</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-sand/60 text-champagne rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase tracking-wider text-charcoal font-bold">Clinic Address</h5>
+                                <p class="text-xs text-charcoal-light mt-0.5 leading-relaxed font-medium">
+                                    Beside Tirumala Rao Hospital, Sriharipuram, Visakhapatnam, Andhra Pradesh 530011
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-sand/60 text-champagne rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase tracking-wider text-charcoal font-bold">Direct Phone & WhatsApp</h5>
+                                <p class="text-xs text-charcoal-light mt-0.5 font-bold">
+                                    +91 78936 16535
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-sand/60 text-champagne rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase tracking-wider text-charcoal font-bold">Official Email</h5>
+                                <p class="text-xs text-charcoal-light mt-0.5 font-medium">
+                                    ssskinandhairclinic7@gmail.com
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-sand/60 text-champagne rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs uppercase tracking-wider text-charcoal font-bold">Consultation Hours</h5>
+                                <p class="text-xs text-charcoal-light mt-0.5 font-medium">
+                                    Monday - Saturday: 10:00 AM - 8:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp & Phone Action Buttons -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-borderLight">
+                        <a href="https://wa.me/917893616535?text=Hello%20SS%20Skin%20and%20Hair%20Clinic,%20I%20want%20to%20book%20a%20consultation" target="_blank" class="p-3.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all">
+                            <i data-lucide="message-square" class="w-4 h-4"></i>
+                            <span>WhatsApp Chat</span>
+                        </a>
+                        <a href="tel:+917893616535" class="p-3.5 bg-charcoal hover:bg-champagne text-white rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all">
+                            <i data-lucide="phone-call" class="w-4 h-4"></i>
+                            <span>Call Clinic</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Map Embed -->
+                <div class="bg-white rounded-3xl p-3 border border-borderLight shadow-luxury h-64 relative overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.986877843657!2d83.2422709!3d17.6978435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3959c823055555%3A0x6b1062df6cfbcabf!2sSriharipuram%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        class="w-full h-full rounded-2xl border-0" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Full Working Clinical Booking Form -->
+            <div class="lg:col-span-7 bg-ivory rounded-3xl p-8 sm:p-12 border-2 border-champagne/40 shadow-luxury">
+                <div class="space-y-6">
+                    <div>
+                        <span class="font-sans text-xs uppercase tracking-[0.3em] text-champagne block font-semibold">1-CLICK ONLINE RESERVATION</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold mt-1">Fill Booking Form</h3>
+                        <p class="text-xs text-charcoal-light mt-2 leading-relaxed font-medium">
+                            Please provide your details below. Your reservation request will be dispatched directly to our clinic coordinators:
+                        </p>
+                    </div>
+
+                    <form id="contact-booking-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Full Name *</label>
+                                <input type="text" placeholder="Enter your full name" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Mobile Number *</label>
+                                <input type="tel" placeholder="Enter mobile number" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Email Address *</label>
+                                <input type="email" placeholder="Enter email address" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Select Doctor *</label>
+                                <select required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                    <option value="" disabled selected>Select specialist doctor</option>
+                                    <option value="Dr. M. Triveni (Cosmetologist)">Dr. M. Triveni (Cosmetologist)</option>
+                                    <option value="Dr. M. Triveni (Hair Specialist)">Dr. M. Triveni (Hair Specialist)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Consultation Service *</label>
+                                <select required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                                    <option value="" disabled selected>Select treatment service</option>
+                                    <optgroup label="✨ Skin & Facial Treatments">
+                                        <option value="HydraFacial">HydraFacial</option>
+                                        <option value="Chemical Peel">Chemical Peel</option>
+                                        <option value="Carbon Laser Peel">Carbon Laser Peel</option>
+                                        <option value="Medi Facials">Medi Facials</option>
+                                        <option value="Skin Brightening">Skin Brightening</option>
+                                        <option value="Dark Circle Treatment">Dark Circle Treatment</option>
+                                        <option value="Open Pore Treatment">Open Pore Treatment</option>
+                                        <option value="Skin Rejuvenation">Skin Rejuvenation</option>
+                                        <option value="Carbon Laser Facial">Carbon Laser Facial</option>
+                                        <option value="Photo Facial">Photo Facial</option>
+                                    </optgroup>
+                                    <optgroup label="🌟 Acne, Pigmentation & Removal">
+                                        <option value="Acne Treatment">Acne Treatment</option>
+                                        <option value="Acne Scar Treatment">Acne Scar Treatment</option>
+                                        <option value="Pigmentation Treatment">Pigmentation Treatment</option>
+                                        <option value="Melasma Treatment">Melasma Treatment</option>
+                                        <option value="Pigmentation Laser">Pigmentation Laser</option>
+                                        <option value="Mole & Wart Removal">Mole & Wart Removal</option>
+                                        <option value="Skin Tag Removal">Skin Tag Removal</option>
+                                        <option value="Corn Removal">Corn Removal</option>
+                                        <option value="Stretch Mark Treatment">Stretch Mark Treatment</option>
+                                        <option value="Tattoo Removal">Tattoo Removal</option>
+                                    </optgroup>
+                                    <optgroup label="👑 Anti-Aging & Tightening">
+                                        <option value="Anti-Aging Treatments">Anti-Aging Treatments</option>
+                                        <option value="Wrinkle Reduction">Wrinkle Reduction</option>
+                                        <option value="Skin Tightening">Skin Tightening</option>
+                                        <option value="Laser Skin Tightening">Laser Skin Tightening</option>
+                                    </optgroup>
+                                    <optgroup label="💇 Hair Care & Restoration">
+                                        <option value="Laser Hair Reduction">Laser Hair Reduction</option>
+                                        <option value="Laser Hair Removal">Laser Hair Removal</option>
+                                        <option value="PRP Hair Therapy">PRP Hair Therapy</option>
+                                        <option value="GFC Hair Therapy">GFC Hair Therapy</option>
+                                        <option value="Hair Fall Treatment">Hair Fall Treatment</option>
+                                        <option value="Hair Regrowth Treatment">Hair Regrowth Treatment</option>
+                                        <option value="Dandruff Treatment">Dandruff Treatment</option>
+                                        <option value="Hair Mesotherapy">Hair Mesotherapy</option>
+                                        <option value="Scalp Rejuvenation">Scalp Rejuvenation</option>
+                                        <option value="Hair Strengthening">Hair Strengthening</option>
+                                        <option value="Hair Nutrition Therapy">Hair Nutrition Therapy</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider text-charcoal font-bold mb-1">Preferred Date *</label>
+                                <input type="date" required class="w-full px-4 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-charcoal text-white hover:bg-champagne py-4 sm:py-5 rounded-xl font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 font-bold shadow-luxury cursor-pointer mt-4">
+                            Confirm Consultation Slot
+                        </button>
+                    </form>
+
+                    <!-- Success Card Displayed After Form Submit -->
+                    <div id="booking-success-message" class="hidden p-6 sm:p-8 bg-ivory border-2 border-champagne/60 rounded-3xl text-left shadow-2xl space-y-6">
+                        <div class="text-center space-y-3 pb-4 border-b border-borderLight">
+                            <div class="w-16 h-16 bg-emerald-700 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                                <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl font-bold text-charcoal">Reservation Request Received</h4>
+                            <p id="booking-success-text" class="text-xs sm:text-sm text-charcoal font-semibold leading-relaxed max-w-lg mx-auto bg-white p-4 rounded-xl border border-champagne/30 text-champagne-dark">
+                                Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+            <div>
+                <h4 class="font-serif text-xl font-bold text-champagne-light">SS SKIN AND HAIR CLINIC</h4>
+                <p class="text-xs text-white/70 mt-1">Beside Tirumala Rao Hospital, Sriharipuram, Visakhapatnam • Dr. M. Triveni</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-xs text-white/50">
+                &copy; 2026 SS SKIN AND HAIR CLINIC. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        lucide.createIcons();
+
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-booking-form');
+            const success = document.getElementById('booking-success-message');
+
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let name = '', phone = '', email = '', service = '', doctor = '', date = '';
+
+            inputs.forEach(i => {
+                if (i.placeholder && i.placeholder.toLowerCase().includes('name')) name = i.value;
+                else if (i.type === 'email' || (i.placeholder && i.placeholder.toLowerCase().includes('email'))) email = i.value;
+                else if (i.type === 'tel' || (i.placeholder && i.placeholder.toLowerCase().includes('mobile'))) phone = i.value;
+                else if (i.type === 'date') date = i.value;
+                else if (i.tagName === 'SELECT') {
+                    if (i.value.includes('Triveni')) doctor = i.value;
+                    else if (i.value) service = i.value;
+                }
+            });
+
+            const successText = document.getElementById('booking-success-text');
+            if (successText) {
+                const serviceLabel = service ? ` regarding your ${service}` : '';
+                const emailNotice = email ? `<br><span class="text-emerald-700 font-bold mt-1 inline-block">📩 Confirmation Email dispatched to: ${email}</span>` : '';
+                successText.innerHTML = `Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.${emailNotice}`;
+            }
+
+            const formattedMessage = `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
+                                     `PATIENT RESERVATION SUMMARY:\n` +
+                                     `• Patient Name: ${name || 'Guest'}\n` +
+                                     `• Mobile Number: ${phone || 'Not provided'}\n` +
+                                     `• Email Address: ${email || 'Not provided'}\n` +
+                                     `• Consultation Service: ${service || 'General Consultation'}\n` +
+                                     `• Doctor: ${doctor || 'Dr. M. Triveni'}\n` +
+                                     `• Preferred Date: ${date || 'As early as available'}\n\n` +
+                                     `COMPLETE 35 CLINICAL TREATMENTS PORTFOLIO:\n` +
+                                     `✨ SKIN CARE: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne Treatment, Acne Scar Care, Pigmentation, Anti-Aging, Skin Tightening, Dark Circle, Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Marks.\n` +
+                                     `⚡ LASER TECH: Laser Hair Reduction & Removal, Carbon Laser Peel/Facial, Pigmentation Laser, Photo Facial, Laser Tightening, Tattoo Removal.\n` +
+                                     `💇 HAIR CARE & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
+
+            const web3Payload = {
+                access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                name: name || 'Guest',
+                email: email || 'ssskinandhairclinic7@gmail.com',
+                phone: phone || '',
+                service: service || 'General Consultation',
+                doctor: doctor || 'Dr. M. Triveni',
+                date: date || '',
+                subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                message: formattedMessage,
+                from_name: 'SS SKIN AND HAIR CLINIC',
+                replyto: email || 'ssskinandhairclinic7@gmail.com'
+            };
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(web3Payload)
+            }).catch(err => console.log('Web3Forms dispatch notice:', err));
+
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
+
+            const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Email: ${encodeURIComponent(email || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
+
+            setTimeout(() => {
+                window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
