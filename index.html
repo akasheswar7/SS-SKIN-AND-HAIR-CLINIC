@@ -1177,10 +1177,11 @@
             const success = document.getElementById('modal-success-message');
 
             const inputs = form.querySelectorAll('input, select, textarea');
-            let name = '', phone = '', service = '', doctor = '', date = '';
+            let name = '', phone = '', email = '', service = '', doctor = '', date = '';
 
             inputs.forEach(i => {
                 if (i.placeholder && i.placeholder.toLowerCase().includes('name')) name = i.value;
+                else if (i.type === 'email' || (i.placeholder && i.placeholder.toLowerCase().includes('email'))) email = i.value;
                 else if (i.type === 'tel' || (i.placeholder && i.placeholder.toLowerCase().includes('mobile'))) phone = i.value;
                 else if (i.type === 'date') date = i.value;
                 else if (i.tagName === 'SELECT') {
@@ -1193,14 +1194,43 @@
             const successMsg = success.querySelector('p');
             if (successMsg) {
                 const serviceLabel = service ? ` regarding your ${service}` : '';
-                successMsg.textContent = `Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.`;
+                const emailNotice = email ? `<br><span class="text-emerald-700 font-bold mt-1 inline-block">📩 Confirmation Email dispatched to: ${email}</span>` : '';
+                successMsg.innerHTML = `Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.${emailNotice}`;
             }
+
+            // Dispatch automated email via Web3Forms API endpoint
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453', // Free Web3Forms public API key
+                    name: name,
+                    email: email || 'patient@ssclinic.com',
+                    phone: phone,
+                    service: service,
+                    doctor: doctor,
+                    date: date,
+                    subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                    message: `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
+                             `RESERVATION SUMMARY:\n` +
+                             `• Patient Name: ${name}\n` +
+                             `• Phone: ${phone}\n` +
+                             `• Email: ${email}\n` +
+                             `• Requested Service: ${service}\n` +
+                             `• Doctor: ${doctor}\n` +
+                             `• Date: ${date}\n\n` +
+                             `CLINICAL TREATMENTS PORTFOLIO (35 Treatments):\n` +
+                             `✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Treatment, Pigmentation, Anti-Aging, Skin Tightening, Dark Circle & Open Pore Care, Mole/Wart/Tag/Corn Removal, Stretch Marks.\n` +
+                             `⚡ Laser Tech: Laser Hair Reduction & Removal, Carbon Laser Peel/Facial, Pigmentation Laser, Photo Facial, Laser Tightening, Tattoo Removal.\n` +
+                             `💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall & Regrowth Treatment, Dandruff Care, Mesotherapy, Scalp Rejuvenation, Hair Strengthening & Nutrition.`
+                })
+            }).catch(err => console.log('Web3Forms dispatch notice:', err));
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
             gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
 
-            const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
+            const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Email: ${encodeURIComponent(email || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
 
             setTimeout(() => {
                 window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
