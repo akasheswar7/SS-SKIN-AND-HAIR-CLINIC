@@ -197,39 +197,97 @@
 
     <!-- Main Section -->
     <main class="flex-grow flex items-center justify-center py-12 md:py-20 px-4 sm:px-6 max-w-full overflow-x-hidden">
-        <div class="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-6 sm:space-y-8 relative overflow-hidden">
+        <div class="max-w-6xl w-full bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-borderLight shadow-2xl space-y-6 sm:space-y-8 relative overflow-hidden">
             <div class="absolute -top-12 -left-12 w-28 h-28 border-l border-t border-champagne/40 rounded-tl-full"></div>
             <div class="absolute -bottom-12 -right-12 w-28 h-28 border-r border-b border-champagne/40 rounded-br-full"></div>
 
-            <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">BESPOKE CLINICAL SUITES</span>
-            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-tight">
-                Advanced Skin & Hair Treatments
-            </h1>
-            <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
-
-            <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed max-w-2xl mx-auto">
-                Discover our targeted treatment programs combining medical science and advanced laser technology: HydraFacial, Hair Restorations, Laser Hair Reduction, Anti-Ageing Therapies, and PRP Cellular Treatments.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-borderLight text-center">
-                <div class="p-4 bg-ivory rounded-2xl border border-borderLight">
-                    <i data-lucide="sparkles" class="w-6 h-6 text-champagne mx-auto mb-2"></i>
-                    <h4 class="font-serif text-sm font-semibold text-charcoal">Skin Care</h4>
-                    <p class="text-[10px] text-charcoal-light mt-1">Chemical Peels & Glow</p>
-                </div>
-                <div class="p-4 bg-ivory rounded-2xl border border-borderLight">
-                    <i data-lucide="zap" class="w-6 h-6 text-champagne mx-auto mb-2"></i>
-                    <h4 class="font-serif text-sm font-semibold text-charcoal">Laser Tech</h4>
-                    <p class="text-[10px] text-charcoal-light mt-1">Painless Hair Reduction</p>
-                </div>
-                <div class="p-4 bg-ivory rounded-2xl border border-borderLight">
-                    <i data-lucide="leaf" class="w-6 h-6 text-champagne mx-auto mb-2"></i>
-                    <h4 class="font-serif text-sm font-semibold text-charcoal">Hair FUE</h4>
-                    <p class="text-[10px] text-charcoal-light mt-1">Restoration & PRP</p>
-                </div>
+            <div class="text-center space-y-3">
+                <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">BESPOKE CLINICAL SUITES</span>
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-tight">
+                    Advanced Skin & Hair Treatments
+                </h1>
+                <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
+                <p class="font-sans text-xs sm:text-sm text-charcoal-light leading-relaxed max-w-2xl mx-auto">
+                    Full spectrum cosmetology & hair restoration programs delivered by Dr. M. Triveni at SS SKIN AND HAIR CLINIC.
+                </p>
             </div>
 
-            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4">
+            <!-- 3 Category Treatment Cards with All 35 Treatments -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 text-left">
+                
+                <!-- Category 1: Skin Care -->
+                <div class="p-6 bg-ivory/80 rounded-2xl border-2 border-borderLight hover:border-champagne transition-all space-y-4 shadow-sm">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-borderLight">
+                        <div class="p-2.5 bg-[#4A121E] text-champagne-light rounded-xl">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-bold text-charcoal">Skin Care Suite</h4>
+                            <p class="text-[11px] text-champagne-dark font-semibold">Specialized Skin Treatments</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-charcoal-light font-medium">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>HydraFacial & Medi Facials</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Chemical Peel & Skin Brightening</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Acne & Acne Scar Treatment</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Pigmentation & Melasma Care</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Anti-Aging & Wrinkle Reduction</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Skin Tightening</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Dark Circle & Open Pore Care</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Mole, Wart & Skin Tag Removal</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Corn Removal</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Stretch Mark Treatment</li>
+                    </ul>
+                </div>
+
+                <!-- Category 2: Laser Care -->
+                <div class="p-6 bg-ivory/80 rounded-2xl border-2 border-borderLight hover:border-champagne transition-all space-y-4 shadow-sm">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-borderLight">
+                        <div class="p-2.5 bg-[#4A121E] text-champagne-light rounded-xl">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-bold text-charcoal">Laser Tech Suite</h4>
+                            <p class="text-[11px] text-champagne-dark font-semibold">Advanced Laser Procedures</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-charcoal-light font-medium">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Laser Hair Reduction</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Laser Hair Removal</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Carbon Laser Peel & Facial</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Pigmentation Laser</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Skin Rejuvenation & Photo Facial</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Laser Skin Tightening</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Tattoo Removal</li>
+                    </ul>
+                </div>
+
+                <!-- Category 3: Hair FUE & Restoration -->
+                <div class="p-6 bg-ivory/80 rounded-2xl border-2 border-borderLight hover:border-champagne transition-all space-y-4 shadow-sm">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-borderLight">
+                        <div class="p-2.5 bg-[#4A121E] text-champagne-light rounded-xl">
+                            <i data-lucide="leaf" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-bold text-charcoal">Hair Restoration Suite</h4>
+                            <p class="text-[11px] text-champagne-dark font-semibold">Hair & Scalp Therapies</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-charcoal-light font-medium">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>PRP Hair Therapy</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>GFC Hair Therapy</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Hair Fall & Regrowth Treatment</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Dandruff Treatment</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Hair Mesotherapy</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Scalp Rejuvenation</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Hair Strengthening</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-champagne rounded-full mr-2 shrink-0"></span>Hair Nutrition Therapy</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4 text-center">
                 <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
                     Return to Home Page
                 </a>
