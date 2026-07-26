@@ -465,6 +465,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(web3Payload)
+                }).catch(() => {});
             } catch (err) {}
 
             const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Email: ${encodeURIComponent(email || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
