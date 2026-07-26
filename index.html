@@ -558,111 +558,64 @@
 
                 </div>
 
-                <!-- Right Side: Luxury Contact / Booking Form -->
-                <div class="lg:col-span-7 bg-ivory rounded-3xl p-8 md:p-12 border border-borderLight shadow-luxury" id="contact-form-container">
-                    <h3 class="font-serif text-2xl md:text-3xl text-charcoal font-medium mb-2">Request Bespoke Consultation</h3>
-                    <p class="text-xs text-charcoal-light mb-8 font-medium">Please detail your aesthetic goals below, and a clinical representative will coordinate your reservation.</p>
-                    
-                    <form id="contact-booking-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Full Name</label>
-                                <input type="text" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter your name">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Mobile Number</label>
-                                <input type="tel" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter mobile number">
-                            </div>
+                <!-- Right Side: Working Fast Booking Card -->
+                <div class="lg:col-span-7 bg-ivory rounded-3xl p-8 md:p-12 border-2 border-champagne/40 shadow-luxury" id="contact-form-container">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="p-3 bg-[#4A121E] text-champagne-light rounded-2xl w-14 h-14 flex items-center justify-center mx-auto lg:mx-0 shadow-md">
+                            <i data-lucide="calendar-check-2" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <span class="font-sans text-xs uppercase tracking-[0.3em] text-champagne block font-semibold">1-CLICK RESERVATIONS</span>
+                            <h3 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold mt-1">Book Consultation</h3>
+                            <p class="text-xs text-charcoal-light mt-2 leading-relaxed">
+                                Reserve your clinical consultation directly with Dr. M. Triveni. Choose your preferred booking option below:
+                            </p>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Email Address</label>
-                                <input type="email" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Enter email address">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Consultation Service</label>
-                                <select required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                                    <option value="" disabled selected>Select consultation service</option>
-                                    <optgroup label="✨ Skin & Facial Treatments">
-                                        <option value="HydraFacial">HydraFacial</option>
-                                        <option value="Chemical Peel">Chemical Peel</option>
-                                        <option value="Carbon Laser Peel">Carbon Laser Peel</option>
-                                        <option value="Medi Facials">Medi Facials</option>
-                                        <option value="Skin Brightening">Skin Brightening</option>
-                                        <option value="Dark Circle Treatment">Dark Circle Treatment</option>
-                                        <option value="Open Pore Treatment">Open Pore Treatment</option>
-                                        <option value="Skin Rejuvenation">Skin Rejuvenation</option>
-                                        <option value="Carbon Laser Facial">Carbon Laser Facial</option>
-                                        <option value="Photo Facial">Photo Facial</option>
-                                    </optgroup>
-                                    <optgroup label="🌟 Acne, Pigmentation & Removal">
-                                        <option value="Acne Treatment">Acne Treatment</option>
-                                        <option value="Acne Scar Treatment">Acne Scar Treatment</option>
-                                        <option value="Pigmentation Treatment">Pigmentation Treatment</option>
-                                        <option value="Melasma Treatment">Melasma Treatment</option>
-                                        <option value="Pigmentation Laser">Pigmentation Laser</option>
-                                        <option value="Mole & Wart Removal">Mole & Wart Removal</option>
-                                        <option value="Skin Tag Removal">Skin Tag Removal</option>
-                                        <option value="Corn Removal">Corn Removal</option>
-                                        <option value="Stretch Mark Treatment">Stretch Mark Treatment</option>
-                                        <option value="Tattoo Removal">Tattoo Removal</option>
-                                    </optgroup>
-                                    <optgroup label="👑 Anti-Aging & Tightening">
-                                        <option value="Anti-Aging Treatments">Anti-Aging Treatments</option>
-                                        <option value="Wrinkle Reduction">Wrinkle Reduction</option>
-                                        <option value="Skin Tightening">Skin Tightening</option>
-                                        <option value="Laser Skin Tightening">Laser Skin Tightening</option>
-                                    </optgroup>
-                                    <optgroup label="💇 Hair Care & Restoration">
-                                        <option value="Laser Hair Reduction">Laser Hair Reduction</option>
-                                        <option value="Laser Hair Removal">Laser Hair Removal</option>
-                                        <option value="PRP Hair Therapy">PRP Hair Therapy</option>
-                                        <option value="GFC Hair Therapy">GFC Hair Therapy</option>
-                                        <option value="Hair Fall Treatment">Hair Fall Treatment</option>
-                                        <option value="Hair Regrowth Treatment">Hair Regrowth Treatment</option>
-                                        <option value="Dandruff Treatment">Dandruff Treatment</option>
-                                        <option value="Hair Mesotherapy">Hair Mesotherapy</option>
-                                        <option value="Scalp Rejuvenation">Scalp Rejuvenation</option>
-                                        <option value="Hair Strengthening">Hair Strengthening</option>
-                                        <option value="Hair Nutrition Therapy">Hair Nutrition Therapy</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Preferred Date</label>
-                                <input type="date" required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Preferred Specialist</label>
-                                <select required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                                    <option value="" disabled selected>Select doctor</option>
-                                    <option value="Dr. M. Triveni (Cosmetologist)">Dr. M. Triveni (Cosmetologist)</option>
-                                    <option value="Dr. M. Triveni (Hair Specialist)">Dr. M. Triveni (Hair Specialist)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Aesthetic Goals / Notes</label>
-                            <textarea rows="4" class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all" placeholder="Briefly describe your skin/hair goals..."></textarea>
-                        </div>
-
-                        <div class="pt-4">
-                            <button type="submit" class="w-full bg-charcoal text-white hover:bg-champagne-dark py-4 rounded-xl font-sans text-xs uppercase tracking-[0.25em] transition-all duration-300 font-semibold shadow-luxury hover-interactive">
-                                Submit Secure Reservation
+                        <!-- 3 Direct Working Booking Action Cards -->
+                        <div class="space-y-4 pt-2">
+                            <!-- Action 1: Interactive Form Modal -->
+                            <button onclick="openBookingModal()" class="w-full p-5 bg-white border-2 border-champagne hover:bg-champagne hover:text-white rounded-2xl shadow-sm transition-all duration-300 flex items-center justify-between group cursor-pointer text-left">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-champagne/10 text-champagne group-hover:bg-white group-hover:text-charcoal rounded-xl transition-colors shrink-0">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base font-bold text-charcoal group-hover:text-white">Fill Online Booking Form</h5>
+                                        <p class="text-xs text-charcoal-light group-hover:text-white/80 font-medium">Select doctor, date, & treatment service</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-champagne group-hover:text-white transform group-hover:translate-x-1 transition-transform shrink-0"></i>
                             </button>
-                        </div>
-                    </form>
 
-                    <!-- Success Message Alert -->
-                    <div id="booking-success-message" class="hidden mt-6 p-6 bg-champagne/10 border border-champagne/30 rounded-xl text-center">
-                        <i data-lucide="check-circle" class="w-8 h-8 text-champagne mx-auto mb-2"></i>
-                        <h4 class="font-serif text-lg font-semibold text-charcoal">Reservation Request Received</h4>
-                        <p class="text-xs text-charcoal-light mt-1">Our guest relations executive will coordinate with you via phone/WhatsApp within 2 hours to confirm your suite availability.</p>
+                            <!-- Action 2: Direct WhatsApp Chat -->
+                            <a href="https://wa.me/917893616535?text=Hello%20SS%20Skin%20and%20Hair%20Clinic,%20I%20want%20to%20book%20a%20consultation" target="_blank" class="w-full p-5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-2xl shadow-md transition-all duration-300 flex items-center justify-between group cursor-pointer text-left">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-white/20 rounded-xl shrink-0">
+                                        <i data-lucide="message-square" class="w-6 h-6 text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base font-bold text-white">Chat on WhatsApp</h5>
+                                        <p class="text-xs text-white/80 font-medium">+91 78936 16535 • Instant Response</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="external-link" class="w-5 h-5 text-white/80 shrink-0"></i>
+                            </a>
+
+                            <!-- Action 3: Direct Phone Call -->
+                            <a href="tel:+917893616535" class="w-full p-5 bg-charcoal hover:bg-champagne text-white rounded-2xl shadow-md transition-all duration-300 flex items-center justify-between group cursor-pointer text-left">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-white/10 rounded-xl shrink-0">
+                                        <i data-lucide="phone-call" class="w-6 h-6 text-champagne group-hover:text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base font-bold text-white">Call Clinic Front Desk</h5>
+                                        <p class="text-xs text-white/80 font-medium">+91 78936 16535 • Mon-Sat (10 AM - 8 PM)</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="phone-outgoing" class="w-5 h-5 text-white/80 shrink-0"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -1132,46 +1085,52 @@
             const form = document.getElementById('modal-booking-form');
             const success = document.getElementById('modal-success-message');
 
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let name = '', phone = '', service = '', doctor = '', date = '';
+
+            inputs.forEach(i => {
+                if (i.placeholder && i.placeholder.toLowerCase().includes('name')) name = i.value;
+                else if (i.type === 'tel' || (i.placeholder && i.placeholder.toLowerCase().includes('mobile'))) phone = i.value;
+                else if (i.type === 'date') date = i.value;
+                else if (i.tagName === 'SELECT') {
+                    if (i.value.includes('Triveni')) doctor = i.value;
+                    else if (i.value) service = i.value;
+                }
+            });
+
             form.classList.add('hidden');
             success.classList.remove('hidden');
             gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
 
+            const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
+
             setTimeout(() => {
+                window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
                 closeBookingModal();
-                // Reset form elements
                 setTimeout(() => {
                     form.classList.remove('hidden');
                     success.classList.add('hidden');
                     form.reset();
                 }, 500);
-            }, 3000);
+            }, 1200);
         }
 
         function handleQuickFormSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('hero-quick-form');
-            
-            // Create mini overlay notification inside the quick box
-            const parent = form.parentElement;
-            form.classList.add('opacity-30', 'pointer-events-none');
-            
-            const toast = document.createElement('div');
-            toast.className = 'absolute inset-0 flex flex-col items-center justify-center bg-white/95 rounded-2xl p-4 text-center z-30 transition-opacity duration-300';
-            toast.innerHTML = `
-                <i data-lucide="check-circle" class="w-8 h-8 text-champagne mb-2"></i>
-                <h5 class="font-serif text-sm font-semibold text-charcoal">Callback Registered</h5>
-                <p class="text-[10px] text-charcoal-light mt-1">We will contact you shortly.</p>
-            `;
-            parent.appendChild(toast);
-            lucide.createIcons();
+            const inputs = form.querySelectorAll('input, select');
+            let name = '', phone = '', service = '';
 
-            setTimeout(() => {
-                gsap.to(toast, { opacity: 0, duration: 0.4, onComplete: () => {
-                    toast.remove();
-                    form.classList.remove('opacity-30', 'pointer-events-none');
-                    form.reset();
-                }});
-            }, 3000);
+            inputs.forEach(i => {
+                if (i.placeholder && i.placeholder.toLowerCase().includes('name')) name = i.value;
+                else if (i.type === 'tel') phone = i.value;
+                else if (i.tagName === 'SELECT') service = i.value;
+            });
+
+            const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to request a quick callback:%0A• Name: ${encodeURIComponent(name || 'Guest')}%0A• Mobile: ${encodeURIComponent(phone || 'Not provided')}%0A• Service: ${encodeURIComponent(service || 'Cosmetology Consultation')}`;
+
+            window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
+            form.reset();
         }
 
         function handleNewsletterSubmit(e) {
