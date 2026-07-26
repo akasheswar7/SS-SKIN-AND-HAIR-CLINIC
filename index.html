@@ -505,15 +505,18 @@
                         </div>
                     </div>
 
-                    <!-- Styled Grayscale Map Container -->
-                    <div class="w-full h-[250px] rounded-2xl overflow-hidden shadow-luxury border border-borderLight relative group">
-                        <!-- We use grayscale filter with sepia tones to make the map look extremely luxury-editorial -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.7562859!2d83.242!3d17.695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39430000000001%3A0x0!2sSriharipuram%2C+Visakhapatnam%2C+Andhra+Pradesh+530011!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                                class="w-full h-full border-0 grayscale contrast-125 sepia-[20%] group-hover:grayscale-0 transition-all duration-700" 
+                    <!-- Styled Map Container with Exact Clinic Pin -->
+                    <div class="w-full h-[260px] rounded-2xl overflow-hidden shadow-luxury border-2 border-borderLight relative group">
+                        <iframe src="https://maps.google.com/maps?q=SS+Skin+and+Hair+Clinic,+Beside+Tirumala+Rao+Hospital,+Sriharipuram,+Visakhapatnam,+Andhra+Pradesh+530011&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                                class="w-full h-full border-0 contrast-105 group-hover:scale-105 transition-all duration-700" 
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                        <a href="https://maps.google.com/?q=SS+Skin+and+Hair+Clinic,+Beside+Tirumala+Rao+Hospital,+Sriharipuram,+Visakhapatnam" target="_blank" class="absolute bottom-3 right-3 bg-charcoal text-white hover:bg-champagne px-4 py-2 rounded-xl font-sans text-xs font-bold shadow-lg flex items-center space-x-1.5 transition-all z-10">
+                            <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                            <span>Get Directions</span>
+                        </a>
                     </div>
 
                 </div>
