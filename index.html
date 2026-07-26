@@ -1138,10 +1138,30 @@
                 else if (i.tagName === 'SELECT') service = i.value;
             });
 
+            const parent = form.parentElement;
+            form.classList.add('opacity-30', 'pointer-events-none');
+            
+            const toast = document.createElement('div');
+            toast.className = 'absolute inset-0 flex flex-col items-center justify-center bg-white/95 rounded-2xl p-4 text-center z-30 transition-opacity duration-300 shadow-xl border-2 border-champagne';
+            const serviceLabel = service ? ` regarding your ${service}` : '';
+            toast.innerHTML = `
+                <i data-lucide="check-circle" class="w-8 h-8 text-champagne mb-2"></i>
+                <h5 class="font-serif text-sm font-bold text-charcoal">Callback Registered</h5>
+                <p class="text-[11px] text-charcoal-light mt-1 font-semibold leading-relaxed">Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.</p>
+            `;
+            parent.appendChild(toast);
+            lucide.createIcons();
+
             const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to request a quick callback:%0A• Name: ${encodeURIComponent(name || 'Guest')}%0A• Mobile: ${encodeURIComponent(phone || 'Not provided')}%0A• Service: ${encodeURIComponent(service || 'Cosmetology Consultation')}`;
 
-            window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
-            form.reset();
+            setTimeout(() => {
+                window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
+                setTimeout(() => {
+                    toast.remove();
+                    form.classList.remove('opacity-30', 'pointer-events-none');
+                    form.reset();
+                }, 1500);
+            }, 1200);
         }
 
         function handleNewsletterSubmit(e) {
