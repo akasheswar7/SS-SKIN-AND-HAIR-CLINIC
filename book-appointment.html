@@ -406,6 +406,7 @@
                                      `⚡ LASER TECH: Laser Hair Reduction & Removal, Carbon Laser Peel/Facial, Pigmentation Laser, Photo Facial, Laser Tightening, Tattoo Removal.\n` +
                                      `💇 HAIR CARE & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
 
+            // 1. Dispatch Lead Email to Clinic Owner via FormSubmit
             const formSubmitData = new FormData();
             formSubmitData.append('name', name || 'Guest');
             formSubmitData.append('email', email || 'ssskinandhairclinic7@gmail.com');
@@ -416,13 +417,51 @@
             formSubmitData.append('_subject', `New Consultation Reservation - ${service || 'General'}`);
             formSubmitData.append('_template', 'table');
             formSubmitData.append('_captcha', 'false');
-            formSubmitData.append('_autoresponse', `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\nReservation Summary:\n• Patient Name: ${name || 'Guest'}\n• Mobile Number: ${phone || 'Not provided'}\n• Consultation Service: ${service || 'General Consultation'}\n• Doctor: ${doctor || 'Dr. M. Triveni'}\n• Preferred Date: ${date || 'As early as available'}\n\nComplete 35 Clinical Treatments Portfolio:\n• ✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment\n• ⚡ Laser Tech: Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal\n• 💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy`);
 
             fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
                 body: formSubmitData
             }).catch(err => console.log('FormSubmit dispatch notice:', err));
+
+            // 2. Dispatch Instant Confirmation Email to Customer Inbox via Web3Forms
+            if (email && email.includes('@')) {
+                const customerWeb3Payload = {
+                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                    name: name || 'Guest',
+                    email: email,
+                    phone: phone || '',
+                    service: service || 'General Consultation',
+                    doctor: doctor || 'Dr. M. Triveni',
+                    date: date || '',
+                    subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                    message: formattedMessage,
+                    from_name: 'SS SKIN AND HAIR CLINIC',
+                    replyto: 'ssskinandhairclinic7@gmail.com'
+                };
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(customerWeb3Payload)
+                }).catch(err => console.log('Web3Forms customer dispatch notice:', err));
+            }
+
+            // 3. Local Node Mailer Backup Endpoint
+            fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    email: email || 'ssskinandhairclinic7@gmail.com',
+                    phone: phone,
+                    service: service,
+                    doctor: doctor,
+                    date: date,
+                    subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                    message: formattedMessage
+                })
+            }).catch(err => console.log('Local Mailer notice:', err));
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
