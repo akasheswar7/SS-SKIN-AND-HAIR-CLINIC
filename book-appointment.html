@@ -424,20 +424,18 @@
                                     `========================================\n` +
                                     `${fullTreatmentList}`;
 
-            // Background async dispatches in safe try-catch blocks
+            // Dispatch Lead Email to Clinic Owner & Automatic Auto-Response to Customer Inbox via FormSubmit
             try {
                 const formSubmitData = new FormData();
-                formSubmitData.append('Patient Name', name || 'Guest');
-                formSubmitData.append('Mobile Number', phone || '');
-                formSubmitData.append('Email Address', email || 'ssskinandhairclinic7@gmail.com');
-                formSubmitData.append('Consultation Service', service || 'General Consultation');
-                formSubmitData.append('Specialist Doctor', doctor || 'Dr. M. Triveni');
-                formSubmitData.append('Preferred Date', date || '');
-                formSubmitData.append('Complete 35 Clinical Treatments Portfolio', fullTreatmentList);
-                formSubmitData.append('message', fullMessageBody);
-                formSubmitData.append('_replyto', email || 'ssskinandhairclinic7@gmail.com');
+                formSubmitData.append('name', name || 'Guest');
+                formSubmitData.append('email', email || 'ssskinandhairclinic7@gmail.com');
+                formSubmitData.append('phone', phone || 'Not provided');
+                formSubmitData.append('service', service || 'General Consultation');
+                formSubmitData.append('doctor', doctor || 'Dr. M. Triveni');
+                formSubmitData.append('date', date || 'As early as available');
                 formSubmitData.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
                 formSubmitData.append('_autoresponse', fullMessageBody);
+                formSubmitData.append('_template', 'table');
                 formSubmitData.append('_captcha', 'false');
 
                 fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
@@ -447,36 +445,26 @@
                 }).catch(() => {});
             } catch (err) {}
 
-            // 2. Dispatch Instant Customer Email via Pre-Filled Mail Launcher & Background Endpoints
-            if (email && email.includes('@')) {
-                const mailSubject = encodeURIComponent(`Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
-                const mailBody = encodeURIComponent(fullMessageBody);
-                
-                setTimeout(() => {
-                    const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${mailSubject}&body=${mailBody}`;
-                    window.open(mailtoUrl, '_blank');
-                }, 1200);
-
-                const customerWeb3Payload = {
+            // Secondary dispatch via Web3Forms API
+            try {
+                const web3Payload = {
                     access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
                     name: name || 'Guest',
-                    email: email,
+                    email: email || 'ssskinandhairclinic7@gmail.com',
                     phone: phone || '',
                     service: service || 'General Consultation',
                     doctor: doctor || 'Dr. M. Triveni',
                     date: date || '',
                     subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
                     message: fullMessageBody,
-                    "Complete 35 Clinical Treatments Portfolio": fullTreatmentList,
                     from_name: 'SS SKIN AND HAIR CLINIC',
-                    replyto: 'ssskinandhairclinic7@gmail.com'
+                    replyto: email || 'ssskinandhairclinic7@gmail.com'
                 };
 
                 fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(customerWeb3Payload)
-                }).catch(() => {});
+                    body: JSON.stringify(web3Payload)
             } catch (err) {}
 
             const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Email: ${encodeURIComponent(email || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
