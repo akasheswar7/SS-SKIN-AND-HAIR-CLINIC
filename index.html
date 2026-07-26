@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Skin & Hair Clinic | Ultra-Premium Dermatology & Hair Restoration</title>
+    <title>SS SKIN AND HAIR CLINIC | Premium Cosmetology & Hair Restoration</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Welcome to SS Skin & Hair Clinic. Experience world-class, luxury dermatology, advanced hair restoration, laser treatments, and aesthetic care under certified specialists.">
-    <meta name="keywords" content="luxury dermatology, skin clinic, hair restoration, laser hair reduction, anti-ageing, hydrafacial, PRP therapy, hair transplant, aesthetic clinic, premium skin care">
-    <meta name="author" content="SS Skin & Hair Clinic">
+    <meta name="description" content="Welcome to SS SKIN AND HAIR CLINIC. Experience world-class, luxury cosmetology, advanced hair restoration, laser treatments, and aesthetic care under certified specialists.">
+    <meta name="keywords" content="luxury cosmetology, skin clinic, hair restoration, laser hair reduction, anti-ageing, hydrafacial, PRP therapy, hair transplant, aesthetic clinic, premium skin care">
+    <meta name="author" content="SS SKIN AND HAIR CLINIC">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SS Skin & Hair Clinic | Luxury Dermatology & Aesthetic Care">
-    <meta property="og:description" content="Discover world-class dermatology and advanced hair restoration in an ultra-premium, luxury environment. Reveal your healthiest skin today.">
+    <meta property="og:title" content="SS SKIN AND HAIR CLINIC | Luxury Cosmetology & Aesthetic Care">
+    <meta property="og:description" content="Discover world-class cosmetology and advanced hair restoration in a premium, luxury environment. Reveal your healthiest skin today.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="SS Skin & Hair Clinic | Luxury Dermatology & Aesthetic Care">
-    <meta property="twitter:description" content="Discover world-class dermatology and advanced hair restoration in an ultra-premium, luxury environment. Reveal your healthiest skin today.">
+    <meta property="twitter:title" content="SS SKIN AND HAIR CLINIC | Luxury Cosmetology & Aesthetic Care">
+    <meta property="twitter:description" content="Discover world-class cosmetology and advanced hair restoration in a premium, luxury environment. Reveal your healthiest skin today.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -109,6 +109,59 @@
             overflow-x: hidden !important;
             max-width: 100vw !important;
             width: 100% !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1F0A0E !important;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav link bold clarity */
+        header nav a {
+            font-size: 15px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.1em !important;
+            color: #2E0F15 !important;
+        }
+
+        /* Universal readability & bold text enforcement across all screen sizes */
+        p, span, li, label, input, button, select, textarea {
+            font-weight: 600 !important;
+        }
+
+        .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+        }
+
+        .text-sm {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+        }
+
+        .text-charcoal-light {
+            color: #3D262A !important; /* Darker charcoal for sharp readability */
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-weight: 700 !important;
+        }
+
+        /* Mobile specific font size & weight enhancement */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px !important;
+            }
+            .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
+                font-size: 14px !important;
+            }
+            .text-sm {
+                font-size: 16px !important;
+            }
+            #mobile-menu-trigger {
+                width: 44px !important;
+                height: 44px !important;
+            }
         }
 
         /* Scrollbar styling */
@@ -207,33 +260,33 @@
 
 
     <!-- Top Announcement Bar -->
-    <div class="bg-charcoal text-white text-[10px] sm:text-xs font-sans tracking-widest py-2 px-4 text-center border-b border-champagne/30 z-50 relative leading-tight">
-        <span class="text-champagne font-bold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
+    <div class="bg-charcoal text-white text-xs sm:text-sm font-sans tracking-wider py-2.5 px-4 text-center border-b border-champagne/30 z-50 relative leading-tight font-bold">
+        <span class="text-champagne font-extrabold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
     </div>
 
     <!-- Sticky & Premium Header -->
-    <header id="main-header" class="sticky top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out py-4 lg:py-6 px-6 lg:px-16 border-b border-borderLight shadow-sm">
+    <header id="main-header" class="sticky top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out py-4 lg:py-5 px-6 lg:px-16 border-b border-borderLight shadow-sm">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <!-- Logo -->
-            <a href="#home" class="font-serif text-xl md:text-2xl tracking-[0.2em] text-charcoal hover-interactive flex flex-col">
-                <span class="font-medium">SS CLINIC</span>
-                <span class="text-[8px] uppercase tracking-[0.35em] text-champagne -mt-1 font-sans">Skin & Hair</span>
+            <a href="#home" class="font-serif text-lg sm:text-xl md:text-2xl tracking-[0.1em] text-charcoal hover-interactive flex flex-col">
+                <span class="font-bold">SS SKIN AND HAIR CLINIC</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-champagne-dark -mt-0.5 font-sans font-bold">Premium Cosmetology</span>
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-10">
-                <a href="index.html#home" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Home</a>
-                <a href="about.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">About</a>
-                <a href="treatments.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Treatments</a>
-                <a href="gallery.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Gallery</a>
-                <a href="testimonials.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Reviews</a>
-                <a href="index.html#contact" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-semibold">Contact</a>
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+                <a href="index.html#home" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">Home</a>
+                <a href="about.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">About</a>
+                <a href="treatments.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">Treatments</a>
+                <a href="gallery.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">Gallery</a>
+                <a href="testimonials.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">Reviews</a>
+                <a href="index.html#contact" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors duration-300 hover-interactive font-bold">Contact</a>
             </nav>
 
             <!-- Book Consultation CTA Button -->
             <div class="hidden md:block">
-                <button onclick="openBookingModal()" class="border border-champagne text-charcoal px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] hover:bg-champagne hover:text-white transition-all duration-300 hover-interactive relative overflow-hidden bg-transparent group">
-                    <span class="relative z-10 font-semibold">Book Appointment</span>
+                <button onclick="openBookingModal()" class="border-2 border-champagne text-charcoal px-7 py-3 font-sans text-sm uppercase tracking-[0.12em] hover:bg-champagne hover:text-white transition-all duration-300 hover-interactive relative overflow-hidden bg-transparent group font-bold shadow-sm">
+                    <span class="relative z-10 font-bold">Book Appointment</span>
                     <div class="absolute inset-0 bg-champagne transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10"></div>
                 </button>
             </div>
@@ -258,14 +311,14 @@
             </svg>
         </button>
         <nav class="flex flex-col space-y-8 text-center w-full max-w-sm">
-            <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
-            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
-            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Treatments</a>
-            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
-            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
-            <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
+            <a href="index.html#home" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Home</a>
+            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">About</a>
+            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Treatments</a>
+            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
+            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Reviews</a>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Contact</a>
             <div class="pt-6">
-                <button onclick="closeMobileMenu(); openBookingModal();" class="border border-champagne text-charcoal px-8 py-3.5 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full font-semibold">
+                <button onclick="closeMobileMenu(); openBookingModal();" class="border-2 border-champagne text-charcoal px-8 py-4 font-sans text-sm uppercase tracking-wider hover:bg-champagne hover:text-white transition-all w-full font-bold">
                     Book Appointment
                 </button>
             </div>
@@ -283,28 +336,38 @@
                 <div class="space-y-3 sm:space-y-4">
                     <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-champagne/15 border border-champagne/40 text-charcoal font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold shadow-sm max-w-full">
                         <span class="text-xs shrink-0">✨</span>
-                        <span class="truncate">Vizag's Premier Dermatology & Hair Clinic</span>
+                        <span class="truncate">Vizag's Premier Cosmetology & Hair Clinic</span>
                     </div>
                     <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[5.2rem] leading-[1.1] tracking-tight text-charcoal font-light">
-                        Reveal Your <span class="italic font-normal text-champagne-dark">Healthiest</span> Skin. <br class="hidden sm:inline">
-                        Restore Your Natural Hair.
+                        Pure <span class="italic font-normal text-champagne-dark">Skincare</span>. <br class="hidden sm:inline">
+                        Expert <span class="italic font-normal text-champagne-dark">HairCare</span>.
                     </h2>
                 </div>
 
                 <div class="max-w-xl">
                     <p class="font-sans text-xs sm:text-sm md:text-base text-charcoal-light leading-relaxed tracking-wide font-medium">
-                        Vizag's #1 Destination for Advanced Skincare, Hair Restoration, Laser Treatments & Cosmetic Dermatology. Discover 100% FDA-Approved treatments customized for your skin in a state-of-the-art sanctuary.
+                        Vizag's #1 Destination for Advanced Skincare, Hair Restoration, Laser Treatments & Cosmetology. Discover 100% certified treatments customized for your skin in a state-of-the-art sanctuary.
                     </p>
                 </div>
 
-                <!-- Promo Special Badge -->
-                <div class="p-3.5 sm:p-4 bg-white/95 rounded-2xl border border-champagne/40 shadow-luxury max-w-xl flex items-center space-x-3">
-                    <div class="p-2 sm:p-2.5 bg-champagne/20 rounded-xl text-champagne shrink-0">
-                        <i data-lucide="sparkles" class="w-4 sm:w-5 h-4 sm:h-5"></i>
+                <!-- Promo Special Badge (Ultra-Attractive Highlight - Dark Charcoal & Gold Theme) -->
+                <div class="relative p-4 sm:p-5 bg-charcoal text-white rounded-2xl border-2 border-champagne shadow-[0_12px_40px_rgba(46,15,21,0.3)] max-w-xl flex items-center space-x-3.5 sm:space-x-4 overflow-hidden transform hover:-translate-y-0.5 transition-all duration-300 group">
+                    <!-- Subtle ambient shimmer element -->
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-champagne/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                    
+                    <!-- Glowing Icon Container -->
+                    <div class="p-3 sm:p-3.5 bg-gradient-to-br from-champagne via-champagne-dark to-amber-600 rounded-xl text-white shadow-md shrink-0 relative z-10">
+                        <i data-lucide="sparkles" class="w-5 sm:w-6 h-5 sm:h-6"></i>
                     </div>
-                    <div>
-                        <h4 class="font-serif text-xs sm:text-sm font-bold text-charcoal">Exclusive Vizag Patient Offer</h4>
-                        <p class="text-[11px] sm:text-xs text-charcoal-light font-medium mt-0.5">Book online today & get <strong class="text-charcoal font-bold">20% OFF</strong> your initial skin diagnostic consultation.</p>
+
+                    <div class="relative z-10">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-champagne text-charcoal text-[9px] sm:text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full shadow-sm">Special Offer</span>
+                            <h4 class="font-serif text-xs sm:text-sm font-extrabold text-champagne-light tracking-wide">EXCLUSIVE VIZAG PATIENT OFFER</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-white/90 font-medium mt-1 leading-snug">
+                            Book online today & get <span class="bg-champagne text-charcoal px-2.5 py-0.5 rounded-md font-extrabold inline-block shadow-md">20% OFF</span> your initial consultation.
+                        </p>
                     </div>
                 </div>
 
@@ -322,16 +385,16 @@
                 <!-- Quick highlights -->
                 <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-borderLight max-w-lg">
                     <div>
-                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">12+ Yrs</h4>
-                        <p class="font-sans text-[9px] sm:text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Excellence</p>
+                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">5+ Yrs</h4>
+                        <p class="font-sans text-[9px] sm:text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Experience</p>
                     </div>
                     <div>
-                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">99.8%</h4>
+                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">99.9%</h4>
                         <p class="font-sans text-[9px] sm:text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Satisfaction</p>
                     </div>
                     <div>
-                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">US-FDA</h4>
-                        <p class="font-sans text-[9px] sm:text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Certified</p>
+                        <h4 class="font-serif text-xl sm:text-2xl text-charcoal font-medium">100%</h4>
+                        <p class="font-sans text-[9px] sm:text-[10px] text-charcoal-light uppercase tracking-widest mt-1">Certified Care</p>
                     </div>
                 </div>
             </div>
@@ -341,7 +404,7 @@
                 <!-- Large frame for image -->
                 <div class="relative w-full aspect-[4/4] sm:aspect-[4/5] md:w-[450px] lg:w-full overflow-hidden rounded-3xl sm:rounded-[2.5rem] shadow-luxury border-2 sm:border-4 border-white z-10 group">
                     <img src="./assets/medi_facial_treatment.jpg" 
-                         alt="High-tech clinical facial treatment at SS Clinic" 
+                         alt="High-tech clinical facial treatment at SS Skin and Hair Clinic" 
                          loading="eager"
                          fetchpriority="high"
                          class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
@@ -401,42 +464,42 @@
                         </p>
                     </div>
 
-                    <div class="space-y-6">
-                        <!-- Contact Detail 1 -->
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
-                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <div class="space-y-4">
+                        <!-- Contact Detail 1 Card Box -->
+                        <div class="p-5 sm:p-6 bg-ivory/90 border-2 border-borderLight hover:border-champagne rounded-2xl shadow-sm hover:shadow-luxury transition-all duration-300 flex items-start space-x-4">
+                            <div class="p-3.5 bg-[#4A121E] border-2 border-champagne/70 rounded-xl text-champagne-light shrink-0 shadow-md">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h5 class="font-serif text-lg font-semibold text-charcoal">Clinic Sanctuary Location</h5>
-                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">62-1-15/4B, Above Anand Flour Mill, Sriharipuram Main Road, Beside Tirumala Rao Hospital, Jawaharlnagar Road, Sriharipuram, Visakhapatnam - 530011, Andhra Pradesh</p>
+                                <h5 class="font-serif text-base sm:text-lg font-bold text-charcoal">Clinic Sanctuary Location</h5>
+                                <p class="text-xs sm:text-sm text-charcoal-light font-semibold leading-relaxed mt-1">62-1-15/4B, Above Anand Flour Mill, Sriharipuram Main Road, Beside Tirumala Rao Hospital, Jawaharlnagar Road, Sriharipuram, Visakhapatnam - 530011, Andhra Pradesh</p>
                             </div>
                         </div>
 
-                        <!-- Contact Detail 2 -->
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
+                        <!-- Contact Detail 2 Card Box -->
+                        <div class="p-5 sm:p-6 bg-ivory/90 border-2 border-borderLight hover:border-champagne rounded-2xl shadow-sm hover:shadow-luxury transition-all duration-300 flex items-start space-x-4">
+                            <div class="p-3.5 bg-[#4A121E] border-2 border-champagne/70 rounded-xl text-champagne-light shrink-0 shadow-md">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h5 class="font-serif text-lg font-semibold text-charcoal">Guest Care Services</h5>
-                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">
-                                    <span class="block">Phone: +91 78936 16535</span>
-                                    <span class="block">WhatsApp Support: +91 78936 16535</span>
+                                <h5 class="font-serif text-base sm:text-lg font-bold text-charcoal">Guest Care Services</h5>
+                                <p class="text-xs sm:text-sm text-charcoal-light font-semibold leading-relaxed mt-1">
+                                    <span class="block text-charcoal font-bold">Phone: +91 78936 16535</span>
+                                    <span class="block text-emerald-700 font-bold mt-0.5">WhatsApp Support: +91 78936 16535</span>
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Contact Detail 3 -->
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-ivory border border-champagne/30 rounded-xl text-champagne">
-                                <i data-lucide="clock" class="w-5 h-5"></i>
+                        <!-- Contact Detail 3 Card Box -->
+                        <div class="p-5 sm:p-6 bg-ivory/90 border-2 border-borderLight hover:border-champagne rounded-2xl shadow-sm hover:shadow-luxury transition-all duration-300 flex items-start space-x-4">
+                            <div class="p-3.5 bg-[#4A121E] border-2 border-champagne/70 rounded-xl text-champagne-light shrink-0 shadow-md">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h5 class="font-serif text-lg font-semibold text-charcoal">Clinic Visiting Hours</h5>
-                                <p class="text-xs text-charcoal-light leading-relaxed mt-1">
+                                <h5 class="font-serif text-base sm:text-lg font-bold text-charcoal">Clinic Visiting Hours</h5>
+                                <p class="text-xs sm:text-sm text-charcoal-light font-semibold leading-relaxed mt-1">
                                     <span class="block">Monday - Saturday: 10:00 AM - 8:00 PM</span>
-                                    <span class="block">Sunday: Closed (By Prior Appointment Only)</span>
+                                    <span class="block text-champagne-dark font-bold mt-0.5">Sunday: Closed (By Prior Appointment Only)</span>
                                 </p>
                             </div>
                         </div>
@@ -501,7 +564,7 @@
                                 <label class="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal-light">Preferred Specialist</label>
                                 <select required class="w-full px-5 py-3.5 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
                                     <option value="" disabled selected>Select doctor</option>
-                                    <option value="Dr. Shreya Sharma">Dr. Shreya Sharma (Dermatologist)</option>
+                                    <option value="Dr. Shreya Sharma">Dr. Shreya Sharma (Cosmetologist)</option>
                                     <option value="Dr. Siddharth Sen">Dr. Siddharth Sen (Hair Specialist)</option>
                                     <option value="Any Available Expert">No Preference (First Available Specialist)</option>
                                 </select>
@@ -579,9 +642,9 @@
                 
                 <!-- Col 1: Brand -->
                 <div class="lg:col-span-4 space-y-6">
-                    <h4 class="font-serif text-2xl tracking-[0.2em] text-white">SS CLINIC</h4>
+                    <h4 class="font-serif text-xl md:text-2xl tracking-[0.15em] text-white">SS SKIN & HAIR CLINIC</h4>
                     <p class="text-xs text-white/50 leading-relaxed max-w-sm">
-                        An award-winning sanctuary specializing in advanced dermatology and hair transplantation. We integrate medical excellence with the hospitality of international luxury brands.
+                        An award-winning sanctuary specializing in advanced cosmetology and hair transplantation. We integrate medical excellence with the hospitality of international luxury brands.
                     </p>
                     <div class="flex items-center space-x-4">
                         <a href="https://instagram.com" target="_blank" class="p-2 border border-white/10 rounded-full hover:border-champagne hover:text-champagne transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
@@ -595,7 +658,7 @@
                 <div class="lg:col-span-3 space-y-4">
                     <h5 class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold font-semibold">Treatment Suites</h5>
                     <ul class="space-y-2 text-xs text-white/50">
-                        <li><a href="#services" class="hover:text-champagne transition-colors">Medical Dermatology</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Advanced Cosmetology</a></li>
                         <li><a href="#services" class="hover:text-champagne transition-colors">Hair Transplant FUE</a></li>
                         <li><a href="#services" class="hover:text-champagne transition-colors">Laser Hair Reduction</a></li>
                         <li><a href="#services" class="hover:text-champagne transition-colors">Anti-Ageing & Aesthetics</a></li>

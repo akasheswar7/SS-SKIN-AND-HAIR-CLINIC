@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,6 +48,59 @@
             overflow-x: hidden !important;
             max-width: 100vw !important;
             width: 100% !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1F0A0E !important;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav link bold clarity */
+        header nav a {
+            font-size: 15px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.1em !important;
+            color: #2E0F15 !important;
+        }
+
+        /* Universal readability & bold text enforcement across all screen sizes */
+        p, span, li, label, input, button, select, textarea {
+            font-weight: 600 !important;
+        }
+
+        .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+        }
+
+        .text-sm {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+        }
+
+        .text-charcoal-light {
+            color: #3D262A !important;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-weight: 700 !important;
+        }
+
+        /* Mobile specific font size & weight enhancement */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px !important;
+            }
+            .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
+                font-size: 14px !important;
+            }
+            .text-sm {
+                font-size: 16px !important;
+            }
+            #mobile-menu-trigger {
+                width: 44px !important;
+                height: 44px !important;
+            }
         }
     </style>
     <!-- Lucide Icons -->
@@ -88,27 +141,27 @@
 <body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-white flex flex-col min-h-screen">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-charcoal text-white text-[10px] sm:text-xs font-sans tracking-widest py-2 px-4 text-center border-b border-champagne/30 relative z-50 leading-tight">
-        <span class="text-champagne font-bold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
+    <div class="bg-charcoal text-white text-xs sm:text-sm font-sans tracking-wider py-2.5 px-4 text-center border-b border-champagne/30 relative z-50 leading-tight font-bold">
+        <span class="text-champagne font-extrabold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
     </div>
 
     <!-- Header -->
-    <header class="w-full py-4 lg:py-6 px-6 lg:px-16 border-b border-borderLight bg-white relative z-50">
+    <header class="w-full py-4 lg:py-5 px-6 lg:px-16 border-b border-borderLight bg-white relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="font-serif text-xl md:text-2xl tracking-[0.2em] text-charcoal flex flex-col">
-                <span class="font-medium">SS CLINIC</span>
-                <span class="text-[8px] uppercase tracking-[0.35em] text-champagne -mt-1 font-sans">Skin & Hair</span>
+            <a href="index.html" class="font-serif text-lg sm:text-xl md:text-2xl tracking-[0.1em] text-charcoal flex flex-col">
+                <span class="font-bold">SS SKIN AND HAIR CLINIC</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-champagne-dark -mt-0.5 font-sans font-bold">Premium Cosmetology</span>
             </a>
-            <nav class="hidden md:flex items-center space-x-10">
-                <a href="index.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Home</a>
-                <a href="about.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">About</a>
-                <a href="treatments.html" class="font-sans text-xs uppercase tracking-[0.2em] text-champagne font-semibold">Treatments</a>
-                <a href="gallery.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Gallery</a>
-                <a href="testimonials.html" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Reviews</a>
-                <a href="index.html#contact" class="font-sans text-xs uppercase tracking-[0.2em] text-charcoal hover:text-champagne transition-colors font-semibold">Contact</a>
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+                <a href="index.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Home</a>
+                <a href="about.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">About</a>
+                <a href="treatments.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-champagne font-extrabold">Treatments</a>
+                <a href="gallery.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
+                <a href="testimonials.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Reviews</a>
+                <a href="index.html#contact" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Contact</a>
             </nav>
             <div class="hidden md:block">
-                <a href="index.html#contact" class="bg-charcoal text-white hover:bg-champagne px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">Book Appointment</a>
+                <a href="index.html#contact" class="bg-charcoal text-white hover:bg-champagne px-7 py-3 font-sans text-sm uppercase tracking-[0.12em] transition-all font-bold shadow-sm">Book Appointment</a>
             </div>
 
             <!-- Mobile Navigation Trigger (3 Dots Kebab Menu) -->
@@ -130,14 +183,14 @@
             </svg>
         </button>
         <nav class="flex flex-col space-y-6 text-center w-full max-w-sm">
-            <a href="index.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Home</a>
-            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">About</a>
-            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-champagne transition-colors font-bold">Treatments</a>
-            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Gallery</a>
-            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Reviews</a>
-            <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-2xl tracking-widest text-charcoal hover:text-champagne transition-colors">Contact</a>
+            <a href="index.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Home</a>
+            <a href="about.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">About</a>
+            <a href="treatments.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-champagne transition-colors font-extrabold">Treatments</a>
+            <a href="gallery.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
+            <a href="testimonials.html" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Reviews</a>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="font-serif text-3xl sm:text-4xl tracking-wider text-charcoal hover:text-champagne transition-colors font-bold">Contact</a>
             <div class="pt-4">
-                <a href="index.html#contact" onclick="closeMobileMenu()" class="block border border-champagne text-charcoal py-3 font-sans text-xs uppercase tracking-widest hover:bg-champagne hover:text-white transition-all w-full text-center font-semibold">
+                <a href="index.html#contact" onclick="closeMobileMenu()" class="block border-2 border-champagne text-charcoal py-4 font-sans text-sm uppercase tracking-wider hover:bg-champagne hover:text-white transition-all w-full text-center font-bold">
                     Book Appointment
                 </a>
             </div>
@@ -157,7 +210,7 @@
             <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
 
             <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed max-w-2xl mx-auto">
-                Discover our targeted treatment programs combining medical science and FDA-approved laser technology: HydraFacial, Hair Restorations, Laser Hair Reduction, Anti-Ageing Therapies, and PRP Cellular Treatments.
+                Discover our targeted treatment programs combining medical science and advanced laser technology: HydraFacial, Hair Restorations, Laser Hair Reduction, Anti-Ageing Therapies, and PRP Cellular Treatments.
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-borderLight text-center">
