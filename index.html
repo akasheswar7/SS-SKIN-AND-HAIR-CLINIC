@@ -1217,45 +1217,44 @@
                               `• ⚡ Laser Tech (Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal)\n` +
                               `• 💇 Hair Care & FUE (PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy)`;
 
-            // FormSubmit Asynchronous Email Dispatch to Clinic Admin & Customer Autoresponder
+            // FormSubmit Asynchronous Email Dispatch (Clean Custom Formatting - NO Generic Table!)
+            const formattedMessage = `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
+                                     `========================================\n` +
+                                     `PATIENT RESERVATION SUMMARY:\n` +
+                                     `========================================\n` +
+                                     `• Patient Name: ${name || 'Guest'}\n` +
+                                     `• Mobile Number: ${phone || 'Not provided'}\n` +
+                                     `• Email Address: ${email || 'Not provided'}\n` +
+                                     `• Consultation Service: ${service || 'General Consultation'}\n` +
+                                     `• Doctor: ${doctor || 'Dr. M. Triveni'}\n` +
+                                     `• Preferred Date: ${date || 'As early as available'}\n\n` +
+                                     `========================================\n` +
+                                     `COMPLETE 35 CLINICAL TREATMENTS PORTFOLIO:\n` +
+                                     `========================================\n` +
+                                     `✨ SKIN CARE (17 Treatments):\n` +
+                                     `HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne Treatment, Acne Scar Care, Pigmentation Treatment, Melasma Care, Anti-Aging Treatments, Wrinkle Reduction, Skin Tightening, Dark Circle Treatment, Open Pore Treatment, Mole & Wart Removal, Skin Tag Removal, Corn Removal, Stretch Mark Treatment.\n\n` +
+                                     `⚡ LASER TECH (9 Treatments):\n` +
+                                     `Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal.\n\n` +
+                                     `💇 HAIR CARE & FUE (9 Treatments):\n` +
+                                     `PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
+
             const formData = new FormData();
-            formData.append('name', name || 'Guest');
-            formData.append('email', email || '');
-            formData.append('_replyto', email || '');
-            formData.append('phone', phone || '');
-            formData.append('service', service || 'General Consultation');
-            formData.append('doctor', doctor || 'Dr. M. Triveni');
-            formData.append('date', date || '');
-            formData.append('_subject', `New Consultation Reservation - ${service || 'General'}`);
-            formData.append('_template', 'table');
-            formData.append('_autoresponse', `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\nReservation Summary:\n• Patient Name: ${name || 'Guest'}\n• Mobile Number: ${phone || 'Not provided'}\n• Consultation Service: ${service || 'General Consultation'}\n• Doctor: ${doctor || 'Dr. M. Triveni'}\n• Date: ${date || 'As early as available'}\n\nComplete 35 Clinical Treatments Portfolio:\n• ✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment\n• ⚡ Laser Tech: Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal\n• 💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy`);
+            formData.append('Patient Name', name || 'Guest');
+            formData.append('Mobile Number', phone || '');
+            formData.append('Email Address', email || '');
+            formData.append('Consultation Service', service || 'General Consultation');
+            formData.append('Specialist Doctor', doctor || 'Dr. M. Triveni');
+            formData.append('Preferred Date', date || '');
+            formData.append('message', formattedMessage);
+            formData.append('_replyto', email || 'ssskinandhairclinic7@gmail.com');
+            formData.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
+            formData.append('_autoresponse', formattedMessage);
 
             fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
                 body: formData
             }).catch(err => console.log('FormSubmit dispatch notice:', err));
-
-            // Directly dispatch confirmation email to Customer Email if provided
-            if (email && email.includes('@')) {
-                const customerData = new FormData();
-                customerData.append('name', name || 'Guest');
-                customerData.append('email', email);
-                customerData.append('_replyto', 'ssskinandhairclinic7@gmail.com');
-                customerData.append('phone', phone || '');
-                customerData.append('service', service || 'General Consultation');
-                customerData.append('doctor', doctor || 'Dr. M. Triveni');
-                customerData.append('date', date || '');
-                customerData.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
-                customerData.append('_template', 'table');
-                customerData.append('_autoresponse', `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\nReservation Summary:\n• Patient Name: ${name || 'Guest'}\n• Mobile Number: ${phone || 'Not provided'}\n• Consultation Service: ${service || 'General Consultation'}\n• Doctor: ${doctor || 'Dr. M. Triveni'}\n• Preferred Date: ${date || 'As early as available'}\n\nComplete 35 Clinical Treatments Portfolio:\n• ✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment\n• ⚡ Laser Tech: Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal\n• 💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy`);
-
-                fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
-                    method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: customerData
-                }).catch(err => console.log('Customer dispatch notice:', err));
-            }
 
             // Also post to local node server endpoint as backup
             fetch('/api/send-email', {
