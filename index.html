@@ -1119,22 +1119,31 @@
 
 
         // ----------------------------------------------------
-        // BOOKING APPOINTMENT MODAL LOGIC
+        // BOOKING APPOINTMENT MODAL LOGIC (Fail-Safe)
         // ----------------------------------------------------
-        const modal = document.getElementById('booking-modal');
-        const modalContent = document.getElementById('booking-modal-content');
-
         function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            const modalContent = document.getElementById('booking-modal-content');
+            if (!modal || !modalContent) return;
+
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            gsap.to(modal, { opacity: 1, duration: 0.3 });
-            gsap.to(modalContent, { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' });
-            lenis.stop();
+
+            if (window.gsap) {
+                gsap.to(modal, { opacity: 1, duration: 0.3 });
+                gsap.to(modalContent, { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' });
+            }
+            if (typeof lenis !== 'undefined' && lenis && typeof lenis.stop === 'function') {
+                lenis.stop();
+            }
         }
 
         function closeBookingModal() {
-            gsap.to(modalContent, { scale: 0.95, opacity: 0, duration: 0.3, ease: 'power3.in' });
-            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
+            const modal = document.getElementById('booking-modal');
+            const modalContent = document.getElementById('booking-modal-content');
+            if (!modal || !modalContent) return;
+
+            const resetForm = () => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 const form = document.getElementById('modal-booking-form');
@@ -1144,8 +1153,17 @@
                     success.classList.add('hidden');
                     form.reset();
                 }
-                if (typeof lenis !== 'undefined' && lenis) lenis.start();
-            }});
+                if (typeof lenis !== 'undefined' && lenis && typeof lenis.start === 'function') {
+                    lenis.start();
+                }
+            };
+
+            if (window.gsap) {
+                gsap.to(modalContent, { scale: 0.95, opacity: 0, duration: 0.3, ease: 'power3.in' });
+                gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: resetForm });
+            } else {
+                resetForm();
+            }
         }
 
         // Close modal on escape key
