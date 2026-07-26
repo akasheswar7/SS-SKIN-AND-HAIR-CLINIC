@@ -1224,11 +1224,11 @@
                 emailBtn.href = mailtoUrl;
             }
 
-            fetch('https://api.web3forms.com/submit', {
+            // Dispatch real email via local SMTP Server API
+            fetch('/api/send-email', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
                     name: name,
                     email: email || 'patient@ssclinic.com',
                     phone: phone,
@@ -1238,7 +1238,20 @@
                     subject: emailSubject,
                     message: emailBody
                 })
-            }).catch(err => console.log('Web3Forms dispatch notice:', err));
+            })
+            .then(res => res.json())
+            .then(resData => {
+                if (resData && resData.previewUrl) {
+                    const emailBtn = document.getElementById('email-client-button');
+                    if (emailBtn) {
+                        emailBtn.href = resData.previewUrl;
+                        emailBtn.target = "_blank";
+                        emailBtn.innerHTML = `<i data-lucide="mail-check" class="w-4 h-4"></i><span>View Dispatched Email Inbox</span>`;
+                        lucide.createIcons();
+                    }
+                }
+            })
+            .catch(err => console.log('Email API dispatch notice:', err));
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
