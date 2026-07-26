@@ -1199,30 +1199,33 @@
             }
 
             // Dispatch automated email via Web3Forms API endpoint
+            const emailSubject = `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`;
+            const emailBody = `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
+                              `Reservation Summary:\n` +
+                              `• Patient Name: ${name || 'Guest'}\n` +
+                              `• Mobile Number: ${phone || 'Not provided'}\n` +
+                              `• Email Address: ${email || 'Not provided'}\n` +
+                              `• Consultation Service: ${service || 'General Consultation'}\n` +
+                              `• Assigned Specialist: ${doctor || 'Dr. M. Triveni'}\n` +
+                              `• Preferred Date: ${date || 'As early as available'}\n\n` +
+                              `Complete 35 Clinical Treatments Portfolio:\n` +
+                              `• ✨ Skin Care (HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment)\n` +
+                              `• ⚡ Laser Tech (Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal)\n` +
+                              `• 💇 Hair Care & FUE (PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy)`;
+
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
-                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453', // Free Web3Forms public API key
+                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
                     name: name,
                     email: email || 'patient@ssclinic.com',
                     phone: phone,
                     service: service,
                     doctor: doctor,
                     date: date,
-                    subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
-                    message: `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
-                             `RESERVATION SUMMARY:\n` +
-                             `• Patient Name: ${name}\n` +
-                             `• Phone: ${phone}\n` +
-                             `• Email: ${email}\n` +
-                             `• Requested Service: ${service}\n` +
-                             `• Doctor: ${doctor}\n` +
-                             `• Date: ${date}\n\n` +
-                             `CLINICAL TREATMENTS PORTFOLIO (35 Treatments):\n` +
-                             `✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Treatment, Pigmentation, Anti-Aging, Skin Tightening, Dark Circle & Open Pore Care, Mole/Wart/Tag/Corn Removal, Stretch Marks.\n` +
-                             `⚡ Laser Tech: Laser Hair Reduction & Removal, Carbon Laser Peel/Facial, Pigmentation Laser, Photo Facial, Laser Tightening, Tattoo Removal.\n` +
-                             `💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall & Regrowth Treatment, Dandruff Care, Mesotherapy, Scalp Rejuvenation, Hair Strengthening & Nutrition.`
+                    subject: emailSubject,
+                    message: emailBody
                 })
             }).catch(err => console.log('Web3Forms dispatch notice:', err));
 
