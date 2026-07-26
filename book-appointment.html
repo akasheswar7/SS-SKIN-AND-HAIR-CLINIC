@@ -428,22 +428,25 @@
 
             // Dispatch Lead Email to Clinic Owner & Automatic Auto-Response to Customer Inbox via FormSubmit
             try {
-                const formSubmitData = new FormData();
-                formSubmitData.append('name', name || 'Guest');
-                formSubmitData.append('email', email || 'ssskinandhairclinic7@gmail.com');
-                formSubmitData.append('phone', phone || 'Not provided');
-                formSubmitData.append('service', service || 'General Consultation');
-                formSubmitData.append('doctor', doctor || 'Dr. M. Triveni');
-                formSubmitData.append('date', date || 'As early as available');
-                formSubmitData.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
-                formSubmitData.append('_autoresponse', fullMessageBody);
-                formSubmitData.append('_template', 'table');
-                formSubmitData.append('_captcha', 'false');
+                const params = new URLSearchParams();
+                params.append('name', name || 'Guest');
+                params.append('email', email || 'ssskinandhairclinic7@gmail.com');
+                params.append('phone', phone || 'Not provided');
+                params.append('service', service || 'General Consultation');
+                params.append('doctor', doctor || 'Dr. M. Triveni');
+                params.append('date', date || 'As early as available');
+                params.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
+                params.append('_autoresponse', fullMessageBody);
+                params.append('_template', 'table');
+                params.append('_captcha', 'false');
 
                 fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
                     method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: formSubmitData
+                    headers: { 
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json' 
+                    },
+                    body: params
                 }).catch(() => {});
             } catch (err) {}
 
