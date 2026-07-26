@@ -1321,26 +1321,23 @@
             const emailSubject = `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`;
             const emailBody = formattedMessage;
 
-            // Web3Forms Asynchronous Email Dispatch (NO Customer Activation Prompts!)
-            const web3Payload = {
-                access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
-                name: name || 'Guest',
-                email: email || 'ssskinandhairclinic7@gmail.com',
-                phone: phone || '',
-                service: service || 'General Consultation',
-                doctor: doctor || 'Dr. M. Triveni',
-                date: date || '',
-                subject: emailSubject,
-                message: emailBody,
-                from_name: 'SS SKIN AND HAIR CLINIC',
-                replyto: email || 'ssskinandhairclinic7@gmail.com'
-            };
+            const formSubmitData = new FormData();
+            formSubmitData.append('name', name || 'Guest');
+            formSubmitData.append('email', email || 'ssskinandhairclinic7@gmail.com');
+            formSubmitData.append('phone', phone || '');
+            formSubmitData.append('service', service || 'General Consultation');
+            formSubmitData.append('doctor', doctor || 'Dr. M. Triveni');
+            formSubmitData.append('date', date || '');
+            formSubmitData.append('_subject', `New Consultation Reservation - ${service || 'General'}`);
+            formSubmitData.append('_template', 'table');
+            formSubmitData.append('_captcha', 'false');
+            formSubmitData.append('_autoresponse', `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\nReservation Summary:\n• Patient Name: ${name || 'Guest'}\n• Mobile Number: ${phone || 'Not provided'}\n• Consultation Service: ${service || 'General Consultation'}\n• Doctor: ${doctor || 'Dr. M. Triveni'}\n• Preferred Date: ${date || 'As early as available'}\n\nComplete 35 Clinical Treatments Portfolio:\n• ✨ Skin Care: HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment\n• ⚡ Laser Tech: Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal\n• 💇 Hair Care & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy`);
 
-            fetch('https://api.web3forms.com/submit', {
+            fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(web3Payload)
-            }).catch(err => console.log('Web3Forms dispatch notice:', err));
+                headers: { 'Accept': 'application/json' },
+                body: formSubmitData
+            }).catch(err => console.log('FormSubmit dispatch notice:', err));
 
             // Also post to local node server endpoint as backup
             fetch('/api/send-email', {
