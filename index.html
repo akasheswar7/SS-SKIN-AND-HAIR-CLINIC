@@ -556,108 +556,62 @@
 
                 </div>
 
-                <!-- Right Side: Full Working Clinical Contact Form -->
-                <div class="lg:col-span-7 bg-ivory rounded-3xl p-6 sm:p-10 border-2 border-champagne/40 shadow-luxury" id="contact-form-container">
-                    <div class="space-y-6">
+                <!-- Right Side: Clean 1-Click Consultation Hub -->
+                <div class="lg:col-span-7 bg-ivory rounded-3xl p-8 sm:p-12 border-2 border-champagne/40 shadow-luxury" id="contact-form-container">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="p-3.5 bg-[#4A121E] text-champagne-light rounded-2xl w-14 h-14 flex items-center justify-center mx-auto lg:mx-0 shadow-md">
+                            <i data-lucide="calendar-check-2" class="w-7 h-7"></i>
+                        </div>
                         <div>
-                            <span class="font-sans text-xs uppercase tracking-[0.3em] text-champagne block font-semibold">APPOINTMENT RESERVATIONS</span>
-                            <h3 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold mt-1">Book Consultation</h3>
-                            <p class="text-xs text-charcoal-light mt-2 leading-relaxed font-medium">
-                                Fill in your details below to reserve your clinical consultation directly with Dr. M. Triveni:
+                            <span class="font-sans text-xs uppercase tracking-[0.3em] text-champagne block font-semibold">DIRECT CLINIC RESERVATIONS</span>
+                            <h3 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold mt-1">Book Your Consultation</h3>
+                            <p class="text-xs sm:text-sm text-charcoal-light mt-2 leading-relaxed font-medium">
+                                Reserve your clinical consultation directly with Dr. M. Triveni. Choose your preferred booking option below:
                             </p>
                         </div>
 
-                        <form id="contact-booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
-                                <input type="tel" placeholder="Mobile Number" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
-                            </div>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal focus:outline-none transition-all">
-                                <select required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                                    <option value="" disabled selected>Select doctor</option>
-                                    <option value="Dr. M. Triveni (Cosmetologist)">Dr. M. Triveni (Cosmetologist)</option>
-                                    <option value="Dr. M. Triveni (Hair Specialist)">Dr. M. Triveni (Hair Specialist)</option>
-                                </select>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                                    <option value="" disabled selected>Select consultation service</option>
-                                    <optgroup label="✨ Skin & Facial Treatments">
-                                        <option value="HydraFacial">HydraFacial</option>
-                                        <option value="Chemical Peel">Chemical Peel</option>
-                                        <option value="Carbon Laser Peel">Carbon Laser Peel</option>
-                                        <option value="Medi Facials">Medi Facials</option>
-                                        <option value="Skin Brightening">Skin Brightening</option>
-                                        <option value="Dark Circle Treatment">Dark Circle Treatment</option>
-                                        <option value="Open Pore Treatment">Open Pore Treatment</option>
-                                        <option value="Skin Rejuvenation">Skin Rejuvenation</option>
-                                        <option value="Carbon Laser Facial">Carbon Laser Facial</option>
-                                        <option value="Photo Facial">Photo Facial</option>
-                                    </optgroup>
-                                    <optgroup label="🌟 Acne, Pigmentation & Removal">
-                                        <option value="Acne Treatment">Acne Treatment</option>
-                                        <option value="Acne Scar Treatment">Acne Scar Treatment</option>
-                                        <option value="Pigmentation Treatment">Pigmentation Treatment</option>
-                                        <option value="Melasma Treatment">Melasma Treatment</option>
-                                        <option value="Pigmentation Laser">Pigmentation Laser</option>
-                                        <option value="Mole & Wart Removal">Mole & Wart Removal</option>
-                                        <option value="Skin Tag Removal">Skin Tag Removal</option>
-                                        <option value="Corn Removal">Corn Removal</option>
-                                        <option value="Stretch Mark Treatment">Stretch Mark Treatment</option>
-                                        <option value="Tattoo Removal">Tattoo Removal</option>
-                                    </optgroup>
-                                    <optgroup label="👑 Anti-Aging & Tightening">
-                                        <option value="Anti-Aging Treatments">Anti-Aging Treatments</option>
-                                        <option value="Wrinkle Reduction">Wrinkle Reduction</option>
-                                        <option value="Skin Tightening">Skin Tightening</option>
-                                        <option value="Laser Skin Tightening">Laser Skin Tightening</option>
-                                    </optgroup>
-                                    <optgroup label="💇 Hair Care & Restoration">
-                                        <option value="Laser Hair Reduction">Laser Hair Reduction</option>
-                                        <option value="Laser Hair Removal">Laser Hair Removal</option>
-                                        <option value="PRP Hair Therapy">PRP Hair Therapy</option>
-                                        <option value="GFC Hair Therapy">GFC Hair Therapy</option>
-                                        <option value="Hair Fall Treatment">Hair Fall Treatment</option>
-                                        <option value="Hair Regrowth Treatment">Hair Regrowth Treatment</option>
-                                        <option value="Dandruff Treatment">Dandruff Treatment</option>
-                                        <option value="Hair Mesotherapy">Hair Mesotherapy</option>
-                                        <option value="Scalp Rejuvenation">Scalp Rejuvenation</option>
-                                        <option value="Hair Strengthening">Hair Strengthening</option>
-                                        <option value="Hair Nutrition Therapy">Hair Nutrition Therapy</option>
-                                    </optgroup>
-                                </select>
-                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-borderLight focus:border-champagne bg-white text-xs text-charcoal-light focus:outline-none transition-all">
-                            </div>
-
-                            <button type="submit" class="w-full bg-charcoal text-white hover:bg-champagne py-4 rounded-xl font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 font-bold shadow-luxury cursor-pointer">
-                                Confirm Consultation Slot
-                            </button>
-                        </form>
-
-                        <div id="booking-success-message" class="hidden p-6 bg-ivory border-2 border-champagne/60 rounded-3xl text-left shadow-2xl space-y-4">
-                            <div class="text-center space-y-2 pb-4 border-b border-borderLight">
-                                <div class="w-14 h-14 bg-emerald-700 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                                    <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+                        <!-- 3 Fast Action Buttons -->
+                        <div class="space-y-4 pt-2">
+                            <!-- Action 1: Open Dedicated Booking Form Page -->
+                            <a href="book-appointment.html" class="w-full p-5 bg-white border-2 border-champagne hover:bg-champagne hover:text-white rounded-2xl shadow-sm transition-all duration-300 flex items-center justify-between group cursor-pointer text-left block">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-champagne/10 text-champagne group-hover:bg-white group-hover:text-charcoal rounded-xl transition-colors shrink-0">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base sm:text-lg font-bold text-charcoal group-hover:text-white">Fill Online Booking Form</h5>
+                                        <p class="text-xs text-charcoal-light group-hover:text-white/80 font-medium">Select doctor, preferred date, & treatment service</p>
+                                    </div>
                                 </div>
-                                <h5 class="font-serif text-xl font-bold text-charcoal">Reservation Request Received</h5>
-                                <p id="booking-success-text" class="text-xs sm:text-sm text-charcoal font-semibold leading-relaxed max-w-lg mx-auto bg-white p-3.5 rounded-xl border border-champagne/30 text-champagne-dark">
-                                    Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Direct WhatsApp and Call Actions -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            <a href="https://wa.me/917893616535?text=Hello%20SS%20Skin%20and%20Hair%20Clinic,%20I%20want%20to%20book%20a%20consultation" target="_blank" class="p-3.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all">
-                                <i data-lucide="message-square" class="w-4 h-4"></i>
-                                <span>WhatsApp: +91 78936 16535</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-champagne group-hover:text-white transform group-hover:translate-x-1 transition-transform shrink-0"></i>
                             </a>
-                            <a href="tel:+917893616535" class="p-3.5 bg-charcoal hover:bg-champagne text-white rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all">
-                                <i data-lucide="phone-call" class="w-4 h-4"></i>
-                                <span>Call: +91 78936 16535</span>
+
+                            <!-- Action 2: Direct WhatsApp Chat -->
+                            <a href="https://wa.me/917893616535?text=Hello%20SS%20Skin%20and%20Hair%20Clinic,%20I%20want%20to%20book%20a%20consultation" target="_blank" class="w-full p-5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-2xl shadow-md transition-all duration-300 flex items-center justify-between group cursor-pointer text-left block">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-white/20 rounded-xl shrink-0">
+                                        <i data-lucide="message-square" class="w-6 h-6 text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base sm:text-lg font-bold text-white">Chat on WhatsApp</h5>
+                                        <p class="text-xs text-white/80 font-medium">+91 78936 16535 • Instant Response</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="external-link" class="w-5 h-5 text-white/80 shrink-0"></i>
+                            </a>
+
+                            <!-- Action 3: Direct Phone Call -->
+                            <a href="tel:+917893616535" class="w-full p-5 bg-charcoal hover:bg-champagne text-white rounded-2xl shadow-md transition-all duration-300 flex items-center justify-between group cursor-pointer text-left block">
+                                <div class="flex items-center space-x-4">
+                                    <div class="p-3 bg-white/10 rounded-xl shrink-0">
+                                        <i data-lucide="phone-call" class="w-6 h-6 text-champagne group-hover:text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-serif text-base sm:text-lg font-bold text-white">Call Clinic Front Desk</h5>
+                                        <p class="text-xs text-white/80 font-medium">+91 78936 16535 • Mon-Sat (10 AM - 8 PM)</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="phone-outgoing" class="w-5 h-5 text-white/80 shrink-0"></i>
                             </a>
                         </div>
                     </div>
