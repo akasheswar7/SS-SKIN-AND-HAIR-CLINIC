@@ -1217,14 +1217,19 @@
                               `• ⚡ Laser Tech (Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal)\n` +
                               `• 💇 Hair Care & FUE (PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy)`;
 
-            // Set mailto URL for 1-click email client dispatch
+            // Option 2: Automatically launch customer's Mail / Gmail app pre-filled
             const mailtoUrl = `mailto:${encodeURIComponent(email || '')}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             const emailBtn = document.getElementById('email-client-button');
             if (emailBtn) {
                 emailBtn.href = mailtoUrl;
             }
 
-            // Dispatch real email via local SMTP Server API
+            // Instantly open customer Mail client
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+            }, 300);
+
+            // Also dispatch local SMTP server copy
             fetch('/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1238,20 +1243,7 @@
                     subject: emailSubject,
                     message: emailBody
                 })
-            })
-            .then(res => res.json())
-            .then(resData => {
-                if (resData && resData.previewUrl) {
-                    const emailBtn = document.getElementById('email-client-button');
-                    if (emailBtn) {
-                        emailBtn.href = resData.previewUrl;
-                        emailBtn.target = "_blank";
-                        emailBtn.innerHTML = `<i data-lucide="mail-check" class="w-4 h-4"></i><span>View Dispatched Email Inbox</span>`;
-                        lucide.createIcons();
-                    }
-                }
-            })
-            .catch(err => console.log('Email API dispatch notice:', err));
+            }).catch(err => console.log('Email API notice:', err));
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
@@ -1261,7 +1253,7 @@
 
             setTimeout(() => {
                 window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
-            }, 600);
+            }, 1200);
         }
 
         function handleQuickFormSubmit(e) {
