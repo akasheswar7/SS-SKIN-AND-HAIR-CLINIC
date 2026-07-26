@@ -1238,23 +1238,26 @@
                                      `💇 HAIR CARE & FUE (9 Treatments):\n` +
                                      `PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
 
-            const formData = new FormData();
-            formData.append('Patient Name', name || 'Guest');
-            formData.append('Mobile Number', phone || '');
-            formData.append('Email Address', email || '');
-            formData.append('Consultation Service', service || 'General Consultation');
-            formData.append('Specialist Doctor', doctor || 'Dr. M. Triveni');
-            formData.append('Preferred Date', date || '');
-            formData.append('message', formattedMessage);
-            formData.append('_replyto', email || 'ssskinandhairclinic7@gmail.com');
-            formData.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
-            formData.append('_autoresponse', formattedMessage);
+            // Web3Forms Asynchronous Email Dispatch (NO Customer Activation Prompts!)
+            const web3Payload = {
+                access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                name: name || 'Guest',
+                email: email || 'ssskinandhairclinic7@gmail.com',
+                phone: phone || '',
+                service: service || 'General Consultation',
+                doctor: doctor || 'Dr. M. Triveni',
+                date: date || '',
+                subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                message: formattedMessage,
+                from_name: 'SS SKIN AND HAIR CLINIC',
+                replyto: email || 'ssskinandhairclinic7@gmail.com'
+            };
 
-            fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formData
-            }).catch(err => console.log('FormSubmit dispatch notice:', err));
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(web3Payload)
+            }).catch(err => console.log('Web3Forms dispatch notice:', err));
 
             // Also post to local node server endpoint as backup
             fetch('/api/send-email', {
