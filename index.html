@@ -1238,6 +1238,9 @@
                                      `💇 HAIR CARE & FUE (9 Treatments):\n` +
                                      `PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
 
+            const emailSubject = `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`;
+            const emailBody = formattedMessage;
+
             // Web3Forms Asynchronous Email Dispatch (NO Customer Activation Prompts!)
             const web3Payload = {
                 access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
@@ -1247,8 +1250,8 @@
                 service: service || 'General Consultation',
                 doctor: doctor || 'Dr. M. Triveni',
                 date: date || '',
-                subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
-                message: formattedMessage,
+                subject: emailSubject,
+                message: emailBody,
                 from_name: 'SS SKIN AND HAIR CLINIC',
                 replyto: email || 'ssskinandhairclinic7@gmail.com'
             };
@@ -1265,7 +1268,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name: name,
-                    email: email || 'patient@ssclinic.com',
+                    email: email || 'ssskinandhairclinic7@gmail.com',
                     phone: phone,
                     service: service,
                     doctor: doctor,
