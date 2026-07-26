@@ -472,13 +472,15 @@
                     doctor: doctor,
                     date: date,
                     subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
-                    message: formattedMessage
+                    message: fullMessageBody
                 })
             }).catch(err => console.log('Local Mailer notice:', err));
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
-            gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
+            if (window.gsap) {
+                gsap.fromTo(success, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 });
+            }
 
             const waText = `Hello SS Skin and Hair Clinic,%0A%0AI would like to book a consultation:%0A• Patient Name: ${encodeURIComponent(name || 'Guest')}%0A• Contact Phone: ${encodeURIComponent(phone || 'Not provided')}%0A• Email: ${encodeURIComponent(email || 'Not provided')}%0A• Consultation Service: ${encodeURIComponent(service || 'General Consultation')}%0A• Doctor: ${encodeURIComponent(doctor || 'Dr. M. Triveni')}%0A• Preferred Date: ${encodeURIComponent(date || 'As early as available')}`;
 
