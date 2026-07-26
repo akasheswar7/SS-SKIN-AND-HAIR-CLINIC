@@ -694,14 +694,96 @@
                 </button>
             </form>
 
-            <div id="modal-success-message" class="hidden mt-4 p-6 bg-ivory border-2 border-champagne/50 rounded-2xl text-center shadow-lg space-y-2">
-                <div class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                    <i data-lucide="mail-check" class="w-6 h-6"></i>
+            <div id="modal-success-message" class="hidden mt-4 p-6 sm:p-8 bg-ivory border-2 border-champagne/60 rounded-3xl text-left shadow-2xl space-y-6 max-h-[80vh] overflow-y-auto">
+                <div class="text-center space-y-2 pb-4 border-b border-borderLight">
+                    <div class="w-14 h-14 bg-emerald-700 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+                    </div>
+                    <h5 class="font-serif text-xl sm:text-2xl font-bold text-charcoal">Reservation Request Received</h5>
+                    <p class="text-xs sm:text-sm text-charcoal font-semibold leading-relaxed max-w-lg mx-auto bg-white p-3.5 rounded-xl border border-champagne/30 text-champagne-dark">
+                        Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.
+                    </p>
                 </div>
-                <h5 class="font-serif text-lg font-bold text-charcoal">Confirmation Sent</h5>
-                <p class="text-xs text-charcoal-light font-semibold leading-relaxed">
-                    Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.
-                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h6 class="font-serif text-xs sm:text-sm uppercase tracking-widest text-charcoal font-bold">Our Full Range of 35 Clinical Treatments</h6>
+                        <span class="text-[10px] uppercase font-bold text-champagne">SS Clinic Services</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <!-- Skin Care Column -->
+                        <div class="bg-white p-4 rounded-xl border border-borderLight space-y-2">
+                            <div class="flex items-center space-x-2 text-champagne-dark font-bold border-b pb-1.5 border-borderLight">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>Skin Care (17)</span>
+                            </div>
+                            <ul class="space-y-1 text-[11px] text-charcoal-light font-medium">
+                                <li>• HydraFacial</li>
+                                <li>• Chemical Peel</li>
+                                <li>• Medi Facials</li>
+                                <li>• Skin Brightening</li>
+                                <li>• Acne Treatment</li>
+                                <li>• Acne Scar Care</li>
+                                <li>• Pigmentation Treatment</li>
+                                <li>• Melasma Care</li>
+                                <li>• Anti-Aging Treatments</li>
+                                <li>• Wrinkle Reduction</li>
+                                <li>• Skin Tightening</li>
+                                <li>• Dark Circle Treatment</li>
+                                <li>• Open Pore Treatment</li>
+                                <li>• Mole & Wart Removal</li>
+                                <li>• Skin Tag Removal</li>
+                                <li>• Corn Removal</li>
+                                <li>• Stretch Mark Treatment</li>
+                            </ul>
+                        </div>
+
+                        <!-- Laser Tech Column -->
+                        <div class="bg-white p-4 rounded-xl border border-borderLight space-y-2">
+                            <div class="flex items-center space-x-2 text-champagne-dark font-bold border-b pb-1.5 border-borderLight">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>Laser Tech (9)</span>
+                            </div>
+                            <ul class="space-y-1 text-[11px] text-charcoal-light font-medium">
+                                <li>• Laser Hair Reduction</li>
+                                <li>• Laser Hair Removal</li>
+                                <li>• Carbon Laser Peel</li>
+                                <li>• Carbon Laser Facial</li>
+                                <li>• Pigmentation Laser</li>
+                                <li>• Photo Facial</li>
+                                <li>• Skin Rejuvenation</li>
+                                <li>• Laser Skin Tightening</li>
+                                <li>• Tattoo Removal</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hair Care Column -->
+                        <div class="bg-white p-4 rounded-xl border border-borderLight space-y-2">
+                            <div class="flex items-center space-x-2 text-champagne-dark font-bold border-b pb-1.5 border-borderLight">
+                                <i data-lucide="leaf" class="w-4 h-4"></i>
+                                <span>Hair Care & FUE (9)</span>
+                            </div>
+                            <ul class="space-y-1 text-[11px] text-charcoal-light font-medium">
+                                <li>• PRP Hair Therapy</li>
+                                <li>• GFC Hair Therapy</li>
+                                <li>• Hair Fall Treatment</li>
+                                <li>• Hair Regrowth Therapy</li>
+                                <li>• Dandruff Treatment</li>
+                                <li>• Hair Mesotherapy</li>
+                                <li>• Scalp Rejuvenation</li>
+                                <li>• Hair Strengthening</li>
+                                <li>• Hair Nutrition Therapy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2 text-center">
+                    <button onclick="closeBookingModal()" class="bg-charcoal text-white hover:bg-champagne px-8 py-3 rounded-xl font-sans text-xs uppercase tracking-widest font-bold transition-all cursor-pointer">
+                        Close Confirmation
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1051,7 +1133,14 @@
             gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-                lenis.start();
+                const form = document.getElementById('modal-booking-form');
+                const success = document.getElementById('modal-success-message');
+                if (form && success) {
+                    form.classList.remove('hidden');
+                    success.classList.add('hidden');
+                    form.reset();
+                }
+                if (typeof lenis !== 'undefined' && lenis) lenis.start();
             }});
         }
 
@@ -1115,15 +1204,7 @@
 
             setTimeout(() => {
                 window.open(`https://wa.me/917893616535?text=${waText}`, '_blank');
-                setTimeout(() => {
-                    closeBookingModal();
-                    setTimeout(() => {
-                        form.classList.remove('hidden');
-                        success.classList.add('hidden');
-                        form.reset();
-                    }, 500);
-                }, 1000);
-            }, 1200);
+            }, 600);
         }
 
         function handleQuickFormSubmit(e) {
