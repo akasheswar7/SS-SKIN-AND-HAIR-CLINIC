@@ -194,32 +194,437 @@
     </div>
 
     <!-- Main Section -->
-    <main class="flex-grow flex items-center justify-center py-12 md:py-20 px-4 sm:px-6 max-w-full overflow-x-hidden">
-        <div class="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-6 sm:space-y-8 relative overflow-hidden">
-            <div class="absolute -top-12 -left-12 w-28 h-28 border-l border-t border-champagne/40 rounded-tl-full"></div>
-            <div class="absolute -bottom-12 -right-12 w-28 h-28 border-r border-b border-champagne/40 rounded-br-full"></div>
-
-            <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">PATIENT REFLECTIONS</span>
-            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-tight">
-                Verified Clinical Experiences
+    <main class="flex-grow py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto w-full overflow-x-hidden space-y-12">
+        
+        <!-- Header Banner & Overall Google Score -->
+        <div class="text-center space-y-5 max-w-3xl mx-auto">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <span class="text-emerald-600">G</span>
+                <span>Google Verified Reviews • 100% Authentic</span>
+            </div>
+            
+            <h1 class="font-serif text-3xl sm:text-5xl font-light text-charcoal leading-tight">
+                Patient Reflections & Reviews
             </h1>
-            <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
-
-            <p class="font-serif text-base sm:text-lg italic text-charcoal-light leading-relaxed max-w-2xl mx-auto">
-                "The HydraFacial and PRP treatments here are absolutely exceptional. Dr. M. Triveni took the time to analyze my skin profile and recommended a bespoke treatment schedule."
+            <div class="w-16 h-[2px] bg-champagne mx-auto"></div>
+            <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed font-medium">
+                Real feedback from real patients treated at SS Skin & Hair Clinic, Sriharipuram, Visakhapatnam.
             </p>
-            <p class="font-sans text-xs font-semibold text-charcoal uppercase tracking-widest">— Verified Patient Review</p>
 
-            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4 border-t border-borderLight">
-                <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
-                    Return to Home Page
-                </a>
-                <a href="#contact" class="border border-champagne text-charcoal hover:bg-champagne hover:text-white px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
-                    Book Consultation
-                </a>
+            <!-- Big Rating Stat Card -->
+            <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-white p-6 rounded-3xl border border-borderLight shadow-xl">
+                <div class="text-center sm:text-left">
+                    <span class="font-serif text-4xl sm:text-5xl font-bold text-charcoal block">4.9 / 5.0</span>
+                    <div class="flex items-center justify-center sm:justify-start space-x-1 text-amber-400 mt-1">
+                        ★★★★★
+                    </div>
+                    <span class="text-xs text-charcoal-light font-bold">Based on Google Patient Reviews</span>
+                </div>
+                <div class="h-10 w-[1px] bg-borderLight hidden sm:block"></div>
+                <div>
+                    <a href="https://maps.app.goo.gl/zcSPfchd1FubWvS99" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md">
+                        <span>Review Us On Google Maps ↗</span>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 py-2">
+            <button onclick="filterReviews('all')" class="review-filter-btn active bg-charcoal text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md">
+                All Reviews (15)
+            </button>
+            <button onclick="filterReviews('skin')" class="review-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                ✨ Skin & Pigmentation
+            </button>
+            <button onclick="filterReviews('hair')" class="review-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                💇 Hair Care
+            </button>
+            <button onclick="filterReviews('doctor')" class="review-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                🩺 Doctor & Care
+            </button>
+        </div>
+
+        <!-- 15 Patient Reviews Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="reviews-grid">
+            
+            <!-- Review 1: Kadavala Santhoshi -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-bold flex items-center justify-center text-sm shadow">K</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Kadavala Santhoshi</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 2 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Best cosmetic clinic for skin issues ..and doctor is so patient n well experienced....all my pigmentation got reduced and happy with results....i suggest this clinic for best results 😊"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Pigmentation Care</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 2: Nisha Singh -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow">N</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Nisha Singh</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 2 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Good products given ..I observed a change in just 2 weeks thanks to you mam , 💗"
+                    </p>
+                    
+                    <!-- Clinic Owner Response -->
+                    <div class="bg-ivory/80 border-l-2 border-champagne p-3 rounded-r-xl space-y-1">
+                        <span class="text-[10px] font-bold text-charcoal block">Clinic Owner Response:</span>
+                        <p class="text-[11px] text-charcoal-light font-medium italic">"Happy to hear from u dear......, thank you 🤩🤩"</p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Quick 2-Week Results</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 3: Nikhitha Seerapu -->
+            <div class="review-item doctor skin bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-700 text-white font-bold flex items-center justify-center text-sm shadow">N</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Nikhitha Seerapu</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 6 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "I had a great experience with the doctor. She was very friendly, listened carefully, and the results are excellent. Thank you!"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Doctor Care</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 4: Urmila Urmii -->
+            <div class="review-item doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-700 text-white font-bold flex items-center justify-center text-sm shadow">U</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Urmila Urmii</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 2 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Soo happy to visit this clinic so satisfied Thank you ss clinic"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Clinic Satisfaction</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 5: divya Rajesh109 -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-sky-600 text-white font-bold flex items-center justify-center text-sm shadow">D</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">divya Rajesh109</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 7 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Doctor is so good 👍 ....my pigmentation and uneven tone improved alot 🤗 .....I'm so happy with the result 😋 ......This is best clinic for skin issues with affordable price 😎 . .....And the creams and medicines which doctor gives really worked!"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Uneven Tone & Pigmentation</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 6: vaibhav sachan -->
+            <div class="review-item doctor skin bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-800 text-white font-bold flex items-center justify-center text-sm shadow">V</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">vaibhav sachan</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 6 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Very effective and well knowledged treatment. I am fully satisfied this treatment."
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Effective Treatment</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 7: Yellabilli Sravani -->
+            <div class="review-item doctor skin bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center text-sm shadow">Y</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Yellabilli Sravani</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 8 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Super, Best experience Dr. Very low fees. I visited 4-5 time with family get 100% best results"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Affordable Family Care</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 8: Sowmya Moturu -->
+            <div class="review-item hair skin bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-700 text-white font-bold flex items-center justify-center text-sm shadow">S</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Sowmya Moturu</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 8 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "My hair feels softer, healthier, and more manageable . It also made my skin glow beautifully, leaving it smooth and refreshed."
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Hair Care & Skin Glow</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 9: Shyam Kumar Lotti -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-lime-700 text-white font-bold flex items-center justify-center text-sm shadow">S</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Shyam Kumar Lotti</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 8 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "One of the best skin and cosmetologist i am cured safley from my skin infection very frndly he treats like his own family member"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Skin Infection Cured</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 10: Sanidhya -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow">S</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Sanidhya</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 11 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Its great..doc are friendly and I have a great checkup time here. Prescribed medications really helped in improving my skin."
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Skin Improvement</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 11: Rahul -->
+            <div class="review-item skin hair doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-green-700 text-white font-bold flex items-center justify-center text-sm shadow">R</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Rahul</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 11 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Excellent clinic! The doctors are knowledgeable, staff is friendly, and the treatments are effective. Highly recommend SS Skin and Hair Clinic for skin and hair care."
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Skin & Hair Care</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 12: Stylishstar Revanth -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-700 text-white font-bold flex items-center justify-center text-sm shadow">S</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Stylishstar Revanth</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • a year ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Best clinic for pigmentation and Acne ....I'm very happy with the results ...just in one month my pimples n pigmentation reduced far better ....I suggest this clinic for Cosmetic problems......Thank u doctor.....good treatment"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Acne & Pigmentation</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 13: Vijay Kumar Nanda -->
+            <div class="review-item hair doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-stone-700 text-white font-bold flex items-center justify-center text-sm shadow">V</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Vijay Kumar Nanda</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 10 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Best doctor for hair problems......my hair fall reduced and now I'm so happy with the results....i recommend this doctor for any kind of hair problems......"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Hair Fall Reduction</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 14: Gowtham Bagadi -->
+            <div class="review-item skin bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-sm shadow">G</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Gowtham Bagadi</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 2 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "It was nice and very effective on skin"
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Effective Skin Care</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+            <!-- Review 15: Kemisetti sravan kumar -->
+            <div class="review-item skin doctor bg-white rounded-3xl p-6 border border-borderLight shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-amber-700 text-white font-bold flex items-center justify-center text-sm shadow">K</div>
+                            <div>
+                                <h4 class="font-serif text-sm font-bold text-charcoal">Kemisetti sravan kumar</h4>
+                                <span class="text-[10px] text-charcoal-light font-semibold block">Google Verified Patient • 8 months ago</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-amber-400 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-charcoal-light leading-relaxed font-medium">
+                        "Very good doctor.. I came for my skin problem now completely cured.."
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-borderLight flex items-center justify-between">
+                    <span class="bg-champagne/15 text-champagne-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Complete Skin Recovery</span>
+                    <span class="text-[10px] text-emerald-700 font-bold">Verified Result</span>
+                </div>
+            </div>
+
+        </div>
+
     </main>
+
+    <script>
+        function filterReviews(category) {
+            const items = document.querySelectorAll('.review-item');
+            const btns = document.querySelectorAll('.review-filter-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-charcoal', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-charcoal');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-charcoal');
+            event.currentTarget.classList.add('bg-charcoal', 'text-white', 'shadow-md');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 
 
