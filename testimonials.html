@@ -955,7 +955,7 @@
     </main>
 
     <script>
-        function filterReviews(category) {
+        function filterReviews(category, btnEl) {
             const items = document.querySelectorAll('.review-item');
             const btns = document.querySelectorAll('.review-filter-btn');
 
@@ -964,8 +964,11 @@
                 btn.classList.add('bg-white', 'text-charcoal');
             });
 
-            event.currentTarget.classList.remove('bg-white', 'text-charcoal');
-            event.currentTarget.classList.add('bg-charcoal', 'text-white', 'shadow-md');
+            const activeBtn = btnEl || (window.event ? window.event.currentTarget : null);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-charcoal');
+                activeBtn.classList.add('bg-charcoal', 'text-white', 'shadow-md');
+            }
 
             items.forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
