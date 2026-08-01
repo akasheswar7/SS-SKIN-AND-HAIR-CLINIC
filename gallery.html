@@ -194,47 +194,286 @@
     </div>
 
     <!-- Main Section -->
-    <main class="flex-grow flex items-center justify-center py-12 md:py-20 px-4 sm:px-6 max-w-full overflow-x-hidden">
-        <div class="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 md:p-16 border border-borderLight shadow-2xl text-center space-y-6 sm:space-y-8 relative overflow-hidden">
-            <div class="absolute -top-12 -left-12 w-28 h-28 border-l border-t border-champagne/40 rounded-tl-full"></div>
-            <div class="absolute -bottom-12 -right-12 w-28 h-28 border-r border-b border-champagne/40 rounded-br-full"></div>
-
-            <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-medium">VISUAL EXCELLENCE</span>
-            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-tight">
-                Inside The Clinic Sanctuary
+    <main class="flex-grow py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto w-full overflow-x-hidden space-y-12">
+        
+        <!-- Header Banner -->
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <span class="font-sans text-xs uppercase tracking-[0.4em] text-champagne block font-extrabold">VERIFIED CLINICAL TRANSFORMATIONS</span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-light text-charcoal leading-tight">
+                Before & After Results
             </h1>
-            <div class="w-16 h-[1px] bg-champagne mx-auto"></div>
-
-            <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed max-w-2xl mx-auto">
-                Explore our high-end treatment rooms and verified clinical results.
+            <div class="w-16 h-[2px] bg-champagne mx-auto"></div>
+            <p class="font-sans text-sm md:text-base text-charcoal-light leading-relaxed font-medium">
+                Real patient transformations achieved at SS Skin & Hair Clinic under expert cosmetologist supervision.
             </p>
+        </div>
 
-            <!-- Gallery Grid Showcase (2 Featured Pictures) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-borderLight">
-                <div class="group relative overflow-hidden rounded-2xl aspect-[16/9] border border-borderLight shadow-md">
-                    <img src="./assets/luxury_doctor_suite.jpg" alt="Doctor Consultation Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span class="text-white text-xs font-medium tracking-wide">Consultation Suite</span>
+        <!-- Filter Category Buttons -->
+        <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 py-2">
+            <button onclick="filterGallery('all')" class="gallery-filter-btn active bg-charcoal text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md">
+                All Transformations
+            </button>
+            <button onclick="filterGallery('skin')" class="gallery-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                ✨ Skin & Facials
+            </button>
+            <button onclick="filterGallery('hair')" class="gallery-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                💇 Hair Care & PRP
+            </button>
+            <button onclick="filterGallery('laser')" class="gallery-filter-btn bg-white border border-champagne/40 text-charcoal hover:bg-champagne hover:text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                ⚡ Laser Tech
+            </button>
+        </div>
+
+        <!-- Before & After Grid Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4" id="transformation-grid">
+            
+            <!-- Card 1: Acne & Scar Treatment -->
+            <div class="gallery-item skin bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Acne & Scar Care</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">Acne Scar Transformation</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">4 Sessions</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_acne.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+IMAGE';" alt="Before Acne Treatment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_acne.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+RESULT';" alt="After Acne Treatment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
                     </div>
                 </div>
-                <div class="group relative overflow-hidden rounded-2xl aspect-[16/9] border border-borderLight shadow-md">
-                    <img src="./assets/hair_transplant_suite.jpg" alt="Hair Restoration Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span class="text-white text-xs font-medium tracking-wide">Hair Restoration Suite</span>
-                    </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Complete scar smoothing & acne clearance achieved through customized Chemical Peels & Microneedling.
+                    </p>
+                    <a href="book-appointment.html?service=Acne%20Treatment" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book Acne Treatment
+                    </a>
                 </div>
             </div>
 
-            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
-                    Return to Home Page
-                </a>
-                <a href="#contact" class="border border-champagne text-charcoal hover:bg-champagne hover:text-white px-6 sm:px-8 py-3.5 font-sans text-xs uppercase tracking-[0.2em] transition-all font-semibold">
-                    Schedule Visit
-                </a>
+            <!-- Card 2: PRP Hair Restoration -->
+            <div class="gallery-item hair bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Hair Restoration</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">PRP & GFC Hair Density</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">6 Sessions</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_hair.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+HAIR';" alt="Before Hair PRP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_hair.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+DENSITY';" alt="After Hair PRP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Significant scalp density enhancement & hairline regrowth using concentrated PRP & GFC Therapy.
+                    </p>
+                    <a href="book-appointment.html?service=PRP%20Hair%20Therapy" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book Hair PRP Therapy
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: HydraFacial Glow -->
+            <div class="gallery-item skin bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Medi Facial</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">HydraFacial Radiance Glow</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Instant Result</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_hydrafacial.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+DULL';" alt="Before HydraFacial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_hydrafacial.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+GLOW';" alt="After HydraFacial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Deep pore vortex cleansing, blackhead extraction & glass-skin hydration glow in 45 minutes.
+                    </p>
+                    <a href="book-appointment.html?service=HydraFacial" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book HydraFacial Glow
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4: Pigmentation & Melasma -->
+            <div class="gallery-item skin laser bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Laser Care</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">Pigmentation & Melasma</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">3 Sessions</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_pigmentation.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+PIGMENT';" alt="Before Pigmentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_pigmentation.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+CLEAR';" alt="After Pigmentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Precision Q-Switched Pigmentation Laser targeting deep epidermal melanin patches safely.
+                    </p>
+                    <a href="book-appointment.html?service=Pigmentation%20Treatment" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book Pigmentation Care
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 5: Carbon Laser Peel -->
+            <div class="gallery-item laser skin bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Laser Tech</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">Carbon Laser Hollywood Peel</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Instant Glow</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_carbon.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+PEEL';" alt="Before Carbon Peel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_carbon.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+BRIGHT';" alt="After Carbon Peel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Pore tightening, oil control & instant brightness using liquid carbon & laser photo-rejuvenation.
+                    </p>
+                    <a href="book-appointment.html?service=Carbon%20Laser%20Peel" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book Carbon Laser Peel
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 6: Laser Hair Reduction -->
+            <div class="gallery-item laser hair bg-white rounded-3xl overflow-hidden border border-borderLight shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div class="p-4 bg-ivory border-b border-borderLight flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-dark block">Laser Hair Removal</span>
+                        <h3 class="font-serif text-base font-bold text-charcoal">Triple Wavelength Laser Hair</h3>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">5 Sessions</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 p-2 bg-charcoal/5 relative">
+                    <!-- Before Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-charcoal/10 border border-black/10">
+                        <img src="./assets/before_laser_hair.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2E0F15/F3E5AB?text=BEFORE+HAIR';" alt="Before Laser Hair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 left-2 bg-charcoal/80 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">BEFORE</span>
+                    </div>
+                    <!-- After Image Slot -->
+                    <div class="relative overflow-hidden rounded-xl aspect-[4/3] bg-emerald-950/10 border border-emerald-500/20">
+                        <img src="./assets/after_laser_hair.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/047857/F3E5AB?text=AFTER+SMOOTH';" alt="After Laser Hair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">AFTER</span>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3">
+                    <p class="text-xs text-charcoal-light font-medium leading-relaxed">
+                        Painless US-FDA approved laser technology for 95%+ permanent hair growth reduction.
+                    </p>
+                    <a href="book-appointment.html?service=Laser%20Hair%20Reduction" class="block w-full text-center bg-charcoal hover:bg-champagne text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
+                        Book Laser Hair Removal
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Clinic Sanctuary Suite Tour Grid -->
+        <div class="pt-12 border-t border-borderLight space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-champagne block">SANCTUARY ENVIRONMENT</span>
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-charcoal">Inside SS Skin & Hair Clinic</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-borderLight shadow-md">
+                    <img src="./assets/luxury_doctor_suite.jpg" alt="Doctor Consultation Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent flex items-end p-3">
+                        <span class="text-white text-xs font-bold">Doctor Consultation Suite</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-borderLight shadow-md">
+                    <img src="./assets/hair_transplant_suite.jpg" alt="Hair Restoration Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent flex items-end p-3">
+                        <span class="text-white text-xs font-bold">Hair Restoration Suite</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-borderLight shadow-md">
+                    <img src="./assets/hydrafacial_glow_room.jpg" alt="HydraFacial Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent flex items-end p-3">
+                        <span class="text-white text-xs font-bold">HydraFacial Glow Room</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-borderLight shadow-md">
+                    <img src="./assets/clinic_reception_lounge.jpg" alt="Reception Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent flex items-end p-3">
+                        <span class="text-white text-xs font-bold">Reception Sanctuary Lounge</span>
+                    </div>
+                </div>
             </div>
         </div>
+
     </main>
+
+    <script>
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.gallery-filter-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-charcoal', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-charcoal');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-charcoal');
+            event.currentTarget.classList.add('bg-charcoal', 'text-white', 'shadow-md');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 
 
