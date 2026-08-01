@@ -506,8 +506,11 @@
                                 <i data-lucide="map-pin" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h5 class="font-serif text-base sm:text-lg font-bold text-charcoal">Clinic Sanctuary Location</h5>
                                 <p class="text-xs sm:text-sm text-charcoal-light font-semibold leading-relaxed mt-1">62-1-15/4B, Above Anand Flour Mill, Sriharipuram Main Road, Beside Tirumala Rao Hospital, Jawaharlnagar Road, Sriharipuram, Visakhapatnam - 530011, Andhra Pradesh</p>
+                                <a href="https://www.google.com/maps/place/17%C2%B041'52.2%22N+83%C2%B014'32.2%22E/@17.6978435,83.2422709,17z" target="_blank" class="inline-flex items-center space-x-1.5 text-xs font-bold text-champagne-dark hover:underline mt-2">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                                    <span>Open Exact Location on Google Maps ↗</span>
+                                </a>
                             </div>
                         </div>
 
@@ -542,13 +545,13 @@
 
                     <!-- Styled Map Container with Exact Clinic Pin -->
                     <div class="w-full h-[260px] rounded-2xl overflow-hidden shadow-luxury border-2 border-borderLight relative group">
-                        <iframe src="https://maps.google.com/maps?q=SS+Skin+and+Hair+Clinic,+Beside+Tirumala+Rao+Hospital,+Sriharipuram,+Visakhapatnam,+Andhra+Pradesh+530011&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3799.986877843657!2d83.2422709!3d17.6978435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQxJzUyLjIiTiA4M8KwMTQnMzIuMiJF!5e0!3m2!1sen!2sin" 
                                 class="w-full h-full border-0 contrast-105 group-hover:scale-105 transition-all duration-700" 
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
-                        <a href="https://maps.google.com/?q=SS+Skin+and+Hair+Clinic,+Beside+Tirumala+Rao+Hospital,+Sriharipuram,+Visakhapatnam" target="_blank" class="absolute bottom-3 right-3 bg-charcoal text-white hover:bg-champagne px-4 py-2 rounded-xl font-sans text-xs font-bold shadow-lg flex items-center space-x-1.5 transition-all z-10">
+                        <a href="https://www.google.com/maps/place/17%C2%B041'52.2%22N+83%C2%B014'32.2%22E/@17.6978435,83.2422709,17z" target="_blank" class="absolute bottom-3 right-3 bg-charcoal text-white hover:bg-champagne px-4 py-2 rounded-xl font-sans text-xs font-bold shadow-lg flex items-center space-x-1.5 transition-all z-10">
                             <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
                             <span>Get Directions</span>
                         </a>
@@ -1224,25 +1227,115 @@
                                      `⚡ LASER TECH: Laser Hair Reduction & Removal, Carbon Laser Peel/Facial, Pigmentation Laser, Photo Facial, Laser Tightening, Tattoo Removal.\n` +
                                      `💇 HAIR CARE & FUE: PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
 
-            const web3Payload = {
-                access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
-                name: name || 'Guest',
-                email: email || 'ssskinandhairclinic7@gmail.com',
-                phone: phone || '',
-                service: service || 'General Consultation',
-                doctor: doctor || 'Dr. M. Triveni',
-                date: date || '',
-                subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
-                message: formattedMessage,
-                from_name: 'SS SKIN AND HAIR CLINIC',
-                replyto: email || 'ssskinandhairclinic7@gmail.com'
-            };
+            // 1. Dispatch Lead Email Alert to Clinic Owner via FormSubmit
+            try {
+                const ownerParams = new URLSearchParams();
+                ownerParams.append('name', name || 'Guest');
+                ownerParams.append('email', email || 'Not provided');
+                ownerParams.append('phone', phone || 'Not provided');
+                ownerParams.append('service', service || 'General Consultation');
+                ownerParams.append('doctor', doctor || 'Dr. M. Triveni');
+                ownerParams.append('date', date || 'As early as available');
+                ownerParams.append('_replyto', email || 'ssskinandhairclinic7@gmail.com');
+                ownerParams.append('_subject', `🚨 NEW APPOINTMENT BOOKING: ${name || 'Guest'} - ${service || 'Consultation'}`);
+                ownerParams.append('_template', 'table');
+                ownerParams.append('_captcha', 'false');
 
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(web3Payload)
-            }).catch(err => console.log('Web3Forms dispatch notice:', err));
+                fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+                    body: ownerParams
+                }).catch(() => {});
+            } catch (err) {}
+
+            // 2. Dispatch Customer Confirmation Email directly to Customer's Inbox via FormSubmit
+            if (email && email.includes('@')) {
+                try {
+                    const customerParams = new URLSearchParams();
+                    customerParams.append('Patient Name', name || 'Guest');
+                    customerParams.append('Service Requested', service || 'General Consultation');
+                    customerParams.append('Assigned Doctor', doctor || 'Dr. M. Triveni');
+                    customerParams.append('Preferred Date', date || 'As early as available');
+                    customerParams.append('Confirmation Message', 'Thank you for contacting SS SKIN AND HAIR CLINIC. Our medical team will contact you as soon as possible.');
+                    customerParams.append('Clinic Helpline / WhatsApp', '+91 78936 16535');
+                    customerParams.append('Clinic Address', '62-1-15/4B, Sriharipuram, Visakhapatnam - 530011');
+                    customerParams.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
+                    customerParams.append('_template', 'table');
+                    customerParams.append('_captcha', 'false');
+
+                    fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+                        body: customerParams
+                    }).catch(() => {});
+                } catch (err) {}
+            }
+
+            // 2. Dispatch Lead Email Alert to Clinic Owner via Web3Forms
+            try {
+                const web3OwnerPayload = {
+                    access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                    name: name || 'Guest',
+                    email: email || 'ssskinandhairclinic7@gmail.com',
+                    phone: phone || '',
+                    service: service || 'General Consultation',
+                    doctor: doctor || 'Dr. M. Triveni',
+                    date: date || '',
+                    subject: `🚨 NEW APPOINTMENT BOOKING: ${name || 'Guest'} - ${service || 'Consultation'}`,
+                    message: formattedMessage,
+                    from_name: 'SS CLINIC WEBSITE',
+                    replyto: email || 'ssskinandhairclinic7@gmail.com'
+                };
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(web3OwnerPayload)
+                }).catch(() => {});
+            } catch (err) {}
+
+            // 3. Dispatch Instant Customer Auto-Confirmation Email via Web3Forms (if email is provided)
+            if (email && email.includes('@')) {
+                try {
+                    const web3CustomerPayload = {
+                        access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                        name: name || 'Guest',
+                        email: email,
+                        phone: phone || '',
+                        service: service || 'General Consultation',
+                        doctor: doctor || 'Dr. M. Triveni',
+                        date: date || '',
+                        subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                        message: formattedMessage,
+                        from_name: 'SS SKIN AND HAIR CLINIC',
+                        replyto: 'ssskinandhairclinic7@gmail.com'
+                    };
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(web3CustomerPayload)
+                    }).catch(() => {});
+                } catch (err) {}
+            }
+
+            // 4. Local Server Backup Dispatch via /api/send-email
+            try {
+                fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: service,
+                        doctor: doctor,
+                        date: date,
+                        subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                        message: formattedMessage
+                    })
+                }).catch(() => {});
+            } catch (err) {}
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
@@ -1274,7 +1367,7 @@
                 }
             });
 
-            // Dynamically customize the Thank You message with the exact requested treatment (Skin, Hair, Laser)
+            // Dynamically customize the Thank You message with the exact requested treatment
             const successMsg = success.querySelector('p');
             if (successMsg) {
                 const serviceLabel = service ? ` regarding your ${service}` : '';
@@ -1282,22 +1375,6 @@
                 successMsg.innerHTML = `Thank you for contacting SS SKIN AND HAIR CLINIC${serviceLabel}. Our support team will contact you as soon as possible.${emailNotice}`;
             }
 
-            // Dispatch automated email via Web3Forms API endpoint
-            const emailSubject = `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`;
-            const emailBody = `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
-                              `Reservation Summary:\n` +
-                              `• Patient Name: ${name || 'Guest'}\n` +
-                              `• Mobile Number: ${phone || 'Not provided'}\n` +
-                              `• Email Address: ${email || 'Not provided'}\n` +
-                              `• Consultation Service: ${service || 'General Consultation'}\n` +
-                              `• Assigned Specialist: ${doctor || 'Dr. M. Triveni'}\n` +
-                              `• Preferred Date: ${date || 'As early as available'}\n\n` +
-                              `Complete 35 Clinical Treatments Portfolio:\n` +
-                              `• ✨ Skin Care (HydraFacial, Chemical Peel, Medi Facials, Skin Brightening, Acne & Scar Care, Pigmentation & Melasma Care, Anti-Aging, Wrinkle Reduction, Skin Tightening, Dark Circle & Open Pore Treatment, Mole/Wart/Tag/Corn Removal, Stretch Mark Treatment)\n` +
-                              `• ⚡ Laser Tech (Laser Hair Reduction, Laser Hair Removal, Carbon Laser Peel, Carbon Laser Facial, Pigmentation Laser, Photo Facial, Skin Rejuvenation, Laser Skin Tightening, Tattoo Removal)\n` +
-                              `• 💇 Hair Care & FUE (PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy)`;
-
-            // FormSubmit Asynchronous Email Dispatch (Clean Custom Formatting - NO Generic Table!)
             const formattedMessage = `Thank you for contacting SS SKIN AND HAIR CLINIC. Our support team will contact you as soon as possible.\n\n` +
                                      `========================================\n` +
                                      `PATIENT RESERVATION SUMMARY:\n` +
@@ -1318,65 +1395,115 @@
                                      `💇 HAIR CARE & FUE (9 Treatments):\n` +
                                      `PRP Hair Therapy, GFC Hair Therapy, Hair Fall Treatment, Hair Regrowth Therapy, Dandruff Treatment, Hair Mesotherapy, Scalp Rejuvenation, Hair Strengthening, Hair Nutrition Therapy.`;
 
-            const emailSubject = `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`;
-            const emailBody = formattedMessage;
+            // 1. Dispatch Lead Email Alert to Clinic Owner via FormSubmit
+            try {
+                const ownerParams = new URLSearchParams();
+                ownerParams.append('name', name || 'Guest');
+                ownerParams.append('email', email || 'Not provided');
+                ownerParams.append('phone', phone || 'Not provided');
+                ownerParams.append('service', service || 'General Consultation');
+                ownerParams.append('doctor', doctor || 'Dr. M. Triveni');
+                ownerParams.append('date', date || 'As early as available');
+                ownerParams.append('_replyto', email || 'ssskinandhairclinic7@gmail.com');
+                ownerParams.append('_subject', `🚨 NEW APPOINTMENT BOOKING: ${name || 'Guest'} - ${service || 'Consultation'}`);
+                ownerParams.append('_template', 'table');
+                ownerParams.append('_captcha', 'false');
 
-            // 1. Dispatch Lead Email to Clinic Owner via FormSubmit
-            const formSubmitData = new FormData();
-            formSubmitData.append('name', name || 'Guest');
-            formSubmitData.append('email', email || 'ssskinandhairclinic7@gmail.com');
-            formSubmitData.append('phone', phone || '');
-            formSubmitData.append('service', service || 'General Consultation');
-            formSubmitData.append('doctor', doctor || 'Dr. M. Triveni');
-            formSubmitData.append('date', date || '');
-            formSubmitData.append('_subject', `New Consultation Reservation - ${service || 'General'}`);
-            formSubmitData.append('_template', 'table');
-            formSubmitData.append('_captcha', 'false');
+                fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+                    body: ownerParams
+                }).catch(() => {});
+            } catch (err) {}
 
-            fetch('https://formsubmit.co/ajax/ssskinandhairclinic7@gmail.com', {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formSubmitData
-            }).catch(err => console.log('FormSubmit dispatch notice:', err));
-
-            // 2. Dispatch Instant Confirmation Email to Customer Inbox via Web3Forms
+            // 2. Dispatch Customer Confirmation Email directly to Customer's Inbox via FormSubmit
             if (email && email.includes('@')) {
-                const customerWeb3Payload = {
+                try {
+                    const customerParams = new URLSearchParams();
+                    customerParams.append('Patient Name', name || 'Guest');
+                    customerParams.append('Service Requested', service || 'General Consultation');
+                    customerParams.append('Assigned Doctor', doctor || 'Dr. M. Triveni');
+                    customerParams.append('Preferred Date', date || 'As early as available');
+                    customerParams.append('Confirmation Message', 'Thank you for contacting SS SKIN AND HAIR CLINIC. Our medical team will contact you as soon as possible.');
+                    customerParams.append('Clinic Helpline / WhatsApp', '+91 78936 16535');
+                    customerParams.append('Clinic Address', '62-1-15/4B, Sriharipuram, Visakhapatnam - 530011');
+                    customerParams.append('_subject', `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`);
+                    customerParams.append('_template', 'table');
+                    customerParams.append('_captcha', 'false');
+
+                    fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+                        body: customerParams
+                    }).catch(() => {});
+                } catch (err) {}
+            }
+
+            // 2. Dispatch Lead Email Alert to Clinic Owner via Web3Forms
+            try {
+                const web3OwnerPayload = {
                     access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
                     name: name || 'Guest',
-                    email: email,
+                    email: email || 'ssskinandhairclinic7@gmail.com',
                     phone: phone || '',
                     service: service || 'General Consultation',
                     doctor: doctor || 'Dr. M. Triveni',
                     date: date || '',
-                    subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                    subject: `🚨 NEW APPOINTMENT BOOKING: ${name || 'Guest'} - ${service || 'Consultation'}`,
                     message: formattedMessage,
-                    from_name: 'SS SKIN AND HAIR CLINIC',
-                    replyto: 'ssskinandhairclinic7@gmail.com'
+                    from_name: 'SS CLINIC WEBSITE',
+                    replyto: email || 'ssskinandhairclinic7@gmail.com'
                 };
 
                 fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(customerWeb3Payload)
-                }).catch(err => console.log('Web3Forms customer dispatch notice:', err));
+                    body: JSON.stringify(web3OwnerPayload)
+                }).catch(() => {});
+            } catch (err) {}
+
+            // 3. Dispatch Instant Customer Auto-Confirmation Email via Web3Forms (if email is provided)
+            if (email && email.includes('@')) {
+                try {
+                    const web3CustomerPayload = {
+                        access_key: '232840ba-c2e7-498c-8be9-e05391d1e453',
+                        name: name || 'Guest',
+                        email: email,
+                        phone: phone || '',
+                        service: service || 'General Consultation',
+                        doctor: doctor || 'Dr. M. Triveni',
+                        date: date || '',
+                        subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                        message: formattedMessage,
+                        from_name: 'SS SKIN AND HAIR CLINIC',
+                        replyto: 'ssskinandhairclinic7@gmail.com'
+                    };
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(web3CustomerPayload)
+                    }).catch(() => {});
+                } catch (err) {}
             }
 
-            // 3. Local Node Mailer Backup Endpoint
-            fetch('/api/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: name,
-                    email: email || 'ssskinandhairclinic7@gmail.com',
-                    phone: phone,
-                    service: service,
-                    doctor: doctor,
-                    date: date,
-                    subject: emailSubject,
-                    message: emailBody
-                })
-            }).catch(err => console.log('Local Mailer notice:', err));
+            // 4. Local Server Backup Dispatch via /api/send-email
+            try {
+                fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: service,
+                        doctor: doctor,
+                        date: date,
+                        subject: `Thank You for Contacting SS SKIN AND HAIR CLINIC - ${service || 'Consultation'}`,
+                        message: formattedMessage
+                    })
+                }).catch(() => {});
+            } catch (err) {}
 
             form.classList.add('hidden');
             success.classList.remove('hidden');
