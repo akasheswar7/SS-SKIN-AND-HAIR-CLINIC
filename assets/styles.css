@@ -18,14 +18,20 @@
     --color-emerald: #059669;
 }
 
-/* Smooth Scrolling & Overflow Control */
-html {
+/* Smooth Scrolling & Zero-Horizontal-Overflow Control */
+html, body {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-text-size-adjust: 100%;
 }
 
-body {
-    overflow-x: hidden;
-    max-width: 100vw;
+img, iframe, video, object, embed, section, div, header, footer {
+    max-width: 100% !important;
 }
 
 /* Bulletproof Mobile & Cross-Browser Infinite Marquee Keyframes */
