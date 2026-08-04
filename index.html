@@ -294,9 +294,10 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-champagne-light/5 via-ivory to-ivory -z-25"></div>
 
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative z-10">
-            <!-- Left Side: Editorial Typography -->
+            <!-- Left Side: Editorial Typography & Mobile Visual Layout -->
             <div class="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8" id="hero-text-container">
-                <div class="space-y-2.5 sm:space-y-4">
+                <!-- 1. Headline & Tagline -->
+                <div class="space-y-2.5 sm:space-y-4 order-1">
                     <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-champagne/15 border border-champagne/40 text-charcoal font-sans text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold shadow-sm max-w-full">
                         <span class="text-xs shrink-0">✨</span>
                         <span class="truncate">Vizag's Premier Cosmetology & Hair Clinic</span>
@@ -307,18 +308,17 @@
                     </h2>
                 </div>
 
-                <div class="max-w-xl">
+                <!-- 2. Description -->
+                <div class="max-w-xl order-2">
                     <p class="font-sans text-xs sm:text-sm md:text-base text-charcoal-light leading-relaxed tracking-wide font-medium">
                         Vizag's #1 Destination for Advanced Skincare, Hair Restoration, Laser Treatments & Cosmetology. Discover 100% certified treatments customized for your skin in a state-of-the-art sanctuary.
                     </p>
                 </div>
 
-                <!-- Promo Special Badge (Ultra-Attractive Highlight - Dark Charcoal & Gold Theme) -->
-                <div class="relative p-3.5 sm:p-5 bg-charcoal text-white rounded-2xl border-2 border-champagne shadow-[0_12px_40px_rgba(46,15,21,0.3)] max-w-xl flex items-center space-x-3 sm:space-x-4 overflow-hidden group">
-                    <!-- Subtle ambient shimmer element -->
+                <!-- 3. Special Offer Badge -->
+                <div class="relative p-3.5 sm:p-5 bg-charcoal text-white rounded-2xl border-2 border-champagne shadow-[0_12px_40px_rgba(46,15,21,0.3)] max-w-xl flex items-center space-x-3 sm:space-x-4 overflow-hidden group order-3">
                     <div class="absolute -right-10 -top-10 w-28 h-28 bg-champagne/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
                     
-                    <!-- Glowing Icon Container -->
                     <div class="p-2.5 sm:p-3.5 bg-gradient-to-br from-champagne via-champagne-dark to-amber-600 rounded-xl text-white shadow-md shrink-0 relative z-10">
                         <i data-lucide="sparkles" class="w-4 sm:w-6 h-4 sm:h-6"></i>
                     </div>
@@ -337,8 +337,8 @@
                     </div>
                 </div>
 
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2.5 sm:space-y-0 sm:space-x-4 pt-1">
+                <!-- 4. Action CTAs -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2.5 sm:space-y-0 sm:space-x-4 pt-1 order-4">
                     <a href="book-appointment.html" class="bg-charcoal text-white hover:bg-champagne px-6 sm:px-8 py-3 sm:py-4 font-sans text-xs uppercase tracking-[0.15em] transition-all duration-300 shadow-luxury text-center font-bold inline-block rounded-xl">
                         Book Appointment Now
                     </a>
@@ -348,8 +348,20 @@
                     </a>
                 </div>
 
-                <!-- Quick highlights (Mobile-Optimized Luxury Badges) -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8 border-t border-champagne/30 max-w-lg">
+                <!-- 5. Mobile Clinical Doctor & Patient Picture (Brought UP above stats on mobile) -->
+                <div class="order-5 lg:hidden w-full my-2">
+                    <div class="relative w-full aspect-[16/10] overflow-hidden rounded-2xl shadow-luxury border-2 border-white group">
+                        <img src="./assets/medi_facial_treatment.jpg" 
+                             alt="High-tech clinical facial treatment at SS Skin and Hair Clinic" 
+                             loading="eager"
+                             fetchpriority="high"
+                             class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- 6. Quick highlights (Mobile-Optimized Luxury Badges placed BELOW picture) -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t border-champagne/30 max-w-lg order-6 lg:order-5">
                     <div class="bg-white/80 backdrop-blur-sm border border-champagne/40 rounded-xl sm:rounded-2xl p-2 sm:p-3.5 text-center shadow-sm">
                         <h4 class="font-serif text-base sm:text-2xl text-champagne-dark font-extrabold">5+ Yrs</h4>
                         <p class="font-sans text-[8px] sm:text-[10px] text-charcoal font-bold uppercase tracking-wider mt-0.5">Experience</p>
@@ -365,10 +377,10 @@
                 </div>
             </div>
 
-            <!-- Right Side: Cinematic Image + Floating Booking Card -->
-            <div class="lg:col-span-5 relative w-full flex justify-center items-center mt-4 lg:mt-0" id="hero-visual-container">
+            <!-- Right Side: Cinematic Image + Floating Booking Card (Desktop View) -->
+            <div class="hidden lg:flex lg:col-span-5 relative w-full justify-center items-center mt-6 lg:mt-0" id="hero-visual-container">
                 <!-- Large frame for image -->
-                <div class="relative w-full aspect-[16/10] sm:aspect-[4/5] md:w-[450px] lg:w-full overflow-hidden rounded-2xl sm:rounded-[2.5rem] shadow-luxury border-2 sm:border-4 border-white z-10 group">
+                <div class="relative w-full aspect-[4/5] md:w-[450px] lg:w-full overflow-hidden rounded-[2.5rem] shadow-luxury border-4 border-white z-10 group">
                     <img src="./assets/medi_facial_treatment.jpg" 
                          alt="High-tech clinical facial treatment at SS Skin and Hair Clinic" 
                          loading="eager"
