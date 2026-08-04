@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="assets/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -44,63 +45,15 @@
         }
     </script>
     <style>
-        html, body {
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-            width: 100% !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            color: #1F0A0E !important;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Nav link bold clarity */
         header nav a {
-            font-size: 15px !important;
-            font-weight: 800 !important;
-            letter-spacing: 0.1em !important;
-            color: #2E0F15 !important;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #1F0A0E;
+            transition: color 0.3s ease;
         }
-
-        /* Universal readability & bold text enforcement across all screen sizes */
-        p, span, li, label, input, button, select, textarea {
-            font-weight: 600 !important;
-        }
-
-        .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
-            font-size: 13px !important;
-            font-weight: 700 !important;
-            line-height: 1.4 !important;
-        }
-
-        .text-sm {
-            font-size: 15px !important;
-            font-weight: 700 !important;
-        }
-
-        .text-charcoal-light {
-            color: #3D262A !important;
-        }
-
-        h1, h2, h3, h4, h5, h6, .font-serif {
-            font-weight: 700 !important;
-        }
-
-        /* Mobile specific font size & weight enhancement */
-        @media (max-width: 768px) {
-            body {
-                font-size: 15px !important;
-            }
-            .text-xs, .text-\[10px\], .text-\[11px\], .text-\[9px\], .text-\[8px\] {
-                font-size: 14px !important;
-            }
-            .text-sm {
-                font-size: 16px !important;
-            }
-            #mobile-menu-trigger {
-                width: 44px !important;
-                height: 44px !important;
-            }
+        header nav a:hover {
+            color: #C6A56D;
         }
     </style>
     <!-- Lucide Icons -->
@@ -140,38 +93,67 @@
 </head>
 <body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-white flex flex-col min-h-screen">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-charcoal text-white text-xs sm:text-sm font-sans tracking-wider py-2.5 px-4 text-center border-b border-champagne/30 relative z-50 leading-tight font-bold">
-        <span class="text-champagne font-extrabold">🏆 VIZAG'S NO.1 CLINIC</span> — BEST SKIN, HAIR, LASER & COSMETICS • 100% APPROVED TREATMENTS
-    </div>
-
-    <!-- Header -->
-    <header class="w-full py-4 lg:py-5 px-6 lg:px-16 border-b border-borderLight bg-white relative z-50">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="font-serif text-lg sm:text-xl md:text-2xl tracking-[0.1em] text-charcoal flex flex-col">
-                <span class="font-bold">SS SKIN AND HAIR CLINIC</span>
-                <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-champagne-dark -mt-0.5 font-sans font-bold">Premium Cosmetology</span>
-            </a>
-            <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
-                <a href="about.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">About</a>
-                <a href="treatments.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Treatments</a>
-                <a href="gallery.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
-                <a href="testimonials.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-champagne font-extrabold">Reviews</a>
-            </nav>
-            <div class="hidden md:block">
-                <a href="book-appointment.html" class="bg-champagne text-white hover:bg-charcoal px-7 py-3 font-sans text-sm uppercase tracking-[0.12em] transition-all font-bold shadow-sm rounded-xl">Book Appointment</a>
+    <!-- Sticky Master Header Container -->
+    <div class="sticky top-0 left-0 right-0 z-50 shadow-sm">
+        <!-- Top Announcement Bar (Infinite Moving Marquee Motion) -->
+        <div class="bg-charcoal text-white text-[11px] sm:text-xs font-sans tracking-wider py-2 border-b border-champagne/30 overflow-hidden select-none">
+            <div class="animate-marquee whitespace-nowrap flex items-center">
+                <div class="marquee-content font-semibold">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
+                <!-- Duplicate block for seamless infinite looping animation -->
+                <div class="marquee-content font-semibold" aria-hidden="true">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
             </div>
-
-            <!-- Mobile Navigation Trigger (3 Dots Kebab Menu) -->
-            <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 p-2 rounded-full border border-champagne/40 bg-champagne/10 hover:bg-champagne hover:text-white text-charcoal transition-all duration-300 focus:outline-none z-[1000000] relative cursor-pointer shadow-sm active:scale-95" aria-label="Toggle Menu">
-                <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 24 24">
-                    <circle cx="12" cy="5" r="2.2" />
-                    <circle cx="12" cy="12" r="2.2" />
-                    <circle cx="12" cy="19" r="2.2" />
-                </svg>
-            </button>
         </div>
-    </header>
+
+        <!-- Header -->
+        <header class="w-full py-3 sm:py-4 px-4 sm:px-6 lg:px-16 border-b border-borderLight bg-white">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="font-serif text-lg sm:text-xl md:text-2xl tracking-[0.1em] text-charcoal flex flex-col">
+                    <span class="font-bold">SS SKIN AND HAIR CLINIC</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-champagne-dark -mt-0.5 font-sans font-bold">Premium Cosmetology</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+                    <a href="about.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">About</a>
+                    <a href="treatments.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Treatments</a>
+                    <a href="gallery.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-charcoal hover:text-champagne transition-colors font-bold">Gallery</a>
+                    <a href="testimonials.html" class="font-sans text-sm lg:text-base uppercase tracking-[0.12em] text-champagne font-extrabold">Reviews</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="book-appointment.html" class="bg-champagne text-white hover:bg-charcoal px-7 py-3 font-sans text-sm uppercase tracking-[0.12em] transition-all font-bold shadow-sm rounded-xl">Book Appointment</a>
+                </div>
+
+                <!-- Mobile Navigation Trigger (3 Dots Kebab Menu) -->
+                <button id="mobile-menu-trigger" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 p-2 rounded-full border border-champagne/40 bg-champagne/10 hover:bg-champagne hover:text-white text-charcoal transition-all duration-300 focus:outline-none z-[1000000] relative cursor-pointer shadow-sm active:scale-95" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 24 24">
+                        <circle cx="12" cy="5" r="2.2" />
+                        <circle cx="12" cy="12" r="2.2" />
+                        <circle cx="12" cy="19" r="2.2" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+    </div>
 
     <!-- Mobile Navigation Menu Dropdown (Top level for proper fixed overlay) -->
     <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[999999] hidden flex-col justify-center items-center px-8 py-16 md:hidden min-h-screen h-screen w-screen overflow-y-auto">

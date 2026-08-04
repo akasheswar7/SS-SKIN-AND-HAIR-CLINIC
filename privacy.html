@@ -27,19 +27,54 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-ivory text-charcoal font-sans selection:bg-champagne selection:text-white">
 
-    <!-- Header -->
-    <header class="py-6 px-6 lg:px-16 bg-white border-b border-borderLight flex items-center justify-between sticky top-0 z-50">
-        <a href="index.html" class="flex items-center space-x-3">
-            <span class="font-serif text-xl font-bold tracking-widest text-charcoal">SS SKIN AND HAIR CLINIC</span>
-        </a>
-        <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-5 py-2.5 rounded-xl text-xs uppercase tracking-widest font-semibold transition-all">
-            Return to Home
-        </a>
-    </header>
+    <!-- Sticky Master Header Container -->
+    <div class="sticky top-0 left-0 right-0 z-50 shadow-sm">
+        <!-- Top Announcement Bar (Infinite Moving Marquee Motion) -->
+        <div class="bg-charcoal text-white text-[11px] sm:text-xs font-sans tracking-wider py-2 border-b border-champagne/30 overflow-hidden select-none">
+            <div class="animate-marquee whitespace-nowrap flex items-center">
+                <div class="marquee-content font-semibold">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
+                <!-- Duplicate block for seamless infinite looping animation -->
+                <div class="marquee-content font-semibold" aria-hidden="true">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="py-4 px-6 lg:px-16 bg-white border-b border-borderLight flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <span class="font-serif text-xl font-bold tracking-widest text-charcoal">SS SKIN AND HAIR CLINIC</span>
+            </a>
+            <a href="index.html" class="bg-charcoal text-white hover:bg-champagne px-5 py-2.5 rounded-xl text-xs uppercase tracking-widest font-semibold transition-all">
+                Return to Home
+            </a>
+        </header>
+    </div>
 
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-6 py-16 space-y-8">

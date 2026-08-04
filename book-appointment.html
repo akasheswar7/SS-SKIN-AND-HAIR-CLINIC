@@ -39,6 +39,9 @@
         }
     </script>
     
+    <!-- Custom Central Styles & Marquee Motion -->
+    <link rel="stylesheet" href="assets/styles.css" />
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- GSAP -->
@@ -54,8 +57,41 @@
 </head>
 <body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-white custom-scrollbar">
 
-    <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-ivory/90 backdrop-blur-md border-b border-borderLight/60 transition-all duration-300">
+    <!-- Sticky Master Header Container -->
+    <div class="sticky top-0 left-0 right-0 z-50 shadow-sm">
+        <!-- Top Announcement Bar (Infinite Moving Marquee Motion) -->
+        <div class="bg-charcoal text-white text-[11px] sm:text-xs font-sans tracking-wider py-2 border-b border-champagne/30 overflow-hidden select-none">
+            <div class="animate-marquee whitespace-nowrap flex items-center">
+                <div class="marquee-content font-semibold">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
+                <!-- Duplicate block for seamless infinite looping animation -->
+                <div class="marquee-content font-semibold" aria-hidden="true">
+                    <span>🏆 <strong class="text-champagne font-extrabold">VIZAG'S NO.1 CLINIC</strong> — BEST SKIN, HAIR, LASER & COSMETICS</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>✨ 100% APPROVED DERMATOLOGICAL PROCEDURES</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📍 SRIHARIPURAM, VISAKHAPATNAM</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>📞 CALL / WHATSAPP: +91 78936 16535</span>
+                    <span class="text-champagne/60">•</span>
+                    <span>⭐ 4.9/5 RATED BY 5,000+ HAPPY PATIENTS</span>
+                    <span class="text-champagne/60">•</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header / Navbar -->
+        <header class="w-full bg-ivory/95 backdrop-blur-md border-b border-borderLight/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-champagne flex items-center justify-center p-1 bg-ivory shadow-sm group-hover:scale-105 transition-transform duration-300">
@@ -92,6 +128,7 @@
             </button>
         </div>
     </header>
+    </div>
 
     <!-- Mobile Navigation Menu Dropdown -->
     <div id="mobile-menu" class="fixed inset-0 bg-ivory/98 backdrop-blur-2xl z-[999999] hidden flex-col justify-center items-center px-8 py-16 md:hidden min-h-screen h-screen w-screen overflow-y-auto">
